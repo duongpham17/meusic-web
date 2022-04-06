@@ -13,7 +13,7 @@ const Navbar = () => (
 
     <div className={styles.options}>
 
-      <div className={styles.title}>
+    <div className={`${styles.title} ${styles.desktop}`}>
         <Desktop/>
       </div>
 

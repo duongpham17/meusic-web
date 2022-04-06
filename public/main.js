@@ -1,5 +1,7 @@
 const {app, BrowserWindow} = require('electron');
 const isDev = require('electron-is-dev');
+
+require('update-electron-app')()
 require('@electron/remote/main').initialize();
 
 const createWindow = () => {

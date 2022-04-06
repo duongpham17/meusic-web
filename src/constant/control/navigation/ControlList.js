@@ -1,3 +1,4 @@
+import React from 'react';
 import {BsFillHouseFill, BsMusicNote, BsFillCollectionPlayFill, BsFillShareFill, BsSun, BsDownload} from 'react-icons/bs';
 import {FaCouch} from 'react-icons/fa';
 

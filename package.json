@@ -15,7 +15,6 @@
     "concurrently": "^7.1.0",
     "cross-env": "^7.0.3",
     "electron-is-dev": "^2.0.0",
-    "node-sass": "^7.0.0",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.2",
@@ -26,7 +25,9 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
+    "sass": "^1.49.11",
     "socket.io-client": "^4.4.1",
+    "update-electron-app": "^2.0.1",
     "wait-on": "^6.0.1",
     "web-vitals": "^2.1.2"
   },
@@ -39,8 +40,8 @@
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\"",
     "electron:start": "wait-on tcp:3000 && electron .",
-    "electron:build:mac": "electron-packager . --asar --icon=public/logo192.icns --overwrite",
-    "electron:build:win": "electron-packager . --asar --icon=public/logo192.png --overwrite"
+    "electron:build:mac": "electron-packager . --platform=darwin --asar --icon=public/logo192.icns --overwrite",
+    "electron:build:win": "electron-packager . --platform=win32 --asar --icon=public/logo192.png --overwrite"
   },
   "eslintConfig": {
     "extends": [

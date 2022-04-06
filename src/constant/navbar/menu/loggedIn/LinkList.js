@@ -1,3 +1,4 @@
+import React from 'react';
 import {BsSun, BsPerson} from 'react-icons/bs';
 import {MdPrivacyTip} from 'react-icons/md';
 
