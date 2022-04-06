@@ -1,0 +1,41 @@
+.container{
+    position: relative;
+
+    .menuBtn{
+
+        svg{
+            font-size: 1.5rem;
+        }
+
+        &:hover *{
+            color: var(--main-selected);
+            border-color: var(--main-selected) ;
+        }
+    }
+
+
+    .menuBtn:focus-within + .menu{
+        display: block;
+    }
+                                                                                                                                                                                                                                                                                                                                                                                                      
+    .menu{
+        display: none;
+        border: 1px solid var(--background-faded);
+        position: absolute;
+        right: 0;
+        top: 30px;
+        z-index: 1;
+        padding: 0.5rem;
+
+        &:hover{
+            display: block;
+        }
+    }
+
+    @media (max-width:500px){
+        .menuBtn:hover + .menu{
+            display: block;
+        }
+    }
+    
+}

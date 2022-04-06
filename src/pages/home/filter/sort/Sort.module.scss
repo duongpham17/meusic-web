@@ -1,0 +1,50 @@
+.container{
+    background-color: var(--background-faded);
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+
+    p{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button{
+            padding: 0 0.5rem;
+            background-color: var(--background-faded);
+            height: 30px;
+            margin-right: 0.2rem;
+
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+        
+        span{
+            display: flex;
+            align-items: center;
+        }
+
+        svg{
+            display: flex;
+            font-size: 1.3rem;
+        }
+    }
+
+    .queryBtn{
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 0;
+        border: 1px solid var(--main-light);
+        padding: 0.3rem 0.5rem;
+        min-width: 50px;
+
+        &:hover{
+            border-color: var(--main-selected);
+        }
+    }
+    .selected{
+        border-color: var(--main);
+    }
+}

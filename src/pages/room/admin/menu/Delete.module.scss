@@ -1,0 +1,12 @@
+.container{
+    button{
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid transparent;
+        border-radius: 0;
+
+        &:hover{
+            border-color: var(--main);
+        }
+    }
+}

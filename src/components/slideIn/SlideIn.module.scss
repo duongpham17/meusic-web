@@ -1,0 +1,52 @@
+.container{
+    position: relative;
+
+    .cover{
+        background-color: var(--background-faded);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 100;
+    }
+    
+    .slideIn{
+        padding: 0.5rem;
+        position: fixed;
+        right: -20px;
+        top: 0;
+        width: 0;
+        transition: ease-in 0.2s;
+        box-sizing: border-box;
+        height: 100vh;
+        border-left: 1px solid var(--main);
+        overflow-y: auto;
+        overflow-x: hidden;
+        transition: 0.3s ease-in-out;
+        z-index: 100;
+
+        .closeBtn{
+            display: flex;  
+            padding: 0.5rem;
+            width: 100%;
+            margin-bottom: 0.5rem;
+    
+            svg{
+                display: flex;
+                font-size: 1.6rem;
+            }
+
+            &:hover *{
+                color: var(--main-selected);
+            }
+        }
+    }
+    
+    .open{
+        right: 0px;
+        width: 200px;
+        transition: 0.3s ease-in-out;
+    }
+
+}

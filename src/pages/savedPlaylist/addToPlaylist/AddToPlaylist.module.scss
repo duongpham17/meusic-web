@@ -1,0 +1,41 @@
+.container{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    position: fixed;
+    background-color: rgba(37, 37, 37, 0.8);
+    z-index: 10;
+    padding: 1rem;
+
+    .map{
+        max-width: 400px;
+        min-width: 200px;
+        margin: 10rem auto;
+        background-color: transparent;
+        overflow-y: auto;
+        max-height: 600px;
+
+        .element{
+            border: 1px solid var(--main);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:hover{
+                border-color: var(--main-selected);
+            }
+
+            svg{
+                font-size: 1.5rem;
+                display: flex;
+            }
+        }
+    }
+}

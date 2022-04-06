@@ -1,0 +1,51 @@
+.container{
+    position: absolute;
+    display: flex;
+    background-color: transparent;    
+    height: 30px;
+    transform: rotate(180deg);
+
+    p{
+        margin: 0 0.1rem;
+        background-color: var(--main);
+        width: 3px;
+    }
+    .bar1{
+        height: 5px;
+        animation: music 1.2s linear infinite;
+    }
+    .bar2{
+        height: 10px;
+        animation: music 1.5s linear infinite;
+    }
+    .bar3{
+        height: 20px;
+        animation: music 1.8s linear infinite;
+    }
+    .bar4{
+        height: 15px;
+        animation: music 2.1s linear infinite;
+    }
+    .bar5{
+        height: 10px;
+        animation: music 2.4s linear infinite;
+    }
+
+    @keyframes music {
+        0% {
+            height: 1px;
+        }
+        25% {
+            height: 12px;
+        }
+        50% {
+            height: 20px;
+        }
+        75% {
+            height: 12px;
+        }
+        100% {
+            height: 1px;
+        }
+    }
+}

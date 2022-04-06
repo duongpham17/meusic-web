@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    padding: 0.5rem;
+
+    button:nth-child(1){
+        color: var(--main-red);
+    }
+    
+    button{
+        margin-right: 0.5rem;
+        background-color: var(--background-faded);
+        padding: 0.5rem;
+        border-radius: 0;
+        &:hover{
+            color: var(--main-selected);
+        }
+    }
+
+
+}

@@ -1,0 +1,45 @@
+.container{
+
+    div:nth-child(1){
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button{
+            display: flex;
+            &:hover{
+                opacity: 0.7;
+            }
+
+            svg{
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    form{
+        margin: 1rem 0;
+
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input, button{
+            background-color: var(--background-faded);
+            padding: 0.5rem;
+            border-radius: 0;
+            display: flex;
+        }
+        input{
+            width: 100%;
+            margin-right: 0.5rem;
+
+            &:hover{
+                border-left: 2px solid var(--main);
+            }
+        }
+    }
+
+}

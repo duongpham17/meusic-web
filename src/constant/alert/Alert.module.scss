@@ -1,0 +1,38 @@
+@mixin color($color, $background) {
+    color: $color;
+    background-color: $background;
+    text-align: center;
+  }
+  
+.container {
+    position: fixed;
+    right: 5px;
+    margin-top: 5rem;
+    z-index: 15;
+    background-color: transparent;
+
+    .alert {
+        margin-bottom: 0.5rem;
+        min-width: 100px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        padding: 0.4rem;
+        animation: Slide 1.2s ease;
+    }
+
+    @keyframes Slide {
+        0% {
+        transform: translateX(100%);
+        }
+
+        50% {
+        transform: translateX(0%);
+        }
+    }
+
+    .alert-primary {
+        @include color(white, black);
+        border: 1px solid var(--main);
+    }
+
+}

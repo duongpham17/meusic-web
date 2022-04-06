@@ -1,0 +1,43 @@
+.container{
+
+    .status{
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    form{
+        margin: 1rem 0;
+        .errors{
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        textarea, input {
+            border: 1px solid var(--main);
+            padding: 0.3rem;
+            width: 100%;
+        }
+
+        textarea{
+            width: 100%;
+            resize:vertical;
+            max-height: 200px;
+            min-height: 100px;
+        }
+        input{
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        button{
+            border: 1px solid var(--main);
+            padding: 0.5rem;
+            border-radius: 0;
+            width: 100%;
+            margin-top: 1rem;
+            &:hover{
+                border-color: var(--main-selected);
+            }
+        }
+    }
+}

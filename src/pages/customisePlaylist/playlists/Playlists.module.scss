@@ -1,0 +1,23 @@
+.container{
+
+    .element{
+        cursor: pointer;
+        border: 1px solid var(--main);
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+
+        &:hover{
+            border-color: var(--main-selected);
+        }
+    }
+
+    .reorder{
+        border: 2px solid;
+    }
+
+    .isDragging{
+        border-color: var(--main-selected);
+    }
+
+}

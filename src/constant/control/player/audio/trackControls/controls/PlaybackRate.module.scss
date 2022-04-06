@@ -1,0 +1,20 @@
+.container{
+    .playbackRate{
+        top: -287px;
+        width: 80px;
+
+        button{
+            padding: 0.3rem 0;
+            display: block;
+            width: 100%;
+
+            &:hover{
+                background-color: var(--background-faded);
+            }
+        }
+
+        .selected{
+            color: var(--main-selected);
+        }
+    }
+}

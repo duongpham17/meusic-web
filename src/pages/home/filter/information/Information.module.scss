@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-faded);
+    padding: 0.8rem 0.5rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    &:hover{
+        border-color: var(--main-selected);
+    }
+}

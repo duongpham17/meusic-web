@@ -1,0 +1,55 @@
+.container{
+
+    .content{
+        margin-bottom: 15rem;
+
+        .search{
+            position: sticky;
+            top: 0;
+            border-radius: 5px;
+            border: 2px solid var(--main);
+
+            input{
+                padding: 0.5rem;
+                &:hover{
+                    background-color: var(--background-faded);
+                }
+            }
+        }
+
+        .total{
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .element{
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+            border: 1px solid transparent;
+
+            &:hover{
+                border-color: var(--main);
+
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            img{
+                transition: 0.2s ease-in-out;
+                width: 40px;
+                height: 40px;
+                margin-right: 0.3rem;
+            }
+            p{
+                font-size: 0.9rem;
+                height: 30px;
+                overflow-y: hidden;
+            }
+        }
+    }
+    
+}

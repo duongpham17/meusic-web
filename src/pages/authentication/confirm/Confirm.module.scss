@@ -1,0 +1,48 @@
+.container{
+    margin-top: 8rem;
+    
+    .confirmation{
+        text-align: center;
+        position: relative;
+        width: 200px;
+        margin: auto;
+
+        .loading{
+            border: 3px solid var(--main);
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            border-top-color: transparent;
+            margin: auto;
+            animation: spinner 1s linear infinite;
+
+            @keyframes spinner {
+                to{
+                    transform: rotate(360deg);
+                }
+            }  
+
+        }
+
+        p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .resend{
+        text-align: center;
+        a{
+            border: 1px solid var(--main-light);
+            padding: 2rem;
+
+            &:hover{
+                border-color: var(--main) ;
+            }
+        }
+    }
+
+
+}

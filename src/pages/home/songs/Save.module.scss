@@ -1,0 +1,12 @@
+.container{ 
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    svg{
+        font-size: 1.5rem;
+        color: var(--main-red);
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+}

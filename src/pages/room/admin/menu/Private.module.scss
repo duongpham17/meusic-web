@@ -1,0 +1,32 @@
+.container{
+
+    form{
+        border: 2px solid var(--main);
+        width: 200px;
+        border-radius: 5px;
+        padding: 1rem;
+
+        button, input{
+            padding: 0.5rem;
+            width: 100%;
+            border-radius: 5px;
+            background-color: var(--background-faded);
+            margin: 0.2rem 0;
+
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+
+        button, svg{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        small{
+            color: var(--main-red);
+        }
+    }
+    
+}

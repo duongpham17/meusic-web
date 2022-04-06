@@ -1,0 +1,51 @@
+.container{
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    .element{
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background-color: var(--background-faded);
+        border-radius: 5px;    
+        margin: 0.5rem;
+        border: 1px solid transparent;
+
+        &:hover{
+            border-color: var(--main);
+        }
+    
+        .privateRoom{
+            position: absolute;
+            right: 0;
+            top: 2px;
+            display: flex;
+            background-color: transparent;
+
+            svg{
+                display: flex;
+                color: var(--main-light);
+            }
+
+            &:hover {
+                &:before{
+                    color: var(--main-light);
+                    font-size: 0.8rem;
+                    content: attr(data-private)
+                }
+            }
+        }
+
+        a{
+            word-break: break-all;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+    }
+}

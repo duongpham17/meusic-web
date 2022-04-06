@@ -1,0 +1,48 @@
+.container{
+    margin: 0 0.1rem;
+    
+    .button{
+
+        button{
+            background-color: var(--background-faded);
+            padding: 0.4rem;
+            display: flex;
+    
+            &:hover *{
+                color: var(--main-selected);
+            }
+        }
+        svg{
+            font-size: 1.3rem;  
+            display: flex;
+        }
+
+        button:focus-within *{
+            color: var(--main-selected);
+        }
+    }
+
+    .button:focus-within + .content{
+        display: block;
+    }
+
+    .content{
+        position: relative;
+        display: none;
+        div{
+            position: absolute;
+            padding: 0.5rem;
+            border: 1px solid var(--background-faded);
+        }
+        &:hover{
+            display: block;
+        }
+    }
+
+    @media (max-width:500px){
+        .button:hover + .content{
+            display: block;
+        }
+    }
+
+}

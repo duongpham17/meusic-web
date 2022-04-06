@@ -1,0 +1,23 @@
+.container{
+
+    .button{
+        padding: 0 0.2rem;
+    }
+    ul{
+        width: 80px;
+        li{
+            button{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.2rem 0.5rem;
+
+                &:hover{
+                    background-color: var(--background-faded);
+                     
+                }
+            }
+        }
+    }
+}

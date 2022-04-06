@@ -1,0 +1,13 @@
+.container{
+    text-align: center;
+    padding: 0.5rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    background-color: rgb(253, 120, 120);
+
+    p{
+        color: white;
+    }
+}

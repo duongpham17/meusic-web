@@ -1,0 +1,24 @@
+.container {
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            text-align: center;
+            height: 60px;
+            width: 40px;
+            border-radius: 10px;
+            margin: 0 4px;
+            border: 2px solid var(--main);
+            font-size: 1.5rem;
+
+            &:focus {
+                outline: none;
+                border-color: var(--main-selected);
+            }
+        }
+    }
+
+}

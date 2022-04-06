@@ -1,0 +1,14 @@
+.container{
+    margin-top: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+
+    .element{
+        border: 1px solid transparent;
+
+        &:hover{
+            border: 1px solid var(--main);
+        }
+    }
+
+}

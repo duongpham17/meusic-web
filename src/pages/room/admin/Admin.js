@@ -1,0 +1,33 @@
+import styles from './Admin.module.scss';
+import React from 'react';
+
+import {Link} from 'react-router-dom'
+import useApiGet from 'hooks/useApiGet';
+
+import Menu from './menu/Menu';
+
+const Admin = (props) => {
+
+    const {room, roomGetCreateByMe} = props;
+
+    useApiGet(roomGetCreateByMe, room.admin.length);
+
+    return ( !!room.admin.length &&
+        <div className={styles.container}>
+            <h3>
+                <span>Admin</span> 
+                <span>{room.admin.length} Room</span>
+            </h3>
+            <div className={styles.map}>
+                {room.admin.map(el => 
+                    <div className={styles.element} key={el._id}>
+                        <Link to={`/room/${el.room}`} target="_blank">{el.room}</Link>
+                        <Menu {...props} element={el} />
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}
+
+export default Admin;

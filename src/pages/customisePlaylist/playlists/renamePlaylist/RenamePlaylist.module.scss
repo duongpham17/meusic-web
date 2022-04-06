@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    padding: 0.5rem;
+
+    input, button{
+        background-color: var(--background-faded);
+        padding: 0.5rem;
+        border-radius: 0;
+        &:hover{
+            color: var(--main-selected);
+        }
+    }
+
+    input{
+        width: 100%;
+    }
+
+    button{
+        width: 30%;
+    }
+
+    p{
+        padding: 0.5rem;
+    }
+}

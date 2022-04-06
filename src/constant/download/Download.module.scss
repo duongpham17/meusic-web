@@ -1,0 +1,46 @@
+.container{
+    position: fixed;
+    right: 5px;
+    margin-top: 3rem;
+    padding: 0.5rem;
+    z-index: 10;
+    background-color: transparent;
+
+    .element{
+        position: relative;
+        border: 1px solid var(--main);
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 150px;
+        padding: 0.2rem;
+        margin-top: 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 0.7;
+        }
+        
+        p{
+            white-space: nowrap;
+            overflow-x: auto;
+            text-overflow: ellipsis;
+            margin-right: 1.5rem;
+            color: white;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        div{
+            display: flex;
+            position: absolute;
+            right: 5px;
+        }
+    }
+
+
+}

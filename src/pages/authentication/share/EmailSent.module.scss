@@ -1,0 +1,53 @@
+.container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 500px;
+    width: 100%;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .emailSent{
+        button{
+            padding: 0.5rem;
+            margin-top: 2rem;
+            border: 2px solid var(--main);
+
+            &:hover{
+                border-color: var(--main-selected);
+            }
+        }
+    }
+
+    .enterCode{
+        height: 200px;
+        p{
+            margin: 1rem 0;
+        }
+
+        .error{
+            opacity: 0.8;
+        }
+
+        button{
+            margin: 2rem auto;
+            border: 2px solid var(--main);
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+
+            &:hover{
+                border-color: var(--main-selected);
+            }
+        }
+
+        div{
+            margin-top: 1rem;
+        }
+    }
+
+
+}

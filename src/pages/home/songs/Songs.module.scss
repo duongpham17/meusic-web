@@ -1,0 +1,15 @@
+.container{
+
+    .element{
+        border: 1px solid transparent;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 0.1rem;
+
+        &:hover{
+            border-color: var(--main-selected)
+        }
+    }
+}
