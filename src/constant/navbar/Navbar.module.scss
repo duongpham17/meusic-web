@@ -19,10 +19,6 @@
             border: 1px solid var(--main);
             min-width: 40px;
             text-align: center;
-
-            &:hover *{
-                color: var(--main-selected);
-            }
             &:hover{
                 border-color: var(--main-selected);
             }

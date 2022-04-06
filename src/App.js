@@ -16,7 +16,7 @@ import Upload from 'constant/upload';
 import ScrollToTop from 'constant/scrollToTop';
 import Control from 'constant/control';
 
-import Pages from 'pages';
+import Pages from './pages';
 
 import Routing from 'routing';
 
