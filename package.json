@@ -36,7 +36,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none yarn start\" \"yarn electron:start\"",
-    "electron:start": "wait-on tcp:3000 && electron .",
+    "electron:start": "wait-on tcp:3000 && electron ./public/main.js",
     "electron:build:mac": "electron-packager . --platform=darwin --asar --icon=public/logo192.icns --overwrite",
     "electron:build:win": "electron-packager . --platform=win32 --asar --icon=public/logo192.png --overwrite"
   },
