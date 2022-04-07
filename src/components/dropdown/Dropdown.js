@@ -10,7 +10,7 @@ export const Dropdown = ({children, icon}) => {
     return (
         <div className={styles.container} onClick={stopPropagation}>
                 
-            <div className={styles.menuBtn}>
+            <div className={styles.menuBtn} tabIndex="0">
                 {icon 
                     ? icon
                     : <button><MdMenu/></button>
