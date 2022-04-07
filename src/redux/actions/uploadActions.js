@@ -2,17 +2,11 @@ import {api} from '../api';
 import { setAlert } from './alertActions';
 
 import {
-    UPLOAD_SONG_OPEN,
     UPLOAD_SONG_ERROR,
     UPLOAD_SONG_UPLOADING,
     UPLOAD_SONG_COMPLETED
 } from './types';
 
-export const uploadOpen = () => async dispatch => {
-    dispatch({
-        type: UPLOAD_SONG_OPEN,
-    });
-};
 
 export const uploadClearError = () => async dispatch => {
     dispatch({

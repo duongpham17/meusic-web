@@ -2,7 +2,6 @@ import {
     PLAYING_PREVIEW_SELECT_PLAYLIST,
     PLAYING_SELECT_PLAYLIST,
     PLAYING_CHANGE_SONG,
-    PLAYING_SHOW_TRACKS,
     PLAYING_CLEAR
 } from '../actions/types';
 
@@ -11,19 +10,12 @@ const initialState = {
     playlist: [],
     playlistType: "", // enum [previewPlaylist, savedPlaylist, customisePlaylist, friendsPlaylist];
     playlistId: "",
-    show: false,
 }
 
 export const Playing = (state = initialState, action) => {
     const {type, payload} = action;
     
     switch(type){
-        case PLAYING_SHOW_TRACKS:
-            return{
-                ...state,
-                show: state.show ? false : true,
-            }
-
         case PLAYING_PREVIEW_SELECT_PLAYLIST:
             const anotherPlaylist = state.playlistType !== "previewPlaylist";
 

@@ -4,8 +4,7 @@ const url = process.env.NODE_ENV === "production" ? process.env.REACT_APP_PRODUC
 
 const connectionOptions =  {
     "force new connection" : true,
-    "reconnectionAttempts": "Infinity",               
-    "transports" : ["websocket"]
+    "reconnectionAttempts": "Infinity",
 };
 
 export const socket = io(url, connectionOptions);

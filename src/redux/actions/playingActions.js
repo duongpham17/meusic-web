@@ -5,7 +5,6 @@ import {
     PLAYING_PREVIEW_SELECT_PLAYLIST,
     PLAYING_SELECT_PLAYLIST,
     PLAYING_CHANGE_SONG,
-    PLAYING_SHOW_TRACKS,
     PLAYING_CLEAR
 } from './types';
 
@@ -49,12 +48,6 @@ export const playingChangeSong = (index) => async dispatch => {
 export const playingIncrementSongPlayed = (id) => async dispatch => {
     await api.get(`/songs/played/${id}`);
 }
-
-export const playingShowTracks = () => async dispatch => {
-    dispatch({
-        type: PLAYING_SHOW_TRACKS,
-    });
-};
 
 export const playingClear = () => async dispatch => {
     dispatch({

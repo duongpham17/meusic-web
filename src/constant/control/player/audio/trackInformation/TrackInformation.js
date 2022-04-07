@@ -3,12 +3,14 @@ import React from 'react';
 
 export const AudioInformation = (props) => {
 
-    const {trackPlaying, trackIndex, tracks, playingShowTracks} = props;
+    const {trackPlaying, trackIndex, tracks, openContent} = props;
+
+    const onOpenContent = () => openContent("tracks");
 
     return (
         <div className={styles.container}>
             <p> {trackPlaying.title} </p>
-            <button className={styles.trackBtn} onClick={playingShowTracks}> {(trackIndex+1)} / {tracks.length} </button>
+            <button className={styles.trackBtn} onClick={onOpenContent}> {(trackIndex+1)} / {tracks.length} </button>
         </div>
     )
 }

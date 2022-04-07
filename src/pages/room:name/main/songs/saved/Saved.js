@@ -6,7 +6,7 @@ import SearchBar from 'components/searchBar';
 
 const Saved = (props) => {
 
-    const {savedPlaylist, emitUpdateSong, params, setAlert} = props;    
+    const {savedPlaylist, emitUpdateSong, params, setAlert, open} = props;    
     const initalPlaylist = savedPlaylist.playlist;
     const [userSongs, setUserSongs] = useState(initalPlaylist || []);
     const [value, setValue] = useState("");
@@ -44,7 +44,7 @@ const Saved = (props) => {
                 <b>{userSongs.length}</b>
             </div>
 
-            {userSongs.map((el, index) => 
+            {open ==="saved" && userSongs.map((el, index) => 
                 <div className={styles.element} key={el._id} onClick={onAdd(el)}>
                     <Layout3 song={el} index={index} />
                 </div>

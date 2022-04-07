@@ -15,11 +15,11 @@ import Confirm from './authentication/confirm';
 import Admin from './admin';
 import Home from './home';
 import Profile from './profile';
-import Room from './room';
-import RoomName from './room:name';
 import OthersPlaylist from './othersPlaylist';
 import SavedPlaylist from './savedPlaylist';
 import CustomisePlaylist from './customisePlaylist';
+import Room from './room';
+import RoomName from './room:name';
 import Unknown from './unknown';
 
 export const Pages = () => 

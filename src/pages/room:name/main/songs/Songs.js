@@ -1,10 +1,10 @@
 import styles from './Songs.module.scss';
-import React, {useState, lazy, Suspense } from 'react';
+import React, {useState} from 'react';
 import SlideIn from 'components/slideIn';
 
-const LazySaved = lazy(() => import('./saved'));
-const LazyFind = lazy(() => import('./find'));
-const LazyCustomise = lazy(() => import('./customise'));
+import Saved from './saved';
+import Find from './find';
+import Customise from './customise';
 
 const Songs = (props) => {
 
@@ -17,34 +17,34 @@ const Songs = (props) => {
         setOpen(type);
     };
 
+    props = {
+        ...props,
+        open,
+        onOpen
+    }
+
     return (
         <section className={styles.container}>
             
             <div className={styles.content} onClick={() => onOpen("saved")}>
                 <button className={styles.button}>My Songs</button>
-                <Suspense fallback={<div className="loading-10"/>}>
-                    <SlideIn onOpen={onOpen} open={open === "saved"}>
-                        {savedPlaylist.playlist && <LazySaved {...props} />}
-                    </SlideIn>
-                </Suspense>
+                <SlideIn onOpen={onOpen} open={open === "saved"}>
+                    {savedPlaylist.playlist && <Saved {...props} />}
+                </SlideIn>
             </div>
 
             <div className={styles.content} onClick={() => onOpen("customise")}>
                 <button className={styles.button}>My Playlists</button>
-                <Suspense fallback={<div className="loading-10"/>}>
-                    <SlideIn onOpen={onOpen} open={open === "customise"}>
-                        <LazyCustomise {...props} />
-                    </SlideIn>
-                </Suspense>
+                <SlideIn onOpen={onOpen} open={open === "customise"}>
+                    <Customise {...props} />
+                </SlideIn>
             </div>
 
             <div className={styles.content} onClick={() => onOpen("find")}>
                 <button className={styles.button}>Search</button>
-                <Suspense fallback={<div className="loading-10"/>}>
-                    <SlideIn onOpen={onOpen} open={open === "find"}>
-                        <LazyFind {...props} />
-                    </SlideIn>
-                </Suspense>
+                <SlideIn onOpen={onOpen} open={open === "find"}>
+                    <Find {...props} />
+                </SlideIn>
             </div>
 
         </section>

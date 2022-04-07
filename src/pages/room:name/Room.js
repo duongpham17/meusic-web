@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, lazy, Suspense} from 'react';
 import { useParams } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -9,7 +9,8 @@ import { playingClear } from 'redux/actions/playingActions';
 
 import Nothing from './nothing';
 import Password from './password';
-import Main from './main';
+
+const LazyMain = lazy(() => import('./main'));
 
 const Room = (props) => {
 
@@ -49,8 +50,17 @@ const Room = (props) => {
 
   return ( !room ? <div className="loading" /> : room === "nothing" ? <Nothing/> : 
     <>
-      { room.private && !verified && <Password {...props} /> }
-      { verified && <Main {...props}/> }
+
+      { room.private && !verified && 
+        <Password {...props} /> 
+      }
+
+      { verified &&
+        <Suspense fallback={<div className="loading" />}>
+          <LazyMain {...props}/>
+        </Suspense>
+      }
+      
     </>
   );
 };
