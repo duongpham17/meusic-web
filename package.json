@@ -27,10 +27,11 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.49.11",
     "socket.io-client": "^4.4.1",
-    "update-electron-app": "^2.0.1",
     "wait-on": "^6.0.1",
     "web-vitals": "^2.1.2"
   },
+  "main": "public/main.js",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
