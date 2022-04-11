@@ -15,7 +15,7 @@ export const TrackVolume = (props) => {
 
                 <div className={styles.volume}>
                     <MdVolumeMute onClick={trackMuted ? previousVolume : muteVolume}/>
-                    <input className={styles.range} type="range" min="0" max="1" step="0.01" value={trackVolume} onChange={volume} />
+                    <input className={styles.range} type="range" min="0" max="1" step="0.01" value={trackVolume || 0.5} onChange={volume} />
                 </div>
 
             </Dropdown>

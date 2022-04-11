@@ -83,6 +83,11 @@ const useAudio = (audio, tracks, song) => {
         setTrackCycleType("shuffle");
     };
 
+    // play song in order
+    const repeat = () => {
+        localStorage.setItem("cycleType", "repeat");
+        setTrackCycleType("repeat");
+    };
 
     // play next track, loops to the start when it reaches the end.
     const next = useCallback(() => {
@@ -95,25 +100,27 @@ const useAudio = (audio, tracks, song) => {
         if(trackLength <= trackIndex) {
             setTrackIndex(0);
             setTrackPlaying({...tracks[0], index: 0});
-
             return {...tracks[0], index: 0}
         }
         
         if(trackLength !== trackIndex) {
             // go to next random track
+            if(trackCycleType === "repeat"){
+                setTrackIndex(trackIndex);
+                setTrackPlaying({...tracks[trackIndex], index: trackIndex});
+                return {...tracks[trackIndex], index: trackIndex}
+            };
             if(trackCycleType === "shuffle") {
                 setTrackIndex(() => randomIndex);
                 setTrackPlaying({...tracks[randomIndex], index: randomIndex});
-                
                 return {...tracks[randomIndex], index: randomIndex};
-            }
+            };
             // go to next track
             if(trackCycleType === "loop" || !trackCycleType){ 
                 setTrackIndex((trackIndex) => trackIndex+1);
                 setTrackPlaying({...tracks[trackIndex+1], index: trackIndex+1});
-
                 return {...tracks[trackIndex+1], index: trackIndex+1}
-            }
+            };
         };
 
     }, [trackIndex, trackCycleType, tracks]);
@@ -221,6 +228,7 @@ const useAudio = (audio, tracks, song) => {
         next,
         loop,
         shuffle,
+        repeat,
         play,
         pause,
         seek,
