@@ -5,9 +5,10 @@
 
     .element{
         border: 1px solid transparent;
+        margin: 0.5rem 0;
 
         &:hover{
-            border: 1px solid var(--main);
+            border: 1px solid var(--main-selected);
         }
     }
 

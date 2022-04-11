@@ -29,7 +29,7 @@ const Private = (props) => {
 
     return (
         <div className={styles.container} onClick={onStopPropagation}>
-            <form onSubmit={onSubmit(onMakePrivateRoom)} autoComplete="off">
+            <form onSubmit={onSubmit(onMakePrivateRoom)}>
 
                 { element.private &&
                     <button type="button" onClick={onMakePublicRoom}>

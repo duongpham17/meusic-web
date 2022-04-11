@@ -6,7 +6,7 @@ import {playingChangeSong } from 'redux/actions/playingActions';
 import {openContent} from 'redux/actions/openActions';
 
 import SlideIn from 'components/slideIn';
-import InformationLayout3 from 'components/informationLayout/Layout3';
+import InformationLayout2 from 'components/informationLayout/Layout2';
 
 const Tracks = (props) => {
 
@@ -23,12 +23,12 @@ const Tracks = (props) => {
             <SlideIn open={open.id === "tracks"} onOpen={onOpen}>
 
                 <div className={styles.total}>
-                    <b>Total Songs : {playing.playlist.length}</b>
+                    <b>Songs {playing.playlist.length}</b>
                 </div>
                 
                 {playing.playlist.map((el, index) => 
                     <div className={styles.element} key={el.previewId || el._id} onClick={onPlay(index)}>
-                        <InformationLayout3 song={el} isPlaying={isPlaying(el)} index={index+1}/>
+                        <InformationLayout2 song={el} isPlaying={isPlaying(el)} index={index+1}/>
                     </div>
                 )}
                 

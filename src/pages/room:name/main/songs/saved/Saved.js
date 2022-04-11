@@ -1,7 +1,7 @@
 import styles from './Saved.module.scss';
 import React, {useState} from 'react';
 
-import Layout3 from 'components/informationLayout/Layout3';
+import Layout2 from 'components/informationLayout/Layout2';
 import SearchBar from 'components/searchBar';
 
 const Saved = (props) => {
@@ -46,7 +46,7 @@ const Saved = (props) => {
 
             {open ==="saved" && userSongs.map((el, index) => 
                 <div className={styles.element} key={el._id} onClick={onAdd(el)}>
-                    <Layout3 song={el} index={index} />
+                    <Layout2 song={el} index={index} />
                 </div>
             )}
 

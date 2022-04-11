@@ -1,6 +1,13 @@
 .container{
-    z-index: 1;
     .total{
         margin-bottom: 1rem;
+    }
+    .element{
+        border: 1px solid transparent;
+        margin: 0.5rem 0;
+        cursor: pointer;
+        &:hover{
+            border-color: var(--main-selected);
+        }
     }
 }

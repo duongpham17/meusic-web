@@ -1,6 +1,7 @@
 .container{
     display: flex;
     width: 100%;
+    position: relative;
 
     .isPlaying{
         img{
@@ -8,7 +9,7 @@
         }
     }
 
-    div:nth-child(1){
+    .image{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -18,32 +19,59 @@
             width: 70px;
             border-radius: 5px;
         }
+
+        .index{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: var(--main-background-color);
+            padding: 0.2rem;
+            font-size: 0.7rem;
+        }
     }
 
-    div:nth-child(2){
+    .information{
         width: 100%;
         margin: 0 0.5rem;
-
         p{
             margin: 0.3rem 0;
         }
+        .text{
+            font-size: 0.8rem;
+            color: var(--main-light);
+        }
     }
+
+
+    .layout2Image{
+        img{
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .layout2information{
+        .title{
+            font-size: 0.8rem;
+            max-height: 30px;
+            overflow: hidden;
+        }
+    }
+
 }
 
 @media (max-width: 420px){
     .container{
-        div:nth-child(1){
+        .image{
             img{
                 height: 50px;
                 width: 50px;
             }
         }
     
-        div:nth-child(2){    
+        .information{    
             p{
                 font-size: 0.9rem;
             }        
         }
     }
 }
-

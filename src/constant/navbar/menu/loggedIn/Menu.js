@@ -2,7 +2,7 @@ import styles from './Menu.module.scss';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {AiOutlineMenu} from 'react-icons/ai';
+import {FiMenu} from 'react-icons/fi';
 
 import useOpen from 'hooks/useOpen';
 import SlideIn from 'components/slideIn';
@@ -18,7 +18,7 @@ export const Menu = () => {
     return (
         <div className={styles.container}>
 
-            <button className={styles.menuBtn} onClick={onOpen}><AiOutlineMenu /></button>
+            <button className={styles.menuBtn} onClick={onOpen}><FiMenu /></button>
 
             <SlideIn open={open} onOpen={onOpen}>
 

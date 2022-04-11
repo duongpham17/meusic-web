@@ -27,7 +27,7 @@ const Create = (props) => {
 
             { open &&
                 <div className={styles.cover} onClick={onOpen}>
-                    <form autoComplete="off" onClick={onStopPropagation} onSubmit={onSubmit(onRoomCreate)}>
+                    <form onClick={onStopPropagation} onSubmit={onSubmit(onRoomCreate)}>
                         <input type="text" placeholder="Room name" name="name" value={value.name} onChange={onChange} />
                         {room.error.exist && <small>{room.error.exist}</small>}
                         {value.name.length >= 10 && <small>Max 10 letters</small>}

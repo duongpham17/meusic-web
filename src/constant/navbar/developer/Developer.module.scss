@@ -2,5 +2,8 @@
     a{
         width: 100%;
         display: block;
+        &:hover{
+            color: var(--main-selected);
+        }
     }
 }

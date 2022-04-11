@@ -4,12 +4,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { downloadOptions } from 'redux/actions/downloadActions';
 
-import { AiFillApple, AiFillWindows } from 'react-icons/ai';
+import { AiFillApple } from 'react-icons/ai';
 
 import Dropdown from 'components/dropdown';
 import useUrlDownload from 'hooks/useUrlDownload';
 
-import { mac, win } from "./app";
+import { mac } from "./app";
+
+//win AiFillWindows
 
 const Desktop = (props) => {
 
@@ -33,13 +35,14 @@ const Desktop = (props) => {
                             <span>Mac</span>
                         </button>
                     </li>
-
+                    {/* 
                     <li> 
                         <button onClick={() => onDownload("Windows installing", win)}>
                             <AiFillWindows/> 
                             <span>Win</span>
                         </button>
-                    </li>
+                    </li> 
+                    */}
                 </ul>
             </Dropdown>
         </div>

@@ -11,7 +11,6 @@ h1, h2, h3, h4, h5, h6 {
 
 div, section, main, table, form, header, nav, footer{
     background-color: var(--main-background-color);
-    color: var(--main);
 }
 
 ::placeholder{
@@ -28,70 +27,31 @@ div, section, main, table, form, header, nav, footer{
 //themes 
 .theme-light{
     --main-background-color: white;
-    --main: hsl(0, 0%, 33%);
-    --main-bright: rgb(102, 126, 131);
+    --main: hsl(0, 0%, 24%);
     --main-selected: rgb(29, 152, 177);
-    --main-light: rgb(190, 190, 190);   
+    --main-light: rgb(123, 123, 123);   
     --main-red: rgb(233, 110, 110);
 }
 
 .theme-night{
     --main-background-color: hsl(0, 2%, 10%);
     --main: hsl(0, 0%, 95%);
-    --main-bright: hsl(0, 0%, 100%);
     --main-selected: rgb(29, 152, 177);
-    --main-light: hsl(0, 2%, 40%, 0.5);
-    --main-red: rgb(233, 110, 110);
-}
-
-.theme-midnight {
-    --main-background-color: hsl(199, 87%, 12%);
-    --main: hsl(0, 0%, 95%);
-    --main-bright: hsl(0, 0%, 100%);
-    --main-selected: hsl(199, 87%, 40%);
-    --main-light: hsl(199, 87%, 20%, 0.5);
-    --main-red: rgb(233, 110, 110);
-}
-
-.theme-ocean {
-    --main-background-color: hsl(197, 65%, 30%);
-    --main: #f8f8f8;
-    --main-selected: hsl(197, 65%, 50%);
-    --main-light: hsl(197, 65%, 60%, 0.3);
-    --main-red: rgb(233, 110, 110);
-}
-
-.theme-campfire {
-    --main-background-color: hsl(201, 24%, 15%);
-    --main: hsl(21, 100%, 67%);
-    --main-bright: hsl(21, 100%, 87%);
-    --main-selected: hsl(21, 100%, 80%);
-    --main-light: hsl(21, 100%, 75%, 0.5);
-    --main-red: rgb(233, 110, 110);
-}
-
-.theme-deepsea {
-    --main-background-color: hsl(227, 61%, 6%);
-    --main: hsl(224, 88%, 49%);
-    --main-bright: hsl(224, 88%, 69%);
-    --main-light: rgba(57, 48, 184, 0.3);
-    --main-selected: hsl(227, 79%, 61%);
+    --main-light: rgba(228, 228, 228, 0.57);
     --main-red: rgb(233, 110, 110);
 }
 
 .theme-matrix {
     --main-background-color: black;
-    --main: hsl(118, 100%, 50%);
-    --main-bright: hsl(118, 100%, 90%);
+    --main: hsl(106, 100%, 57%);
     --main-selected: hsl(118, 100%, 90%);
-    --main-light: hsl(118, 100%, 10%);
+    --main-light: rgba(131, 234, 128, 0.846);
     --main-red: rgb(233, 110, 110);
 }
 
 .theme-cave {
     --main-background-color: rgb(18, 18, 18);
     --main: hsla(9, 99%, 62%, 0.944);
-    --main-bright: hsla(9, 98%, 80%, 0.944);
     --main-selected: hsla(9, 99%, 80%);
     --main-light: hsl(9, 98%, 75%);
     --main-red: rgb(233, 110, 110);
@@ -100,8 +60,31 @@ div, section, main, table, form, header, nav, footer{
 .theme-space {
     --main-background-color:hsl(240, 79%, 4%);
     --main: hsl(308, 66%, 61%);
-    --main-bright: hsl(308, 66%, 81%);
     --main-selected: hsl(308, 66%, 80%);
-    --main-light: hsl(308, 66%, 80%, 0.5);
+    --main-light: hsla(308, 66%, 71%, 0.875);
+    --main-red: rgb(233, 110, 110);
+}
+
+.theme-ocean {
+    --main-background-color:hsl(240, 41%, 3%);
+    --main: hsl(227, 97%, 62%);
+    --main-selected: hsl(212, 83%, 60%);
+    --main-light: rgba(103, 130, 228, 0.898);
+    --main-red: rgb(233, 110, 110);
+}
+
+.theme-electric {
+    --main-background-color:hsla(55, 85%, 3%);
+    --main: hsl(58, 99%, 54%);
+    --main-selected: rgb(255, 253, 147);
+    --main-light: hsla(58, 79%, 51%, 0.761);
+    --main-red: rgb(233, 110, 110);
+}
+
+.theme-orange {
+    --main-background-color:rgb(15, 11, 5);
+    --main: hsl(35, 100%, 50%);
+    --main-selected: hsl(41, 100%, 50%);
+    --main-light: hsla(41, 71%, 62%, 0.961);
     --main-red: rgb(233, 110, 110);
 }

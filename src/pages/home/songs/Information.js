@@ -9,7 +9,7 @@ export const Information = (props) => {
     const isPlaying = playing.song.title === song.title;
 
     return (
-        <SongInformationLayout1 {...props} isPlaying={isPlaying}/>
+        <SongInformationLayout1 {...props} isPlaying={isPlaying} played/>
     )
 }
 
