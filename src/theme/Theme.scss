@@ -3,7 +3,7 @@
 //change all hmtl tags styles based on theme selected
 
 button, a, input, textarea, ul, li, option, select, svg,
-p, q, b, label, span,
+p, q, b, label, span, kbd, small,
 h1, h2, h3, h4, h5, h6 {
     color: var(--main);
     transition: ease-in-out 0.2s;
