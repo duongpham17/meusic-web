@@ -22,9 +22,9 @@ const SearchResults = ({othersPlaylist, othersPlaylistSave, othersPlaylistClear}
                     <div key={el._id} className={styles.element} onClick={() => othersPlaylistSave(el._id)}>
                         <img src={el.image || defaultImage} alt="cover"/>
                         <p className={styles.information}>
-                            <span>Songs - {el.songs}</span>
-                            <br/>
                             <span>{el.name}</span>
+                            <br/>
+                            <small>Songs {el.songs}</small>
                         </p>
                     </div>  
                 )}

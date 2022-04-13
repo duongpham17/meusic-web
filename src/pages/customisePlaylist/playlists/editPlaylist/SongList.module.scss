@@ -7,7 +7,7 @@
             position: sticky;
             top: 0;
             border-radius: 5px;
-            border: 2px solid var(--main);
+            border: 2px solid var(--main-color);
 
             input{
                 padding: 0.5rem;
@@ -30,7 +30,7 @@
             border: 1px solid transparent;
 
             &:hover{
-                border-color: var(--main);
+                border-color: var(--main-color);
 
                 img{
                     width: 50px;

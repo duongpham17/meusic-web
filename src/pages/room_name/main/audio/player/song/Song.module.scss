@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+
+    .image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 130px;
+            height: 120px;
+            object-fit: contain;
+            margin-right: 0.5rem;
+        }
+    }
+
+    p{
+        margin: 0.5rem 0;
+    }
+}

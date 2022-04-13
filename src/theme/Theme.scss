@@ -5,16 +5,17 @@
 button, a, input, textarea, ul, li, option, select, svg,
 p, q, b, label, span, kbd, small,
 h1, h2, h3, h4, h5, h6 {
-    color: var(--main);
-    transition: ease-in-out 0.2s;
+    color: var(--main-color);
+    transition: ease-in-out 0.1s;
 }
 
 div, section, main, table, form, header, nav, footer{
-    background-color: var(--main-background-color);
+    background-color: var(--main-color-background);
+    transition: 0.1s ease-in-out;
 }
 
 ::placeholder{
-    color: var(--main);
+    color: var(--main-color);
     opacity: 0.7;
 }
 
@@ -26,65 +27,65 @@ div, section, main, table, form, header, nav, footer{
 
 //themes 
 .theme-light{
-    --main-background-color: white;
-    --main: hsl(0, 0%, 24%);
-    --main-selected: rgb(29, 152, 177);
-    --main-light: rgb(123, 123, 123);   
-    --main-red: rgb(233, 110, 110);
+    --main-color-background: white;
+    --main-color: hsl(0, 0%, 24%);
+    --main-color-selected: rgb(29, 152, 177);
+    --main-color-light: rgb(123, 123, 123);   
+    --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-night{
-    --main-background-color: hsl(0, 2%, 10%);
-    --main: hsl(0, 0%, 95%);
-    --main-selected: rgb(29, 152, 177);
-    --main-light: rgba(228, 228, 228, 0.57);
-    --main-red: rgb(233, 110, 110);
+    --main-color-background: hsl(0, 2%, 10%);
+    --main-color: hsl(0, 0%, 95%);
+    --main-color-selected: rgb(29, 152, 177);
+    --main-color-light: rgba(228, 228, 228, 0.57);
+    --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-matrix {
-    --main-background-color: black;
-    --main: hsl(106, 100%, 57%);
-    --main-selected: hsl(118, 100%, 90%);
-    --main-light: rgba(131, 234, 128, 0.846);
-    --main-red: rgb(233, 110, 110);
+    --main-color-background: black;
+    --main-color: hsl(106, 100%, 57%);
+    --main-color-selected: hsl(118, 100%, 90%);
+    --main-color-light: rgba(131, 234, 128, 0.846);
+    --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-cave {
-    --main-background-color: rgb(18, 18, 18);
-    --main: hsla(9, 99%, 62%, 0.944);
-    --main-selected: hsla(9, 99%, 80%);
-    --main-light: hsl(9, 98%, 75%);
-    --main-red: rgb(233, 110, 110);
+    --main-color-background: rgb(18, 18, 18);
+    --main-color: hsla(9, 99%, 62%, 0.944);
+    --main-color-selected: hsla(9, 99%, 80%);
+    --main-color-light: hsl(9, 98%, 75%);
+    --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-space {
-    --main-background-color:hsl(240, 79%, 4%);
-    --main: hsl(308, 66%, 61%);
-    --main-selected: hsl(308, 66%, 80%);
-    --main-light: hsla(308, 66%, 71%, 0.875);
-    --main-red: rgb(233, 110, 110);
+    --main-color-background:hsl(240, 79%, 4%);
+    --main-color: hsl(308, 66%, 61%);
+    --main-color-selected: hsl(308, 66%, 80%);
+    --main-color-light: hsla(308, 66%, 71%, 0.875);
+    --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-ocean {
-    --main-background-color:hsl(240, 41%, 3%);
-    --main: hsl(227, 97%, 62%);
-    --main-selected: hsl(212, 83%, 60%);
-    --main-light: rgba(103, 130, 228, 0.898);
-    --main-red: rgb(233, 110, 110);
+    --main-color-background:hsl(240, 41%, 3%);
+    --main-color: hsl(227, 97%, 62%);
+    --main-color-selected: hsl(212, 83%, 60%);
+    --main-color-light: rgba(103, 130, 228, 0.898);
+    --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-electric {
-    --main-background-color:hsla(55, 85%, 3%);
-    --main: hsl(58, 99%, 54%);
-    --main-selected: rgb(255, 253, 147);
-    --main-light: hsla(58, 79%, 51%, 0.761);
-    --main-red: rgb(233, 110, 110);
+    --main-color-background:hsla(55, 85%, 3%);
+    --main-color: hsl(58, 99%, 54%);
+    --main-color-selected: rgb(255, 253, 147);
+    --main-color-light: hsla(58, 79%, 51%, 0.761);
+    --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-orange {
-    --main-background-color:rgb(15, 11, 5);
-    --main: hsl(35, 100%, 50%);
-    --main-selected: hsl(41, 100%, 50%);
-    --main-light: hsla(41, 71%, 62%, 0.961);
-    --main-red: rgb(233, 110, 110);
+    --main-color-background:rgb(15, 11, 5);
+    --main-color: hsl(35, 100%, 50%);
+    --main-color-selected: hsl(41, 100%, 50%);
+    --main-color-light: hsla(41, 71%, 62%, 0.961);
+    --main-color-red: rgb(233, 110, 110);
 }

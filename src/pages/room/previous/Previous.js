@@ -18,12 +18,12 @@ const Previous = () => {
     };
 
     return ( !!previousRooms.length &&
-        <div className={styles.container}>
+        <section className={styles.container}>
 
-            <h3>
+            <b>
                 <span>Previous</span> 
                 <span>{previousRooms.length} Room</span>
-            </h3>
+            </b>
 
             <div className={styles.map}>
                 {previousRooms.map((el, i) => 
@@ -41,7 +41,7 @@ const Previous = () => {
                 )}
             </div>
 
-        </div>
+        </section>
     )
 }
 

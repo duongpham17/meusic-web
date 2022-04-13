@@ -1,11 +1,6 @@
 .container{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-        
-    &:hover{
-        opacity: 0.8;
-    }
 
     div:nth-child(1){
         width: 50px;
@@ -16,6 +11,21 @@
         margin-right: 0.3rem;
         svg{
             font-size: 2rem;
+            &:hover{
+                color: var(--main-color-selected);
+            }
+        }
+    }
+
+    div:nth-child(2){
+        &:hover{
+            opacity: 0.8;
+        }
+        span{
+            color: var(--main-color-selected);
+        }
+        small{
+            color: var(--main-color-light);
         }
     }
 }

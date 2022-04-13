@@ -24,7 +24,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-color: var(--main-background-color);
+            background-color: var(--main-color-background);
             padding: 0.2rem;
             font-size: 0.7rem;
         }
@@ -38,7 +38,7 @@
         }
         .text{
             font-size: 0.8rem;
-            color: var(--main-light);
+            color: var(--main-color-light);
         }
     }
 

@@ -10,7 +10,7 @@ import {
 
 import { playingSelectPlaylist } from 'redux/actions/playingActions';
 
-import Settings from './settings/Settings';
+import Tools from './tools/Tools';
 import Total from './total';
 import Playlists from './playlists';
 
@@ -33,7 +33,7 @@ export const Custom = (props) => {
     return ( !customisePlaylist.playlist ? <div className='loading' /> :
         <>
             
-            <Settings {...props} />
+            <Tools {...props} />
 
             <Total {...props} />
 

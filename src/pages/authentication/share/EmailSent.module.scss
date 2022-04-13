@@ -15,10 +15,10 @@
         button{
             padding: 0.5rem;
             margin-top: 2rem;
-            border: 2px solid var(--main);
+            border: 2px solid var(--main-color);
 
             &:hover{
-                border-color: var(--main-selected);
+                border-color: var(--main-color-selected);
             }
         }
     }
@@ -35,12 +35,12 @@
 
         button{
             margin: 2rem auto;
-            border: 2px solid var(--main);
+            border: 2px solid var(--main-color);
             padding: 0.5rem 2rem;
             border-radius: 50px;
 
             &:hover{
-                border-color: var(--main-selected);
+                border-color: var(--main-color-selected);
             }
         }
 

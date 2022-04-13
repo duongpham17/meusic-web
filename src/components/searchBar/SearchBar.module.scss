@@ -13,10 +13,10 @@
         width: 100%;
         padding: 0.7rem;
         padding-left: 3rem;
-        border: 2px solid var(--main);
+        border: 2px solid var(--main-color);
 
         &:hover, &:focus{
-            border-color: var(--main-selected);
+            border-color: var(--main-color-selected);
         }
     }
 

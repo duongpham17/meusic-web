@@ -19,7 +19,7 @@ import OthersPlaylist from './othersPlaylist';
 import SavedPlaylist from './savedPlaylist';
 import CustomisePlaylist from './customisePlaylist';
 import Room from './room';
-import RoomName from './room:name';
+import RoomName from './room_name';
 import Unknown from './unknown';
 
 export const Pages = () => 

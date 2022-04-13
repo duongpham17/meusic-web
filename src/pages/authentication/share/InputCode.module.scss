@@ -11,12 +11,12 @@
             width: 40px;
             border-radius: 10px;
             margin: 0 4px;
-            border: 2px solid var(--main);
+            border: 2px solid var(--main-color);
             font-size: 1.5rem;
 
             &:focus {
                 outline: none;
-                border-color: var(--main-selected);
+                border-color: var(--main-color-selected);
             }
         }
     }

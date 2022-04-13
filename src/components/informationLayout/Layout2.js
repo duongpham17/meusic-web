@@ -19,7 +19,7 @@ import MusicPlaying from 'components/musicPlaying';
  * @param { boolean } played - show the amount of time the song is played played or not
 */
 
-export const Layout3 = ({ song, isPlaying, index, played, artist }) => {
+export const Layout2 = ({ song, isPlaying, index, played, artist }) => {
 
     return (
         <div className={styles.container}>
@@ -41,4 +41,4 @@ export const Layout3 = ({ song, isPlaying, index, played, artist }) => {
     )
 }
 
-export default Layout3;
+export default Layout2;

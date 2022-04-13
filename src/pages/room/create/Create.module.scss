@@ -7,13 +7,14 @@
         border-radius: 5px;    
         cursor: pointer;
         margin: 0.5rem;
+        border: 1px solid transparent;
 
         display: flex;
         align-items: center;
         justify-content: center;
 
         &:hover{
-            opacity: 0.9;
+            border-color: var(--main-color-selected);
         }
 
         svg{
@@ -35,7 +36,7 @@
         padding: 0.5rem;
         
         form{
-            border: 2px solid var(--main);
+            border: 2px solid var(--main-color);
             width: 200px;
             border-radius: 5px;
             margin-bottom: 5rem;
@@ -60,7 +61,7 @@
             }
 
             small{
-                color: var(--main-red);
+                color: var(--main-color-red);
             }
         }
     }

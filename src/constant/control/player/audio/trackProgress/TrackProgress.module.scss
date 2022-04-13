@@ -16,7 +16,7 @@
     }
     .range[type=range]::-webkit-slider-runnable-track {
         height: 5px;
-        background: var(--main);
+        background: var(--main-color);
         opacity: 0.8;
         border-radius: 5px ;
     }
@@ -25,7 +25,7 @@
         width: 15px;
         margin-top: -0.3rem;
         border-radius: 50px;
-        background: var(--main-selected);
+        background: var(--main-color-selected);
         -webkit-appearance: none;
     }
 

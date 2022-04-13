@@ -1,0 +1,38 @@
+.container{
+
+    .get{
+        border: 2px solid var(--background-faded);
+        padding: 1rem;
+        width: 100%;
+
+        &:hover{
+            background-color: var(--background-faded);
+        }
+    }
+
+    .element{
+        margin: 0.5rem 0;
+        background-color: var(--background-faded);
+
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem;
+
+            &:hover{
+                background-color: var(--background-faded);
+                svg{
+                    color: var(--main-color-selected);
+                    border-radius: 5px;
+                }
+            }
+            
+            svg{
+                display: flex;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

@@ -1,22 +1,22 @@
 .container{
 
     input{
-        border-bottom: 1px solid var(--main);
+        border-bottom: 1px solid var(--main-color);
         width: 100%;
         padding: 0.5rem;
         margin-bottom: 0.5rem;
 
         &:hover{
-            border-color: var(--main-selected);
+            border-color: var(--main-color-selected);
         }
     }
     button{
-        border: 1px solid var(--main);
+        border: 1px solid var(--main-color);
         width: 100%;
         padding: 1rem;
         margin-top: 1rem;
         &:hover{
-            border-color: var(--main-selected);
+            border-color: var(--main-color-selected);
         }
     }
 }

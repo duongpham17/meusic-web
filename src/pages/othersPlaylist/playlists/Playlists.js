@@ -18,18 +18,16 @@ export const Playlists = (props) => {
     
     const {playlist} = othersPlaylist;
 
-    const TotalPlaylist = () => ( !!playlist.length &&
-        <div>
-            <p><b>PLAYLISTS {playlist.length}</b></p>
-        </div>
-    );
-
     return ( playlist &&
         <div className={styles.container}>
 
-            <TotalPlaylist/>
+            { !!playlist.length &&
+                <div className={styles.total}>
+                    <p><b>PLAYLISTS {playlist.length}</b></p>
+                </div>
+            }
 
-            {playlist.map(el => el &&
+            { playlist.map(el => el &&
                 <div className={styles.element} key={el._id}>
                     <Element {...props} element={el} />
                 </div>    

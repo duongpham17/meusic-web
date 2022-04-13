@@ -57,13 +57,13 @@
                 }
             }
             .new{
-                color: var(--main-selected);
+                color: var(--main-color-selected);
             }
         }
     }
 
     .insert{
-        border: 1px solid var(--main);
+        border: 1px solid var(--main-color);
     }
 
 

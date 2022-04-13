@@ -1,7 +1,5 @@
 .container{
-    border-top: 1px solid var(--main);
-    width: 100%;
-    min-width: 320px;
+    border-top: 1px solid var(--main-color);
 
     .controls{
         display: flex;
@@ -17,7 +15,6 @@
     .element{
         width: 100%;
         z-index: 10;
-        background-color: var(--main-background-color);
 
         button, a{
             width: 100%;   
@@ -27,7 +24,7 @@
             padding: 0.8rem;
 
             &:hover *{
-                color: var(--main-selected);
+                color: var(--main-color-selected);
             }
         }
 
@@ -36,7 +33,7 @@
         }
 
         .selected *{
-            color: var(--main-selected);
+            color: var(--main-color-selected);
         }
     }
 }

@@ -1,0 +1,96 @@
+.container{
+
+    .clear{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.2rem;
+        margin: 1rem 0;
+
+        button{
+            &:hover{
+                b{
+                    color: var(--main-color-selected);
+                }
+            }
+        }
+    }
+
+    .map{
+        overflow-y: auto;
+        max-height: 500px;
+
+        .element{
+            border: 1px solid transparent;
+            position: relative;
+            margin: 0.3rem;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                border-color: var(--main-color-selected) ;
+            }
+
+            &:hover .delete{
+                display: block;
+            }
+
+            p{
+                font-size: 0.9rem;
+                padding: 0 0.2rem;
+            }
+
+            .image{
+                img{
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 0.2rem;
+                }
+                .index{
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    background-color: var(--main-color-background);
+                    padding: 0.2rem;
+                    font-size: 0.7rem;
+                    min-width: 10px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            .information{
+                width: 100%;
+            }
+            .duration{
+                width: 50px;
+                text-align: right;
+            }
+            .delete{
+                display: none;
+                width: 40px;
+                text-align: right;
+                padding: 0 0.2rem;
+
+                button{
+                    padding: 0.3rem;
+                    &:hover{
+                        background-color: var(--background-faded);
+                    }
+                }
+                svg{
+                    color: var(--main-color-red);
+                    display: flex;
+                }
+            }
+        }
+
+        .selected{
+            border: 2px solid var(--main-color);
+        }
+
+    }
+
+}

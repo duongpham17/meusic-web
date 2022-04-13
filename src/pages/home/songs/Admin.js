@@ -21,7 +21,7 @@ export const Admin = (props) => {
 
     return ( !user.user ? "" : user.user.role === "admin" && 
         <div className={styles.container} onClick={onDelete}>
-            {!loading && <FaRegTrashAlt />}
+            {!loading && <button><FaRegTrashAlt /></button>}
             {loading && <div className='loading-15'/>}
         </div>
     )

@@ -30,7 +30,7 @@ const Overview = (props) => {
             </div>
             <div>
                 <p> {element.name} </p>
-                <p> Songs - {element.song.length} - {totalDuration(element.song)} </p>
+                <small> Songs {element.song.length} - {totalDuration(element.song)} </small>
             </div>
         </div>
     )

@@ -13,7 +13,7 @@
         }
 
         textarea, input {
-            border: 1px solid var(--main);
+            border: 1px solid var(--main-color);
             padding: 0.3rem;
             width: 100%;
         }
@@ -30,13 +30,13 @@
             text-align: center;
         }
         button{
-            border: 1px solid var(--main);
+            border: 1px solid var(--main-color);
             padding: 0.5rem;
             border-radius: 0;
             width: 100%;
             margin-top: 1rem;
             &:hover{
-                border-color: var(--main-selected);
+                border-color: var(--main-color-selected);
             }
         }
     }

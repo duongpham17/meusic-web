@@ -32,7 +32,7 @@ const Overview = (props) => {
 
             <div>
                 <p> <span>{element.new && "new - "} </span> {element.name} </p>
-                <p> {!!element.song.length && `Songs - ${element.song.length} - ${totalDuration(element.song)}`} </p>
+                <small> {!!element.song.length && `Songs ${element.song.length} - ${totalDuration(element.song)}`} </small>
             </div>
         </div>
     )

@@ -1,12 +1,12 @@
 .container{
-    border: 1px solid var(--main);
-    margin: 1rem 0;
-    padding: 0.5rem;
-    border-radius: 5px;
     cursor: pointer;
+    border: 2px solid var(--background-faded);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
 
     &:hover{
-        border-color: var(--main);
+        border-color: var(--main-color-selected);
     }
 
     .overview{

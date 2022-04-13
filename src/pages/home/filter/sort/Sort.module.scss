@@ -36,15 +36,15 @@
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
         border-radius: 0;
-        border: 1px solid var(--main-light);
+        border: 1px solid var(--main-color-light);
         padding: 0.3rem 0.5rem;
         min-width: 50px;
 
         &:hover{
-            border-color: var(--main-selected);
+            border-color: var(--main-color-selected);
         }
     }
     .selected{
-        border-color: var(--main);
+        border-color: var(--main-color);
     }
 }

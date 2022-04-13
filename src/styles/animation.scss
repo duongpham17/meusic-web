@@ -4,7 +4,7 @@
     width: $width;
     height: $height;
     border-radius: 50%;
-    border: $border solid var(--main);
+    border: $border solid var(--main-color);
     border-top-color: transparent;
     animation: spinner 1s linear infinite;
   }

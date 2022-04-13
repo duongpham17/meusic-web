@@ -12,7 +12,7 @@
         }
 
         &:hover, &:focus * {
-            color: var(--main-selected);
+            color: var(--main-color-selected);
         }
     }
 
@@ -26,7 +26,7 @@
         top: 20px;
         right: 0;
         width: 100px;
-        background-color: var(--main-background-color);
+        background-color: var(--main-color-background);
         border: 1px solid var(--background-faded);
 
         svg, button{

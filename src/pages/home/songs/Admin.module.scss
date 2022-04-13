@@ -4,9 +4,20 @@
     justify-content: center;
     margin: 0.5rem;
 
-    &:hover{
+    button{
+        padding: 0.5rem;
+
         svg{
-            color: var(--main-selected);
+            display: flex;
         }
+
+        &:hover{
+            background-color: var(--background-faded);
+
+            svg{
+                color: var(--main-color-selected);
+            }
+        }
+
     }
 }

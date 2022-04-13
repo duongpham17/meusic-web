@@ -13,11 +13,11 @@ const Admin = (props) => {
     useApiGet(roomGetCreateByMe, room.admin.length);
 
     return ( !!room.admin.length &&
-        <div className={styles.container}>
-            <h3>
+        <section className={styles.container}>
+            <b>
                 <span>Admin</span> 
                 <span>{room.admin.length} Room</span>
-            </h3>
+            </b>
             <div className={styles.map}>
                 {room.admin.map(el => 
                     <div className={styles.element} key={el._id}>
@@ -26,7 +26,7 @@ const Admin = (props) => {
                     </div>
                 )}
             </div>
-        </div>
+        </section>
     )
 }
 

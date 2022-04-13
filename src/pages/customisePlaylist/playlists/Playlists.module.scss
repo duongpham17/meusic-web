@@ -2,22 +2,22 @@
 
     .element{
         cursor: pointer;
-        border: 1px solid var(--main);
+        border: 2px solid var(--background-faded);
         border-radius: 5px;
         margin-bottom: 1rem;
         padding: 0.5rem;
 
         &:hover{
-            border-color: var(--main-selected);
+            border-color: var(--main-color-selected);
         }
     }
 
     .reorder{
-        border: 2px solid;
+        border: 2px solid var(--main-color-light);
     }
 
     .isDragging{
-        border-color: var(--main-selected);
+        border-color: var(--main-color-selected);
     }
 
 }

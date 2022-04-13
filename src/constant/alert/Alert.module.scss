@@ -32,7 +32,7 @@
 
     .alert-primary {
         @include color(white, black);
-        border: 1px solid var(--main);
+        border: 1px solid var(--main-color);
     }
 
 }

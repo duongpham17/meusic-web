@@ -27,7 +27,9 @@ export const Songs = (props) => {
             {previewPlaylist.songs.map((el, index) => 
                 <div key={el._id} className={styles.element} onClick={onPlay(el)}>
 
+                    <div className={styles.admin}>
                     <Admin {...props} song={el} />
+                    </div>
                     
                     <Information {...props} song={el} index={index} show />
 

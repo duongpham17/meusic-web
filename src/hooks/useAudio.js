@@ -18,7 +18,7 @@ const useAudio = (audio, tracks, song) => {
     const [trackEnded, setTrackEnded] = useState(false);
     const [trackMuted, setTrackMuted] = useState(JSON.parse(localStorage.getItem("muted")) || false);
     const [trackVolume, setTrackVolume] = useState(JSON.parse(localStorage.getItem("muted")) ? 0 : localStorage.getItem("volume"));
-    const [trackCycleType, setTrackCycleType] = useState(localStorage.getItem("cycleType") || "loop");
+    const [trackCycleType, setTrackCycleType] = useState(localStorage.getItem("trackCycle") || "loop");
 
     const play = () => audio.current.play();
 
@@ -73,19 +73,19 @@ const useAudio = (audio, tracks, song) => {
 
     // play song in order
     const loop = () => {
-        localStorage.setItem("cycleType", "loop");
+        localStorage.setItem("trackCycle", "loop");
         setTrackCycleType("loop");
     }; 
 
     // play song in random order
     const shuffle = () => {
-        localStorage.setItem("cycleType", "shuffle");
+        localStorage.setItem("trackCycle", "shuffle");
         setTrackCycleType("shuffle");
     };
 
     // play song in order
     const repeat = () => {
-        localStorage.setItem("cycleType", "repeat");
+        localStorage.setItem("trackCycle", "repeat");
         setTrackCycleType("repeat");
     };
 

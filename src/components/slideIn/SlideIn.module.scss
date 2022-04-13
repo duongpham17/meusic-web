@@ -1,8 +1,7 @@
 .container{
-    position: relative;
 
     .cover{
-        background-color: var(--background-faded);
+        background-color: var(--background-dark-cover);
         position: fixed;
         width: 100%;
         top: 0;
@@ -20,7 +19,7 @@
         transition: ease-in 0.2s;
         box-sizing: border-box;
         height: 100vh;
-        border-left: 1px solid var(--main);
+        border-left: 1px solid var(--main-color);
         overflow-y: auto;
         overflow-x: hidden;
         transition: 0.3s ease-in-out;
@@ -38,7 +37,7 @@
             }
 
             &:hover *{
-                color: var(--main-selected);
+                color: var(--main-color-selected);
             }
         }
     }

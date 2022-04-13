@@ -1,7 +1,7 @@
 .container{
 
     form{
-        border: 2px solid var(--main);
+        border: 2px solid var(--main-color);
         width: 200px;
         border-radius: 5px;
         padding: 1rem;
@@ -25,7 +25,7 @@
         }
 
         small{
-            color: var(--main-red);
+            color: var(--main-color-red);
         }
     }
     
