@@ -9,11 +9,12 @@
     }
 
     input{
+        background-color: var(--main-color-background);
         border-radius: 100px;
         width: 100%;
         padding: 0.7rem;
         padding-left: 3rem;
-        border: 2px solid var(--main-color);
+        border: 2px solid var(--main-color-light);
 
         &:hover, &:focus{
             border-color: var(--main-color-selected);

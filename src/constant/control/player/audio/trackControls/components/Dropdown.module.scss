@@ -30,6 +30,7 @@
         position: relative;
         display: none;
         div{
+            background-color: var(--main-color-background);
             position: absolute;
             padding: 0.5rem;
             border: 1px solid var(--background-faded);

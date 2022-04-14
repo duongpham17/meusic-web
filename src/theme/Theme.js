@@ -3,26 +3,39 @@ import React, {useLayoutEffect} from 'react';
 import { connect } from 'react-redux';
 import {backgroundTheme} from 'theme/backgroundTheme';
 
+import clouds from './images/clouds.jpg';
+import moon from './images/moon.jpeg';
+import winter from './images/winter.jpeg';
+
 const Theme = ({theme, children}) =>  {
 
-    const body = (color) => document.body.style = `background: ${color}`;
-
-    const themeStyle = !localStorage.getItem("theme") ? "light" : localStorage.getItem("theme");
-
-    const backgroundTheme_keys = Object.keys(backgroundTheme);
-
-    const backgroundTheme_values = Object.values(backgroundTheme);
+    const themeStyle = !JSON.parse(localStorage.getItem("theme")) ? backgroundTheme[0] : JSON.parse(localStorage.getItem("theme"));
 
     useLayoutEffect(() => {
 
-        backgroundTheme_keys.forEach((theme, index) => {
-            if(themeStyle === theme) body(backgroundTheme_values[index])
-        });
+        if(themeStyle.type === "color") {
+            document.body.style.background = themeStyle.backgroundColor;
+        }
 
-    }, [theme, themeStyle, backgroundTheme_keys, backgroundTheme_values]);
+        if(themeStyle.type === "wallpaper") {
+
+            const wallpaper = (theme, image) => {
+                if(themeStyle.theme === theme) return document.body.style.backgroundImage = `url('${image}')`;
+            };
+
+            wallpaper("clouds", clouds);
+            wallpaper("moon", moon);
+            wallpaper("winter", winter);
+
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundAttachment = "fixed";
+            document.body.style.backgroundSize = "cover";
+        };
+
+    }, [theme, themeStyle]);
 
     return (
-        <div className={`theme-${themeStyle}`}>
+        <div className={`theme-${themeStyle.theme}`}>
             {children}
         </div>
     ) 

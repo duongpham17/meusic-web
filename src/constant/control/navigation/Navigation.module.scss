@@ -1,5 +1,7 @@
 .container{
     border-top: 1px solid var(--main-color);
+    background-color: var(--main-color-background);
+    position: relative;
 
     .controls{
         display: flex;

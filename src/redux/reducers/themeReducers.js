@@ -3,7 +3,11 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    theme: localStorage.getItem("theme") || "light"
+    theme: JSON.parse(localStorage.getItem("theme")) || {
+        theme: "light",
+        color: "white",
+        type: "color"
+    }
 }
 
 export const Theme = (state = initialState, action) => {

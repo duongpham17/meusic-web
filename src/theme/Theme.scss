@@ -10,7 +10,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 div, section, main, table, form, header, nav, footer{
-    background-color: var(--main-color-background);
     transition: 0.1s ease-in-out;
 }
 
@@ -21,11 +20,13 @@ div, section, main, table, form, header, nav, footer{
 
 //*******
 :root{
-    --background-faded:rgba(154, 154, 154, 0.2);
+    --background-faded:rgba(123, 123, 123, 0.141);
     --background-dark-cover:rgba(25, 25, 25, 0.9);
 }
 
 //themes 
+
+// type - color
 .theme-light{
     --main-color-background: white;
     --main-color: hsl(0, 0%, 24%);
@@ -89,3 +90,38 @@ div, section, main, table, form, header, nav, footer{
     --main-color-light: hsla(41, 71%, 62%, 0.961);
     --main-color-red: rgb(233, 110, 110);
 }
+
+.theme-peach {
+    --main-color-background: rgb(24, 24, 24);
+    --main-color: rgb(254, 180, 211);
+    --main-color-selected: rgb(255, 132, 183);
+    --main-color-light: rgba(232, 148, 183, 0.859);
+    --main-color-red: rgb(233, 110, 110);
+}
+
+// type - wallpaper
+
+.theme-clouds {
+    --main-color-background: rgb(255, 255, 255);
+    --main-color: black;
+    --main-color-selected: rgb(254, 180, 211);
+    --main-color-light: rgb(93, 93, 93);
+    --main-color-red: rgb(233, 110, 110);
+}
+
+.theme-moon {
+    --main-color-background: rgb(24, 24, 24);
+    --main-color: rgb(185, 227, 240);
+    --main-color-selected: rgb(72, 201, 240);
+    --main-color-light: rgba(152, 201, 216, 0.84);
+    --main-color-red: rgb(233, 110, 110);
+}
+
+.theme-winter {
+    --main-color-background: rgb(232, 232, 232);
+    --main-color: rgb(0, 0, 0);
+    --main-color-selected: rgb(0, 93, 93);
+    --main-color-light: rgb(81, 81, 81);
+    --main-color-red: rgb(233, 110, 110);
+}
+
