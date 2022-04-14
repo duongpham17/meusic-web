@@ -10,10 +10,10 @@ import Developer from './developer';
 
 const Navbar = (props) => {
 
-  const {theme: {theme}} = props;
+  const {utils: {theme}} = props;
 
   return (
-    <div className={`${styles.container} ${theme?.type === "wallpaper" && styles.wallpaper}`}>
+    <div className={`${styles.container} ${theme.theme.type === "wallpaper" && styles.wallpaper}`}>
   
       <Logo/>
   
@@ -39,7 +39,7 @@ const Navbar = (props) => {
 };
 
 const mapStateToProps = state => ({
-  theme: state.themeReducers
+  utils: state.utilsReducers
 })
 
 export default connect(mapStateToProps)(Navbar);

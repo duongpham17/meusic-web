@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 
-import {playingSelectPlaylist} from 'redux/actions/playingActions';
-import {savedPlaylistGetSongs} from 'redux/actions/savedPlaylistActions';
+import { playingSelectPlaylist } from 'redux/actions/playingActions';
+import { savedPlaylistGetSongs, savedPlaylistRemoveFrom } from 'redux/actions/savedPlaylistActions';
+import { utilsDownloadOptions } from 'redux/actions/utilsActions';
 
 import useUrlDownload from 'hooks/useUrlDownload';
 
@@ -47,11 +48,14 @@ const mapStateToProps = state => ({
   savedPlaylist: state.savedPlaylistReducers,
   customisePlaylist: state.customisePlaylistReducers,
   playing: state.playingReducers,
+  utils: state.utilsReducers
 });
 
 const mapDispatchToProps = {
   playingSelectPlaylist,
   savedPlaylistGetSongs,
+  savedPlaylistRemoveFrom,
+  utilsDownloadOptions
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SavedPlaylist);

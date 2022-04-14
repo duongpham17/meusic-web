@@ -23,7 +23,6 @@ const Room = (props) => {
   const params = useParams();
 
   useEffect(() => {
-    localStorage.removeItem("trackCycle");
     (async () => {
       const room = await roomGet(params.room);
 
@@ -39,7 +38,8 @@ const Room = (props) => {
   }, [roomGet, params.room, user._id]);
 
   useEffect(() => {
-    playingClear()
+    playingClear();
+    localStorage.removeItem("trackCycle");
   }, [playingClear]);
 
   props = {

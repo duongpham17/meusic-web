@@ -7,7 +7,9 @@ import clouds from './images/clouds.webp';
 import moon from './images/moon.webp';
 import winter from './images/winter.webp';
 
-const Theme = ({theme, children}) =>  {
+const Theme = ({utils, children}) =>  {
+
+    const {theme} = utils
 
     const themeStyle = JSON.parse(localStorage.getItem("theme")) || backgroundTheme[0];
 
@@ -42,7 +44,7 @@ const Theme = ({theme, children}) =>  {
 }
 
 const mapStateToProps = state => ({
-    theme: state.themeReducers
+    utils: state.utilsReducers
 });
 
 export default connect(mapStateToProps)(Theme);

@@ -2,7 +2,7 @@ import styles from './Desktop.module.scss';
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { downloadOptions } from 'redux/actions/downloadActions';
+import { utilsDownloadOptions } from 'redux/actions/utilsActions';
 
 import { AiFillApple } from 'react-icons/ai';
 
@@ -15,14 +15,14 @@ import { mac } from "./app";
 
 const Desktop = (props) => {
 
-    const {downloadOptions} = props;
+    const {utilsDownloadOptions} = props;
 
     const {download} = useUrlDownload();
 
     const onDownload = async (title, url) => {
-        downloadOptions("start", title);
+        utilsDownloadOptions("start", title);
         await download(url, "meusic", "zip");
-        downloadOptions("end", title);
+        utilsDownloadOptions("end", title);
     };
 
     return (
@@ -50,7 +50,7 @@ const Desktop = (props) => {
 };
 
 const mapDispatchToProps = {
-    downloadOptions
+    utilsDownloadOptions
 }
 
 export default connect(null, mapDispatchToProps)(Desktop)

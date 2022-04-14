@@ -3,10 +3,10 @@ import React, {useEffect} from 'react';
 import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {ControlListLoggedOut, ControlListLoggedIn} from './ControlList';
 import {connect} from 'react-redux';
-import {openContent} from 'redux/actions/openActions';
+import {utilsOpenContent} from 'redux/actions/utilsActions';
 import {BsDownload} from 'react-icons/bs';
 
-const Navigation = ({ auth, upload, openContent }) => {
+const Navigation = ({ auth, upload, utilsOpenContent }) => {
 
   const {isLoggedIn} = auth;
   const {open} = upload;
@@ -28,7 +28,7 @@ const Navigation = ({ auth, upload, openContent }) => {
 
     const EventDownload = window.addEventListener("keypress", (event) => {
       const [ctrl, key] = [event.ctrlKey, event.key];
-      if(ctrl && key === "1") return openContent("upload");
+      if(ctrl && key === "1") return utilsOpenContent("upload");
     });
 
     return () => {
@@ -40,7 +40,7 @@ const Navigation = ({ auth, upload, openContent }) => {
       window.removeEventListener("keypress", EventRoom);
     }
     
-}, [navigate, openContent]);
+}, [navigate, utilsOpenContent]);
 
   return (
     <div className={styles.container}>
@@ -66,7 +66,7 @@ const Navigation = ({ auth, upload, openContent }) => {
                 }
 
                 {el.type === "button" &&
-                  <button onClick={() => openContent("upload")} className={`${open && styles.selected}`}>
+                  <button onClick={() => utilsOpenContent("upload")} className={`${open && styles.selected}`}>
                     <BsDownload/>
                   </button>
                 }
@@ -87,7 +87,7 @@ const mapStateToProps = state =>({
 })
 
 const mapDispatchToProps = {
-  openContent
+  utilsOpenContent
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

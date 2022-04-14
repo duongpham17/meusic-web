@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react';
 
 import { connect } from 'react-redux';
 import { playingChangeSong, playingIncrementSongPlayed } from 'redux/actions/playingActions';
-import { openContent } from 'redux/actions/openActions';
+import { utilsOpenContent } from 'redux/actions/utilsActions';
 
 import useAudio from 'hooks/useAudio';
 
@@ -54,7 +54,7 @@ export const AudioPlayer = (props) => {
 const mapDispatchToProps = {
     playingChangeSong,
     playingIncrementSongPlayed,
-    openContent
+    utilsOpenContent
 }
 
 export default connect(null, mapDispatchToProps)(AudioPlayer);

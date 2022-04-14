@@ -1,16 +1,12 @@
-// Theme
-export const THEME_CHANGE = "THEME_CHANGE";
+// utils
+export const UTILS_THEME_CHANGE = "UTILS_THEME_CHANGE";
+export const UTILS_DOWNLOAD_SONG_STARTED = "UTILS_DOWNLOAD_SONG_STARTED";
+export const UTILS_DOWNLOAD_SONG_FINISHED = "UTILS_DOWNLOAD_SONG_FINISHED";
+export const UTILS_OPEN_CONTENT = "UTILS_OPEN_CONTENT";
 
 // Alert
 export const ALERT_SET = "ALERT_SET";
 export const ALERT_REMOVE = "ALERT_REMOVE"; 
-
-// Download
-export const DOWNLOAD_SONG_STARTED = "DOWNLOAD_SONG_STARTED";
-export const DOWNLOAD_SONG_FINISHED = "DOWNLOAD_SONG_FINISHED";
-
-// Open
-export const OPEN_CONTENT = "OPEN_CONTENT";
 
 // Authentication
 export const AUTH_LOGIN = "AUTH_LOGIN";

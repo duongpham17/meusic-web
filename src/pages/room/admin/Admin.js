@@ -21,7 +21,7 @@ const Admin = (props) => {
             <div className={styles.map}>
                 {room.admin.map(el => 
                     <div className={styles.element} key={el._id}>
-                        <Link to={`/room/${el.room}`} target="_blank">{el.room}</Link>
+                        <a href={`/room/${el.room}`}> {el.room}</a>
                         <Menu {...props} element={el} />
                     </div>
                 )}

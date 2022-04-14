@@ -27,7 +27,6 @@ export const useOnSocket = (socket) => {
         socket.on("updatedSong", (data) => {
             setRoomData(data)
         });
-
     }, [socket]);
 
     return {

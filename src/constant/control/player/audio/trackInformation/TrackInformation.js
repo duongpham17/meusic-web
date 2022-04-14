@@ -3,9 +3,9 @@ import React from 'react';
 
 export const AudioInformation = (props) => {
 
-    const {trackPlaying, trackIndex, tracks, openContent} = props;
+    const {trackPlaying, trackIndex, tracks, utilsOpenContent} = props;
 
-    const onOpenContent = () => openContent("tracks");
+    const onOpenContent = () => utilsOpenContent("tracks");
 
     return (
         <div className={styles.container}>

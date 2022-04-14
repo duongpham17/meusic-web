@@ -3,10 +3,10 @@
 import styles from './Theme.module.scss';
 import React from 'react';
 import {connect} from 'react-redux';
-import {themeChange} from 'redux/actions/themeActions';
+import {utilsThemeChange} from 'redux/actions/utilsActions';
 import {backgroundTheme} from 'theme/backgroundTheme';
 
-export const Theme = ({themeChange}) => {
+export const Theme = ({utilsThemeChange}) => {
 
     return (
         <div className={styles.container}>
@@ -15,7 +15,7 @@ export const Theme = ({themeChange}) => {
             <div className={styles.backgroundTheme}>
                 {backgroundTheme.map((el) =>
                     <div key={el.theme}>
-                        <button onClick={() => themeChange(el)} style={{background: `linear-gradient(120deg, ${el.backgroundColor} 60%, ${el.wordColor} 40%)`}} />
+                        <button onClick={() => utilsThemeChange(el)} style={{background: `linear-gradient(120deg, ${el.backgroundColor} 60%, ${el.wordColor} 40%)`}} />
                         <p>{el.theme.toUpperCase()}</p>
                     </div>
                 )}
@@ -26,7 +26,7 @@ export const Theme = ({themeChange}) => {
 }
 
 const mapDispatchToProps = {
-    themeChange
+    utilsThemeChange
 }
 
 export default connect(null, mapDispatchToProps)(Theme)

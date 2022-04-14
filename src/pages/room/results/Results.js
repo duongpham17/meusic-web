@@ -39,9 +39,9 @@ const Results = (props)  => {
                         {el.private ? <MdOutlineLock className={styles.private}/> : <MdOutlineLockOpen className={styles.public}/> }
                     </div>
 
-                    <Link to={`/room/${el.room}`} target="_blank" onClick={onPreviosUpdate(el)}>
+                    <a href={`/room/${el.room}`} onClick={onPreviosUpdate(el)}>
                         {el.room}
-                    </Link>
+                    </a>
 
                 </div>    
             )}

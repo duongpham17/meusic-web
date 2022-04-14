@@ -1,8 +1,6 @@
 import {combineReducers} from 'redux';
+import utilsReducers from './utilsReducers';
 import alertReducers from './alertReducers';
-import downloadReducers from './downloadReducers';
-import openReducers from './openReducers';
-import themeReducers from './themeReducers';
 import authReducers from './authReducers';
 import userReducers from './userReducers';
 import roomReducers from './roomReducers';
@@ -15,9 +13,7 @@ import othersPlaylistReducers from './othersPlaylistReducers';
 
 export default combineReducers({
     alertReducers,
-    downloadReducers,
-    openReducers,
-    themeReducers,
+    utilsReducers,
     authReducers,
     userReducers,
     uploadReducers,

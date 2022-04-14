@@ -1,15 +1,18 @@
 import styles from './Download.module.scss';
 import React from 'react';
 import { connect } from 'react-redux';
-import {downloadOptions} from 'redux/actions/downloadActions';
+import {utilsDownloadOptions} from 'redux/actions/utilsActions';
 import { generateid } from 'utils/generateid';
 
-const Download = ({download, downloadOptions}) => {
+const Download = ({utils, utilsDownloadOptions}) => {
+
+    const {download} = utils;
+
   return (
     <div className={styles.container}>
-        {download?.map(el => 
+        {download.map(el => 
         
-            <div key={generateid()} className={styles.element} onClick={() => downloadOptions("end", el)}>
+            <div key={generateid()} className={styles.element} onClick={() => utilsDownloadOptions("end", el)}>
                 <p>{el.slice(0, 40)}...</p>
                 <div className="loading-15" />
             </div>
@@ -20,11 +23,11 @@ const Download = ({download, downloadOptions}) => {
 }
 
 const mapStateToProps = state => ({
-    download: state.downloadReducers
+    utils: state.utilsReducers
 });
 
 const mapDispatchToProps = {
-    downloadOptions
+    utilsDownloadOptions
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Download)

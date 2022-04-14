@@ -33,9 +33,9 @@ const Previous = () => {
                             <button onClick={onDelete(i)}><MdClose/></button>
                         </div>
 
-                        <Link to={`/room/${el.room}`} target="_blank">
+                        <a href={`/room/${el.room}`}>
                             {el.room}
-                        </Link>
+                        </a>
 
                     </div>    
                 )}

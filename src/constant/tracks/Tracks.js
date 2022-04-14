@@ -3,24 +3,24 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 import {playingChangeSong } from 'redux/actions/playingActions';
-import {openContent} from 'redux/actions/openActions';
+import {utilsOpenContent} from 'redux/actions/utilsActions';
 
 import SlideIn from 'components/slideIn';
 import InformationLayout2 from 'components/informationLayout/Layout2';
 
 const Tracks = (props) => {
 
-    const {playing, playingChangeSong, openContent, open} = props;
+    const {playing, playingChangeSong, utilsOpenContent, utils} = props;
 
     const isPlaying = (element) => playing.playlistType === "previewPlaylist" ?  playing.song.previewId === element.previewId : playing.song._id === element._id;
 
     const onPlay = (index) => () => playingChangeSong(index);
 
-    const onOpen = () => openContent("tracks");
+    const onOpen = () => utilsOpenContent("tracks");
 
     return (
         <div className={styles.container}>
-            <SlideIn open={open.id === "tracks"} onOpen={onOpen}>
+            <SlideIn open={utils.open === "tracks"} onOpen={onOpen}>
 
                 <div className={styles.total}>
                     <b>Songs {playing.playlist.length}</b>
@@ -39,12 +39,12 @@ const Tracks = (props) => {
 
 const mapStateToProps = state => ({
     playing: state.playingReducers,
-    open: state.openReducers
+    utils: state.utilsReducers
 });
 
 const mapDispatchToProps = {
-    openContent,
-    playingChangeSong
+    utilsOpenContent,
+    playingChangeSong,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tracks);
