@@ -29,21 +29,21 @@ const Songs = (props) => {
             <div className={styles.content} onClick={() => onOpen("saved")}>
                 <button className={styles.button}>My Songs</button>
                 <SlideIn onOpen={onOpen} open={open === "saved"}>
-                    {savedPlaylist.playlist && <Saved {...props} />}
+                    {savedPlaylist.playlist && open === "saved" && <Saved {...props} />}
                 </SlideIn>
             </div>
 
             <div className={styles.content} onClick={() => onOpen("customise")}>
                 <button className={styles.button}>My Playlists</button>
                 <SlideIn onOpen={onOpen} open={open === "customise"}>
-                    <Customise {...props} />
+                    {open === "customise" && <Customise {...props} />}
                 </SlideIn>
             </div>
 
             <div className={styles.content} onClick={() => onOpen("find")}>
                 <button className={styles.button}>Search</button>
                 <SlideIn onOpen={onOpen} open={open === "find"}>
-                    <Find {...props} />
+                    {open === "find" && <Find {...props} />}
                 </SlideIn>
             </div>
 
