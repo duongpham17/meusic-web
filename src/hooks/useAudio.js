@@ -14,6 +14,7 @@ const useAudio = (audio, tracks, song) => {
     const [trackPlaying, setTrackPlaying] = useState(song);
     const [trackIndex, setTrackIndex] = useState(song.index || 0);
     const [trackProgress, setTrackProgress] = useState(0);
+    const [trackLoading, setTrackLoading] = useState(false);
     const [trackError, setTrackError] = useState(false);
     const [trackEnded, setTrackEnded] = useState(false);
     const [trackMuted, setTrackMuted] = useState(JSON.parse(localStorage.getItem("muted")) || false);
@@ -83,7 +84,7 @@ const useAudio = (audio, tracks, song) => {
         setTrackCycleType("shuffle");
     };
 
-    // play song in order
+    // play same song over and over again
     const repeat = () => {
         localStorage.setItem("trackCycle", "repeat");
         setTrackCycleType("repeat");
@@ -103,8 +104,8 @@ const useAudio = (audio, tracks, song) => {
             return {...tracks[0], index: 0}
         }
         
+        // next song
         if(trackLength !== trackIndex) {
-            // go to next random track
             if(trackCycleType === "repeat"){
                 setTrackIndex(trackIndex);
                 setTrackPlaying({...tracks[trackIndex], index: trackIndex});
@@ -115,7 +116,6 @@ const useAudio = (audio, tracks, song) => {
                 setTrackPlaying({...tracks[randomIndex], index: randomIndex});
                 return {...tracks[randomIndex], index: randomIndex};
             };
-            // go to next track
             if(trackCycleType === "loop" || !trackCycleType){ 
                 setTrackIndex((trackIndex) => trackIndex+1);
                 setTrackPlaying({...tracks[trackIndex+1], index: trackIndex+1});
@@ -156,10 +156,12 @@ const useAudio = (audio, tracks, song) => {
 
     // play song that is selected
     useEffect(() => {   
+        setTrackLoading(true)
         const Audio = audio.current;
 
         Audio.pause();
         Audio.src = trackPlaying.url;
+        Audio.currentTime = 0;
         Audio.load();
 
         const canplay = Audio.addEventListener("canplay", () => { 
@@ -173,6 +175,7 @@ const useAudio = (audio, tracks, song) => {
             Audio.playbackRate = playbackRate;
 
             Audio.play();
+            setTrackLoading(false);
         });
 
         return () => Audio.removeEventListener("canplay", canplay);
@@ -204,11 +207,20 @@ const useAudio = (audio, tracks, song) => {
 
     //2. play next
     useEffect(() => {
-        if(!trackError && !trackEnded) return;
-        if(trackError) setTrackError(false);
-        if(trackEnded) setTrackEnded(false);
-        next();
-    }, [trackEnded, trackError, next]);
+        if(trackEnded) {
+            setTrackEnded(false);
+            next();
+        };
+    }, [trackEnded, next]);
+
+    //reload track when error
+    useEffect(() => {
+        if(trackError){
+            setTrackError(false);
+            const Audio = audio.current;
+            Audio.load();
+        }   
+    }, [trackError, audio])
     
     return {
         audio, 
@@ -222,6 +234,7 @@ const useAudio = (audio, tracks, song) => {
         trackCycleType,
         trackVolume,
         trackMuted,
+        trackLoading,
 
         playbackRate,
         previous,

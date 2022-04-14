@@ -1,6 +1,5 @@
 /* Loading */ 
 @mixin Loading($width, $height, $border) {
-    z-index: 1;  
     width: $width;
     height: $height;
     border-radius: 50%;

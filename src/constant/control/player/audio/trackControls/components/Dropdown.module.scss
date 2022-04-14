@@ -2,19 +2,19 @@
     margin: 0 0.1rem;
     
     .button{
-
         button{
             background-color: var(--background-faded);
-            padding: 0.4rem;
+            height: 32px;
+            width: 32px;
             display: flex;
-    
+            align-items: center;
+            justify-content: center;
             &:hover *{
                 color: var(--main-color-selected);
             }
         }
         svg{
-            font-size: 1.3rem;  
-            display: flex;
+            font-size: 1.4rem;
         }
 
         button:focus-within *{
