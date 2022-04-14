@@ -1,5 +1,17 @@
 export const backgroundTheme = [
     {
+        theme: "light",
+        backgroundColor: "white",
+        wordColor: "hsl(0, 0%, 24%)",
+        type: "color",
+    },
+    {
+        theme: "night",
+        backgroundColor: "hsl(0, 2%, 10%)",
+        wordColor: "hsl(0, 0%, 95%)",
+        type: "color",
+    },
+    {
         theme: "clouds",
         backgroundColor: "white",
         wordColor: "black",
@@ -16,18 +28,6 @@ export const backgroundTheme = [
         backgroundColor: "rgb(232, 232, 232)",
         wordColor: "rgb(0, 0, 0)",
         type: "wallpaper"
-    },
-    {
-        theme: "light",
-        backgroundColor: "white",
-        wordColor: "hsl(0, 0%, 24%)",
-        type: "color",
-    },
-    {
-        theme: "night",
-        backgroundColor: "hsl(0, 2%, 10%)",
-        wordColor: "hsl(0, 0%, 95%)",
-        type: "color",
     },
     {
         theme: "cave",
