@@ -99,10 +99,18 @@ div, section, main, table, form, header, nav, footer{
     --main-color-red: rgb(233, 110, 110);
 }
 
+.theme-pink {
+    --main-color-background: hsl(343, 100%, 96%);
+    --main-color: hsl(323, 100%, 72%);
+    --main-color-selected: hsl(323, 100%, 50%);
+    --main-color-light: hsl(323, 72%, 72%);
+    --main-color-red: rgb(233, 110, 110);
+}
+
 // type - wallpaper
 
 .theme-clouds {
-    --main-color-background: rgb(255, 255, 255);
+    --main-color-background: hsl(27, 53%, 97%);
     --main-color: black;
     --main-color-selected: rgb(254, 180, 211);
     --main-color-light: rgb(93, 93, 93);

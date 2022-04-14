@@ -13,7 +13,7 @@ export const backgroundTheme = [
     },
     {
         theme: "clouds",
-        backgroundColor: "white",
+        backgroundColor: "hsl(27, 53%, 97%)",
         wordColor: "black",
         type: "wallpaper",
     },
@@ -69,6 +69,12 @@ export const backgroundTheme = [
         theme: "peach",
         backgroundColor: "rgb(24, 24, 24)",
         wordColor: "rgb(254, 180, 211)",
+        type: "color"
+    },
+    {
+        theme: "pink",
+        backgroundColor: "hsl(343, 100%, 96%)",
+        wordColor: "hsl(0, 0%, 33%)",
         type: "color"
     }
 ]
