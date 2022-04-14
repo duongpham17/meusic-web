@@ -26,7 +26,7 @@ export const Menu = () => {
 
                 <div className={styles.links}>
                     {LinkList.map(el => 
-                        <Link key={el.id} to={el.link}>
+                        <Link key={el.id} to={el.link} onClick={onOpen}>
                             <span>{el.icon}</span>
                             <span>{el.name}</span>
                         </Link>   

@@ -18,9 +18,10 @@ const Sort = (props) => {
     return ( !!songsList.length &&
         <div className={styles.container}>
             <div>
-            <p><b>SONGS {songsList.length}</b></p>
+                <p><b>SONGS {songsList.length}</b></p>
             </div>
-            <div>
+
+            <div className={styles.sort}>
                 <button onClick={onSort("artist")} className={classnameSort("artist")}>A - Z</button>
                 <button onClick={onSort("newest")} className={classnameSort("newest")}>Newest</button>
             </div>
