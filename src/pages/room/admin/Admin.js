@@ -1,7 +1,5 @@
 import styles from './Admin.module.scss';
 import React from 'react';
-
-import {Link} from 'react-router-dom'
 import useApiGet from 'hooks/useApiGet';
 
 import Menu from './menu/Menu';

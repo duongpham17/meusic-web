@@ -1,6 +1,5 @@
 import styles from './Results.module.scss';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import useOpen from 'hooks/useOpen';
 
 import { MdOutlineLock, MdOutlineLockOpen } from 'react-icons/md';

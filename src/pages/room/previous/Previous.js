@@ -1,7 +1,5 @@
 import styles from './Previous.module.scss';
 import React, {useState} from 'react';
-
-import { Link } from 'react-router-dom';
 import { MdClose } from 'react-icons/md';
 
 const Previous = () => {
