@@ -3,9 +3,9 @@ import React, {useLayoutEffect} from 'react';
 import { connect } from 'react-redux';
 import {backgroundTheme} from 'theme/backgroundTheme';
 
-import clouds from './images/clouds.jpg';
-import moon from './images/moon.jpeg';
-import winter from './images/winter.jpeg';
+import clouds from './images/clouds.webp';
+import moon from './images/moon.webp';
+import winter from './images/winter.webp';
 
 const Theme = ({theme, children}) =>  {
 
