@@ -20,7 +20,7 @@ const Authentication = ({children, auth, authClearError}) => {
     const TitleLinks = ({title, link, description}) => (
         <div>
             <h2>{title}</h2>
-            <Link to={`/${link}`}> <MdKeyboardArrowRight/> <span>{description}</span></Link>
+            <Link to={`/${link}`}> <MdKeyboardArrowRight/> {description}</Link>
         </div> 
     )
     

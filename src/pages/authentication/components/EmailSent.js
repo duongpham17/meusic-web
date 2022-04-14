@@ -28,6 +28,7 @@ const EmailSent = ({email, auth, authConfirmCode}) => {
   return (
     <div className={styles.container}>
       <div>
+        
         {!enterCode ? 
 
           <div className={styles.emailSent}>

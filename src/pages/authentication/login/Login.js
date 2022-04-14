@@ -3,9 +3,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {authLogin} from 'redux/actions/authActions';
 
-import Authentication from '../share/Authentication';
-import EmailSent from '../share/EmailSent';
-import Valiation from "../share/Validation";
+import Authentication from '../components/Authentication';
+import EmailSent from '../components/EmailSent';
+import Valiation from "../components/Validation";
 
 import useForm from 'hooks/useForm';
 

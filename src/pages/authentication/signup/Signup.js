@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
-import { authSignupEmail, authSignupUsername } from 'redux/actions/authActions';
+import { authSignupEmail, authSignupUsername, authSignupClear } from 'redux/actions/authActions';
 
-import Authentication from '../share/Authentication';
-import EmailSent from '../share/EmailSent';
-import Valiation from "../share/Validation";
+import Authentication from '../components/Authentication';
+import EmailSent from '../components/EmailSent';
+import Valiation from "../components/Validation";
 
 import useForm from 'hooks/useForm';
 
 export const Signup = (props) => {
 
-  const {auth, authSignupEmail, authSignupUsername} = props;
+  const {auth, authSignupEmail, authSignupUsername, authSignupClear} = props;
 
   const initalState = {
     email: "",
@@ -24,6 +24,12 @@ export const Signup = (props) => {
     if(!auth.signup) return await authSignupEmail(values);
     await authSignupUsername(values);
   };
+
+  useEffect(() => {
+    return () => {
+      authSignupClear()
+    }
+  }, [authSignupClear]);
 
   return (
     <Authentication>
@@ -69,6 +75,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   authSignupEmail,
   authSignupUsername,
+  authSignupClear,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

@@ -13,6 +13,7 @@ export const AUTH_LOGIN = "AUTH_LOGIN";
 export const AUTH_SIGNUP = "AUTH_SIGNUP";
 export const AUTH_CONFIRM = "AUTH_CONFIRM";
 export const AUTH_ERROR = "AUTH_ERROR";
+export const AUTH_SIGNUP_CLEAR = "AUTH_SIGNUP_CLEAR";
 
 // Admin
 export const ADMIN_SONG_DELETE = "ADMIN_SONG_DELETE";

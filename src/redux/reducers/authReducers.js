@@ -3,6 +3,7 @@ import {
     AUTH_SIGNUP,
     AUTH_ERROR,
     AUTH_CONFIRM,
+    AUTH_SIGNUP_CLEAR,
 } from '../actions/types';
 
 const initialState = {
@@ -28,6 +29,11 @@ export const Auth = (state = initialState, action) => {
             return{
                 ...state,
                 signup: payload,
+            }
+        case AUTH_SIGNUP_CLEAR: 
+            return{
+                ...state,
+                signup: ""
             }
 
         case AUTH_LOGIN: 

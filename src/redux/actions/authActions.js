@@ -7,6 +7,7 @@ import {
     AUTH_ERROR,
     AUTH_SIGNUP,
     AUTH_CONFIRM,
+    AUTH_SIGNUP_CLEAR
 
 } from './types';
 
@@ -15,7 +16,13 @@ export const authClearError = () => async dispatch => {
         type: AUTH_ERROR,
         payload: ""
     });
-}
+};
+
+export const authSignupClear = () => async dispatch => {
+    dispatch({
+        type: AUTH_SIGNUP_CLEAR,
+    })
+};
 
 export const authLoadUser = () => async dispatch => {
     try{
