@@ -13,6 +13,11 @@ const Theme = ({theme, children}) =>  {
 
     useLayoutEffect(() => {
 
+        if(!themeStyle) {
+            localStorage.removeItem("theme");
+            localStorage.setItem("theme", JSON.stringify(backgroundTheme[0]));
+        }
+
         if(themeStyle.type === "color") {
             document.body.style.background = themeStyle.backgroundColor;
         }
