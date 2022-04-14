@@ -8,7 +8,7 @@
 
     .element{
         cursor: pointer;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
 
         &:hover{
             border-color: var(--main-color-selected);

@@ -1,5 +1,5 @@
 .container{
-    margin-top: 2rem;
+    padding: 0.5rem;
 
     .clear{
         display: flex;
@@ -22,7 +22,7 @@
         max-height: 500px;
 
         .element{
-            border: 1px solid transparent;
+            border: 2px solid transparent;
             position: relative;
             margin: 0.3rem;
             cursor: pointer;
@@ -32,7 +32,7 @@
             justify-content: center;
 
             &:hover{
-                border-color: var(--main-color-selected) ;
+                border-color: var(--main-color-selected);
             }
 
             &:hover .delete{

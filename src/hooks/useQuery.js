@@ -49,14 +49,14 @@ const useSearchQuery = () => {
 
     const existQuery = (params, value) => location.search.includes(`${params}=${value}`);
 
-    const getSpecificQuery = (params) => new URLSearchParams(location.search).get(params);
+    const getQueryValue = (params) => new URLSearchParams(location.search).get(params);
 
     const clearQuery = () => navigate("");
 
     return {
         getQuery,
         setQuery,
-        getSpecificQuery,
+        getQueryValue,
         clearQuery,
         existQuery,
         navigate,

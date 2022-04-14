@@ -4,11 +4,13 @@
     overflow-y: auto;
 
     .element{
-        border: 1px solid transparent;
         margin: 0.5rem 0;
+        border: 2px solid transparent;
+        
         &:hover{
-            border: 1px solid var(--main-color);
+            border-color: var(--main-color-selected);
         }
+
     }
 
 }

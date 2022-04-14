@@ -12,10 +12,10 @@
         justify-content: center;
         margin-right: 0.5rem;
         background-color: var(--background-faded);
-        border: 1px solid transparent;
+        border: 2px solid transparent;
 
         &:hover{
-            border: 1px solid var(--main-color-selected);
+            border-color: var(--main-color-selected);
         }
 
         .button{

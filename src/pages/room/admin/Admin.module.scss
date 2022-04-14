@@ -16,12 +16,12 @@
             background-color: var(--main-color-opacity);
             border-radius: 5px;    
             margin: 0.5rem;
-            border: 1px solid var(--background-faded);
+            border: 2px solid var(--background-faded);
 
             &:hover{
                 border-color: var(--main-color-selected);
             }
-    
+            
             a{
                 word-break: break-all;
                 text-align: center;

@@ -6,6 +6,7 @@ import {backgroundTheme} from 'theme/backgroundTheme';
 import clouds from './images/clouds.webp';
 import moon from './images/moon.webp';
 import winter from './images/winter.webp';
+import city from './images/city.webp';
 
 const Theme = ({utils, children}) =>  {
 
@@ -28,6 +29,7 @@ const Theme = ({utils, children}) =>  {
             wallpaper("clouds", clouds);
             wallpaper("moon", moon);
             wallpaper("winter", winter);
+            wallpaper("city", city);
 
             document.body.style.backgroundRepeat = "no-repeat";
             document.body.style.backgroundAttachment = "fixed";

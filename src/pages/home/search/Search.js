@@ -15,9 +15,9 @@ export const Search = (props) => {
 
     const {previewGetSongs, previewPlaylist} = props;
 
-    const {getSpecificQuery, setQuery, clearQuery} = useQuery();
+    const {getQueryValue, setQuery, clearQuery} = useQuery();
     
-    const {value, setValue, loading} = useDelayFetch(previewGetSongs, getSpecificQuery("title"));
+    const {value, setValue, loading} = useDelayFetch(previewGetSongs, getQueryValue("title"));
     const [previousSearch, setPreviousSearch] = useState(localStorage.getItem("previousSearch") ? JSON.parse(localStorage.getItem("previousSearch")) : "");
 
     const onSet = useCallback((type, value) => {

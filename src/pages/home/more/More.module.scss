@@ -1,0 +1,16 @@
+.container{
+    margin-top: 2rem;
+
+    button{
+        padding: 1rem;
+        border: 2px solid var(--background-faded);
+        width: 100%;
+        background-color: var(--main-color-opacity);
+        border-radius: 5px;
+
+        &:hover{
+            border-color: var(--main-color);
+        }
+    }
+    
+}

@@ -1,7 +1,7 @@
 import styles from './Find.module.scss';
 import React from 'react';
 
-import Layout2 from 'components/informationLayout/Layout2';
+import InformationLayout2 from 'components/informationLayout/Layout2';
 import SearchBar from 'components/searchBar';
 import useDelayFetch from 'hooks/useDelayFetch';
 
@@ -36,7 +36,7 @@ const Find = (props) => {
                     <div className={styles.map}>
                         {room.searchSong.map((el, index) => 
                             <div className={styles.element} key={el._id} onClick={onAdd(el)}>
-                                <Layout2 song={el} index={index} />
+                                <InformationLayout2 song={el} index={index} />
                             </div>
                         )}
                     </div>

@@ -13,7 +13,7 @@ export const Sort = (props) => {
 
     const {previewGetSongs, onOpen, open} = props;
 
-    const {setQuery, existQuery, getSpecificQuery, clearQuery, navigate} = useQuery();
+    const {setQuery, existQuery, getQueryValue, clearQuery, navigate} = useQuery();
 
     const onSort = (params, value) => () => {
         if(existQuery(params, value)) return;
@@ -45,7 +45,7 @@ export const Sort = (props) => {
             </p>
 
             {sortQuery.map(el => 
-                <button key={el.id} className={`${styles.queryBtn} ${getSpecificQuery("sort") === el.query && styles.selected}`} onClick={onSort("sort", el.query)}>
+                <button key={el.id} className={`${styles.queryBtn} ${getQueryValue("sort") === el.query && styles.selected}`} onClick={onSort("sort", el.query)}>
                     {el.name}
                 </button>
             )}  
@@ -55,7 +55,7 @@ export const Sort = (props) => {
             </p>
 
             {limitQuery.map(el => 
-                <button key={el} className={`${styles.queryBtn} ${Number(getSpecificQuery("limit")) === el && styles.selected}`} onClick={onSort("limit", el)}>
+                <button key={el} className={`${styles.queryBtn} ${Number(getQueryValue("limit")) === el && styles.selected}`} onClick={onSort("limit", el)}>
                     {el}
                 </button>
             )}  

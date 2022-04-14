@@ -1,3 +1,4 @@
+import styles from './Player.module.scss';
 import React, {useEffect, useRef} from 'react';
 
 import useAudio from 'hooks/useAudio';
@@ -27,7 +28,7 @@ export const Player = (props) => {
     };
 
     return (
-        <>
+        <div className={styles.container}>
             <audio ref={audio} />
             
             <Song {...props} />   
@@ -37,7 +38,7 @@ export const Player = (props) => {
             <Volume {...props} />    
 
             <Autoplay {...props} />
-        </>
+        </div>
     )
 }
 

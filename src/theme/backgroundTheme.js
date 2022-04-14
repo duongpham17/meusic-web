@@ -30,6 +30,12 @@ export const backgroundTheme = [
         type: "wallpaper"
     },
     {
+        theme: "city",
+        backgroundColor: "#0c0c29",
+        wordColor: "#f3f3fc",
+        type: "wallpaper"
+    },
+    {
         theme: "cave",
         backgroundColor: "rgb(18, 18, 18)",
         wordColor: "hsla(9, 99%, 62%, 0.944)",

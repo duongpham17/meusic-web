@@ -1,15 +1,5 @@
 .container{
 
-    .get{
-        border: 2px solid var(--background-faded);
-        padding: 1rem;
-        width: 100%;
-
-        &:hover{
-            background-color: var(--background-faded);
-        }
-    }
-
     .element{
         margin: 0.5rem 0;
         background-color: var(--background-faded);
@@ -20,9 +10,11 @@
             justify-content: space-between;
             width: 100%;
             padding: 0.5rem;
+            border: 2px solid transparent;
 
             &:hover{
                 background-color: var(--background-faded);
+                border-color: var(--main-color-selected);
                 svg{
                     color: var(--main-color-selected);
                     border-radius: 5px;
@@ -33,12 +25,6 @@
                 display: flex;
                 font-size: 1.5rem;
             }
-        }
-    }
-
-    a{
-        &:hover{
-            color: var(--main-color-selected);
         }
     }
 }

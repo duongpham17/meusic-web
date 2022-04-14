@@ -1,7 +1,6 @@
-import styles from './Admin.module.scss';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {BiCrown} from 'react-icons/bi';
 
 const Admin = (props) => {
@@ -9,7 +8,7 @@ const Admin = (props) => {
     const {user} = props;
 
     return ( user?.user?.role === "admin" &&
-        <div className={styles.container}>
+        <div>
             <Link to='/admin'>
                 <span><BiCrown/></span> 
                 <span>Admin</span>

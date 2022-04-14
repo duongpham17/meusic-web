@@ -15,7 +15,9 @@ export const Songs = (props) => {
   };
 
   const NothingFound = () => (
-    <p className="center">Nothing found</p>
+    <div className={styles.nothing}>
+      <h3>Nothing found</h3>
+    </div>
   );
 
   return (
