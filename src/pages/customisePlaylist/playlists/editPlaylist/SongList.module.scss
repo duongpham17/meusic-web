@@ -6,13 +6,15 @@
         .search{
             position: sticky;
             top: 0;
-            border-radius: 5px;
-            border: 2px solid var(--main-color);
 
             input{
                 padding: 0.5rem;
+                background-color: var(--main-color-background);
+                border: 2px solid var(--main-color);
+                border-radius: 5px;
+
                 &:hover{
-                    background-color: var(--background-faded);
+                    border-color: var(--main-color-selected);
                 }
             }
         }

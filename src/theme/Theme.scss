@@ -28,108 +28,134 @@ div, section, main, table, form, header, nav, footer{
 
 // type - color
 .theme-light{
-    --main-color-background: white;
     --main-color: hsl(0, 0%, 15%);
+    --main-color-background: white;
+    --main-color-solid: white;
+    --main-color-opacity: rgba(239, 239, 239, 0.745);
     --main-color-selected: rgb(29, 152, 177);
     --main-color-light: rgb(123, 123, 123);   
     --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-night{
-    --main-color-background: hsl(0, 2%, 10%);
     --main-color: hsl(0, 0%, 95%);
+    --main-color-background: hsl(0, 2%, 10%);
+    --main-color-solid: hsl(0, 2%, 10%);
+    --main-color-opacity: rgba(66, 66, 66, 0.213);
     --main-color-selected: rgb(29, 152, 177);
     --main-color-light: rgba(228, 228, 228, 0.57);
     --main-color-red: rgb(233, 110, 110);
 }
 
-.theme-matrix {
-    --main-color-background: black;
-    --main-color: hsl(106, 100%, 57%);
-    --main-color-selected: hsl(118, 100%, 90%);
-    --main-color-light: rgba(131, 234, 128, 0.846);
-    --main-color-red: rgb(233, 110, 110);
-}
-
 .theme-cave {
-    --main-color-background: rgb(18, 18, 18);
     --main-color: hsla(9, 99%, 62%, 0.944);
-    --main-color-selected: hsla(9, 99%, 80%);
+    --main-color-background: rgb(18, 18, 18);
+    --main-color-solid: rgb(18, 18, 18);
+    --main-color-opacity: rgba(44, 44, 44, 0.353);
+    --main-color-selected: rgb(255, 152, 133);
     --main-color-light: hsl(9, 98%, 75%);
     --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-space {
-    --main-color-background:hsl(240, 79%, 4%);
     --main-color: hsl(308, 66%, 61%);
+    --main-color-background: hsl(240, 79%, 4%);;
+    --main-color-solid: hsl(240, 79%, 4%);;
+    --main-color-opacity: hsla(0, 0%, 8%, 0.424);;
     --main-color-selected: hsl(308, 66%, 80%);
     --main-color-light: hsla(308, 66%, 71%, 0.875);
     --main-color-red: rgb(233, 110, 110);
 }
 
+.theme-matrix {
+    --main-color: hsl(106, 100%, 57%);
+    --main-color-background: black;
+    --main-color-solid: black;
+    --main-color-opacity: rgba(40, 40, 40, 0.379);
+    --main-color-selected: hsl(118, 100%, 90%);
+    --main-color-light: rgba(135, 243, 131, 0.846);
+    --main-color-red: rgb(233, 110, 110);
+}
+
 .theme-ocean {
-    --main-color-background:hsl(240, 41%, 3%);
     --main-color: hsl(227, 97%, 62%);
+    --main-color-background: hsl(240, 41%, 3%);
+    --main-color-solid: hsl(240, 41%, 3%);
+    --main-color-opacity: hsla(0, 0%, 7%, 0.639);
     --main-color-selected: hsl(212, 83%, 60%);
     --main-color-light: rgba(103, 130, 228, 0.898);
     --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-electric {
-    --main-color-background:hsla(55, 85%, 3%);
     --main-color: hsl(58, 99%, 54%);
+    --main-color-background: hsla(55, 85%, 3%);
+    --main-color-solid: hsla(55, 85%, 3%);
+    --main-color-opacity: rgba(27, 27, 27, 0.482);
     --main-color-selected: rgb(255, 253, 147);
     --main-color-light: hsla(58, 79%, 51%, 0.761);
     --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-orange {
-    --main-color-background:rgb(15, 11, 5);
     --main-color: hsl(35, 100%, 50%);
+    --main-color-background: hsla(55, 85%, 3%);
+    --main-color-solid: hsla(55, 85%, 3%);
+    --main-color-opacity: rgba(25, 25, 25, 0.76);
     --main-color-selected: hsl(41, 100%, 50%);
     --main-color-light: hsla(41, 71%, 62%, 0.961);
     --main-color-red: rgb(233, 110, 110);
 }
 
-.theme-peach {
-    --main-color-background: rgb(24, 24, 24);
+.theme-pink {
     --main-color: rgb(254, 180, 211);
+    --main-color-background: rgb(24, 24, 24);
+    --main-color-solid: rgb(24, 24, 24);
+    --main-color-opacity: rgba(45, 45, 45, 0.456);
     --main-color-selected: rgb(255, 132, 183);
     --main-color-light: rgba(232, 148, 183, 0.859);
     --main-color-red: rgb(233, 110, 110);
 }
 
-.theme-pink {
-    --main-color-background: hsl(343, 100%, 96%);
-    --main-color: hsl(323, 100%, 72%);
-    --main-color-selected: hsl(323, 100%, 50%);
-    --main-color-light: hsl(323, 72%, 72%);
-    --main-color-red: rgb(233, 110, 110);
+.theme-peach {
+    --main-color: rgb(93, 93, 93);
+    --main-color-background: #fee2da;
+    --main-color-solid: #fee2da;
+    --main-color-opacity: rgba(241, 241, 241, 0.375);
+    --main-color-selected: #fa7856;
+    --main-color-light: rgb(112, 112, 112);
+    --main-color-red: #fa7856;
 }
 
 // type - wallpaper
 
 .theme-clouds {
-    --main-color-background: hsl(27, 53%, 97%);
     --main-color: black;
-    --main-color-selected: rgb(254, 180, 211);
+    --main-color-background: rgba(251, 247, 243, 0.8);
+    --main-color-solid: rgba(251, 247, 243);
+    --main-color-opacity: rgba(251, 247, 243, 0.6);
+    --main-color-selected: hsl(304, 100%, 53%);
     --main-color-light: rgb(93, 93, 93);
-    --main-color-red: rgb(233, 110, 110);
+    --main-color-red: hsl(304, 100%, 53%);
 }
 
 .theme-moon {
-    --main-color-background: rgb(24, 24, 24);
     --main-color: rgb(185, 227, 240);
+    --main-color-background: rgb(24, 24, 24);
+    --main-color-solid: rgb(24, 24, 24);
+    --main-color-opacity: rgba(12, 12, 12, 0.7);
     --main-color-selected: rgb(72, 201, 240);
     --main-color-light: rgba(152, 201, 216, 0.84);
     --main-color-red: rgb(233, 110, 110);
 }
 
 .theme-winter {
-    --main-color-background: rgb(232, 232, 232);
     --main-color: rgb(0, 0, 0);
-    --main-color-selected: rgb(0, 93, 93);
+    --main-color-background: rgb(232, 232, 232);
+    --main-color-solid: rgb(232, 232, 232);
+    --main-color-opacity: rgba(223, 223, 223, 0.411);
+    --main-color-selected: rgb(11, 142, 76);
     --main-color-light: rgb(81, 81, 81);
-    --main-color-red: rgb(233, 110, 110);
+    --main-color-red: rgb(11, 142, 76);
 }
 

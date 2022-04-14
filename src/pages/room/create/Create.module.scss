@@ -3,11 +3,11 @@
     .createBtn{
         width: 80px;
         height: 80px;
-        background-color: var(--background-faded);
+        background-color: var(--main-color-opacity);
+        border: 1px solid var(--background-faded);
         border-radius: 5px;    
         cursor: pointer;
         margin: 0.5rem;
-        border: 1px solid transparent;
 
         display: flex;
         align-items: center;
@@ -36,7 +36,7 @@
         padding: 0.5rem;
         
         form{
-            background-color: var(--main-color-background);
+            background-color: var(--main-color-solid);
             border: 2px solid var(--main-color);
             width: 200px;
             border-radius: 5px;

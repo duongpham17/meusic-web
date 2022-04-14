@@ -9,7 +9,7 @@
     }
 
     input{
-        background-color: var(--main-color-background);
+        background-color: var(--main-color-solid);
         border-radius: 100px;
         width: 100%;
         padding: 0.7rem;
@@ -48,5 +48,6 @@
         padding: 0.2rem;
         border: 1px solid var(--background-faded);
         border-radius: 5px;
+        background-color: var(--main-color-solid);
     }
 }

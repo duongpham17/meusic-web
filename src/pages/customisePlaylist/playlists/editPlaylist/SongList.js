@@ -38,7 +38,7 @@ const SongList = (props) => {
                 </div>
 
                 <div className={styles.total}>
-                    <p>Total Songs</p>
+                    <p>Songs</p>
                     <p>{savedPlaylist.playlist.length}</p>
                 </div>
 

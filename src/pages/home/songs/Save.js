@@ -1,7 +1,7 @@
 import styles from './Save.module.scss';
 import React from 'react';
 
-import {BsHeartFill, BsHeart} from 'react-icons/bs';
+import {BsSuitHeartFill, BsSuitHeart} from 'react-icons/bs';
 
 export const Save = (props) => {
 
@@ -19,9 +19,9 @@ export const Save = (props) => {
                 {
                     alreadyAdded(playlist, song._id) 
                     ?
-                    <button><BsHeartFill onClick={() => savedPlaylistRemoveFrom(song._id)}/></button>
+                    <button><BsSuitHeartFill onClick={() => savedPlaylistRemoveFrom(song._id)}/></button>
                     : 
-                    <button><BsHeart onClick={() => savedPlaylistAddTo(song._id)}/></button>
+                    <button><BsSuitHeart onClick={() => savedPlaylistAddTo(song._id)}/></button>
                 }
             </div>
     )

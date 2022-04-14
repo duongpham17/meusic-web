@@ -13,7 +13,7 @@ export const backgroundTheme = [
     },
     {
         theme: "clouds",
-        backgroundColor: "hsl(27, 53%, 97%)",
+        backgroundColor: "rgba(251, 247, 243, 0.8)",
         wordColor: "black",
         type: "wallpaper",
     },
@@ -66,17 +66,17 @@ export const backgroundTheme = [
         type: "color",
     },
     {
-        theme: "peach",
+        theme: "pink",
         backgroundColor: "rgb(24, 24, 24)",
         wordColor: "rgb(254, 180, 211)",
         type: "color"
     },
     {
-        theme: "pink",
-        backgroundColor: "hsl(343, 100%, 96%)",
-        wordColor: "hsl(0, 0%, 33%)",
+        theme: "peach",
+        backgroundColor: "#fee2da",
+        wordColor: "rgb(93, 93, 93)",
         type: "color"
-    }
+    },
 ]
 
 export default backgroundTheme;
