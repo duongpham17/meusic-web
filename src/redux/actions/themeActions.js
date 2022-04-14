@@ -3,8 +3,11 @@ import {
 } from './types';
 
 /**
- * @param { String } theme - theme name
- * @param { String } type - type enum "color" | "wallpaper"
+ * @param { Object } theme - Object containing information about the theme
+ * @param { String } theme.theme - theme name
+ * @param { String } theme.backgroundColor - background color of page
+ * @param { String } theme.wordColor - word / text color 
+ * @param { String } theme.type - type of theme - enum "color" | "wallpaper"
 */
 
 export const themeChange = (theme) => async dispatch => {
