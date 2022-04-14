@@ -13,8 +13,7 @@ const Theme = ({theme, children}) =>  {
 
     useLayoutEffect(() => {
 
-        if(!themeStyle) {
-            localStorage.removeItem("theme");
+        if(!themeStyle.theme) {
             localStorage.setItem("theme", JSON.stringify(backgroundTheme[0]));
         }
 
