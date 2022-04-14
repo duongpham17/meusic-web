@@ -9,13 +9,9 @@ import winter from './images/winter.webp';
 
 const Theme = ({theme, children}) =>  {
 
-    const themeStyle = !JSON.parse(localStorage.getItem("theme")) ? backgroundTheme[0] : JSON.parse(localStorage.getItem("theme"));
+    const themeStyle = JSON.parse(localStorage.getItem("theme")) || backgroundTheme[0];
 
     useLayoutEffect(() => {
-
-        if(!themeStyle.theme) {
-            localStorage.setItem("theme", JSON.stringify(backgroundTheme[0]));
-        }
 
         if(themeStyle.type === "color") {
             document.body.style.background = themeStyle.backgroundColor;
