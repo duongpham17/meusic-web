@@ -158,8 +158,7 @@ const useAudio = (audio, tracks, song) => {
     useEffect(() => {   
         setTrackLoading(true)
         const Audio = audio.current;
-
-        Audio.pause();
+        
         Audio.src = trackPlaying.url;
         Audio.currentTime = 0;
         Audio.load();

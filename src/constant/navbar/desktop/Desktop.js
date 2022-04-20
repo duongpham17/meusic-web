@@ -3,12 +3,11 @@ import React from 'react';
 
 import { AiFillApple } from 'react-icons/ai';
 
-import Dropdown from 'components/dropdown';
-
 import { mac } from "./app";
 
-const Desktop = () => {
+import Dropdown from 'components/dropdown';
 
+const Desktop = () => {
     return (
         <div className={styles.container}>
             <Dropdown icon={<button className={styles.button}>Desktop</button>}>
