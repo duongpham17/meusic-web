@@ -47,12 +47,11 @@ export const authLogin = (data) => async dispatch => {
             payload: res.data.message
         });
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: AUTH_ERROR,
             payload: {
                 login: {
-                    email: error.response.data.message
+                    email: error.response.data.message.includes("Invalid") ? "Something went wrong" : error.response.data.message
                 } 
             }
         });
