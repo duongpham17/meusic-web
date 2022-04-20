@@ -1,3 +1,3 @@
 # Meusic frontend applciation
 
-https://meusic-web-app.herokuapp.com
+https://meusic.herokuapp.com
