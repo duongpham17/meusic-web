@@ -219,7 +219,6 @@ const useAudio = (audio, tracks, song) => {
             setTrackError(false);
             const Audio = audio.current;
             Audio.load();
-            Audio.currentTime = trackProgress;
         }   
     }, [trackError, audio])
     
