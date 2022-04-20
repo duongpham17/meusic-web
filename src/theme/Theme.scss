@@ -13,6 +13,18 @@ div, section, main, table, form, header, nav, footer{
     transition: 0.1s ease-in-out;
 }
 
+body{
+    &::-webkit-scrollbar {
+        height: 6px;
+        width: 6px;
+        background: black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: white;
+    }
+}
+
 ::placeholder{
     color: var(--main-color);
     opacity: 0.7;
