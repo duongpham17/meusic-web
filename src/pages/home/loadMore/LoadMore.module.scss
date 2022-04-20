@@ -1,12 +1,12 @@
 .container{
-    margin-top: 2rem;
-
+    margin: 2rem auto;
+    text-align: center;
     button{
-        padding: 1rem;
+        padding: 0.7rem;
         border: 2px solid var(--background-faded);
-        width: 100%;
+        width: 200px;
         background-color: var(--main-color-opacity);
-        border-radius: 5px;
+        border-radius: 50px;
 
         &:hover{
             border-color: var(--main-color);

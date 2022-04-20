@@ -3,9 +3,8 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {authClearError} from 'redux/actions/authActions';
 import {Link, Navigate, useLocation} from 'react-router-dom';
-import {MdKeyboardArrowRight} from 'react-icons/md';
 
-const Authentication = ({children, auth, authClearError}) => {
+const Authentication = ({title, children, auth, authClearError}) => {
 
     const location = useLocation();
 
@@ -17,25 +16,25 @@ const Authentication = ({children, auth, authClearError}) => {
 
     if(isLoggedIn) return <Navigate to="/" />;
 
-    const TitleLinks = ({title, link, description}) => (
+    const TitleLinks = ({link, description}) => (
         <div>
-            <h2>{title}</h2>
-            <Link to={`/${link}`}> <MdKeyboardArrowRight/> {description}</Link>
+            <Link to={`/${link}`}>{description}</Link>
         </div> 
     )
     
     return (
         <div className={styles.container}>
+            
+            <div className={styles.authentication}>
+                <h2>{title}</h2>
+                {children}
+            </div>
 
             <div className={styles.links}>
                 {location.pathname.includes("signup") 
-                    ? <TitleLinks title="Signup" link="login" description="Already registered" /> 
-                    : <TitleLinks title="Login" link="signup" description="Create account" />
+                    ? <TitleLinks link="login" description="Already registered" /> 
+                    : <TitleLinks link="signup" description="Create account" />
                 }
-            </div>
-            
-            <div className={styles.authentication}>
-                {children}
             </div>
 
         </div>

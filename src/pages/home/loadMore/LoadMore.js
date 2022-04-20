@@ -1,4 +1,4 @@
-import styles from './More.module.scss';
+import styles from './LoadMore.module.scss';
 import React, {useState} from 'react';
 import useQuery from 'hooks/useQuery';
 import { connect } from 'react-redux';
@@ -13,7 +13,8 @@ const More = (props) => {
     const [loading, setLoading] = useState(false);
 
     const onLoadMore = async () => {
-        const limit = Math.round(getQueryValue("limit") || 50) + 50; 
+        const searchPerLoad = getQueryValue("limit") || 50;
+        const limit = Math.round(searchPerLoad) + searchPerLoad; 
         setQuery("limit", limit);
         setLoading(true);
         await previewGetSongs();

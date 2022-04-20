@@ -36,7 +36,8 @@
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
         border-radius: 0;
-        border: 1px solid var(--main-color-light);
+        border: 1px solid transparent;
+        background-color: var(--main-color-opacity);
         padding: 0.3rem 0.5rem;
         min-width: 50px;
 

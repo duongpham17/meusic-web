@@ -25,7 +25,7 @@ const Login = (props) => {
   };
 
   return (
-    <Authentication>
+    <Authentication title="Login">
         {auth.login
         ?
           <EmailSent email={values.email}/>
@@ -36,10 +36,12 @@ const Login = (props) => {
           {errors.email && <span>{errors.email} *</span>}
           {auth.error?.login?.email && <span>{auth.error.login.email} *</span>}
 
-          <button type={`${loading && "button"}`}>
-            {!loading && <p>&#8594;</p>}
-            {loading && <p className='loading-15 center' />}
-          </button>
+          {values.email.length >= 5 && 
+            <button type={`${loading && "button"}`}>
+              {!loading && <p>&#8594;</p>}
+              {loading && <p className='loading-15 center' />}
+            </button>
+          }
 
         </form>
       }

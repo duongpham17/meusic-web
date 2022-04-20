@@ -3,14 +3,14 @@ import React from 'react';
 import Search from './search';
 import Filter from './filter';
 import Songs from './songs';
-import More from './more';
+import LoadMore from './loadMore';
 const Home = () => 
 ( 
     <>
         <Search />
         <Filter />
         <Songs />
-        <More />
+        <LoadMore />
     </>
 );
 

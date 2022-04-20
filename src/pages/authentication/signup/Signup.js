@@ -32,7 +32,7 @@ export const Signup = (props) => {
   }, [authSignupClear]);
 
   return (
-    <Authentication>
+    <Authentication title="Signup">
       {auth.signup === "sent" 
         ?
           <EmailSent email={values.email}/>

@@ -30,7 +30,7 @@ export const Confirm = (props) => {
             { !expiredLink &&
                 <div className={styles.confirmation}>
                     <div className={styles.loading} />
-                    <p>Processing</p>
+                    <p>Checking</p>
                 </div>
             }
 

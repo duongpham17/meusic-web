@@ -13,7 +13,7 @@ const Navbar = (props) => {
   const {utils: {theme}} = props;
 
   return (
-    <div className={`${styles.container} ${theme.theme.type === "wallpaper" && styles.wallpaper}`}>
+    <div className={`${styles.container} ${theme.theme?.type === "wallpaper" && styles.wallpaper}`}>
   
       <Logo/>
   
