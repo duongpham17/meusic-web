@@ -15,7 +15,7 @@ const createWindow = () => {
     });
 
     const development = "http://localhost:3000";
-    const production = "https://meusic-web-app.herokuapp.com";
+    const production = "https://meusic.herokuapp.com";
 
     win.loadURL(isDev ? development : production);
 };
