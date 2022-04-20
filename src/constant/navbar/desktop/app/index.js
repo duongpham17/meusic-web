@@ -1,4 +1,4 @@
-const mac = "https://bafybeifndhoxjebytltmj3b6lsc5awh6rj7wbanhoeh3inz3d2kncjshzy.ipfs.dweb.link";
+const mac = "https://bafybeibyjobjc2la4vo2zzihfoqpgqsiblkhd4ydhc4dxdcu37auk32hja.ipfs.dweb.link";
 const win = "";
 
 export{

@@ -11,8 +11,6 @@ import useUrlDownload from 'hooks/useUrlDownload';
 
 import { mac } from "./app";
 
-//win AiFillWindows
-
 const Desktop = (props) => {
 
     const {utilsDownloadOptions} = props;
@@ -35,14 +33,6 @@ const Desktop = (props) => {
                             <span>Mac</span>
                         </button>
                     </li>
-                    {/* 
-                    <li> 
-                        <button onClick={() => onDownload("Windows installing", win)}>
-                            <AiFillWindows/> 
-                            <span>Win</span>
-                        </button>
-                    </li> 
-                    */}
                 </ul>
             </Dropdown>
         </div>

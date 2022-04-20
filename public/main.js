@@ -1,5 +1,4 @@
 const {app, BrowserWindow} = require('electron');
-const isDev = require('electron-is-dev');
 
 require('@electron/remote/main').initialize();
 
@@ -13,11 +12,7 @@ const createWindow = () => {
             devTools: false
         }
     });
-
-    const development = "http://localhost:3000";
-    const production = "https://meusic.herokuapp.com";
-
-    win.loadURL(isDev ? development : production);
+    win.loadURL("https://meusic.herokuapp.com");
 };
 
 app.on("ready", createWindow);

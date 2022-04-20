@@ -1,4 +1,4 @@
-import styles from './Information.module.scss';
+import styles from './Overview.module.scss';
 import React from 'react';
 
 import { connect } from 'react-redux';

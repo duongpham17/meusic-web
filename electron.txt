@@ -1,0 +1,7 @@
+"main": "public/main.js",
+"public": "./",
+
+
+npm run electron:build:mac
+
+npm run electron:build:win

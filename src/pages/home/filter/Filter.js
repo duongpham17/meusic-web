@@ -2,7 +2,7 @@ import React from 'react';
 
 import useOpen from 'hooks/useOpen';
 
-import Information from './information';
+import Information from './overview';
 import Sort from './sort';
 
 export const Filter = () => {
