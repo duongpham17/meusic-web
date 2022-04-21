@@ -9,11 +9,8 @@ import TrackControls from './trackControls';
 import TrackPlaylist from './trackPlaylist';
 
 const Large = (props) => {
-    
-    const {onResize} = props;
-
     return (
-        <div className={styles.container} onDragEnd={() => onResize("small")} draggable>  
+        <div className={styles.container}>  
             <TrackResize {...props}/>
             <TrackInformation {...props}/>
             <TrackPlayer {...props}/>
