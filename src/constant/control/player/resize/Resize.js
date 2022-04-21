@@ -1,9 +1,9 @@
 import styles from './Resize.module.scss';
 import React from 'react';
 
-export const Resize = ({open, onOpen}) => 
+export const Resize = ({resize, onResize}) => 
 (
-  open && <div className={styles.container} onClick={onOpen} /> 
+  resize === "close" && <div className={styles.container} onClick={() => onResize("small")} /> 
 );
 
 export default Resize;

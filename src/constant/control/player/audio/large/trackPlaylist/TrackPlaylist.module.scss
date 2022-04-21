@@ -1,0 +1,29 @@
+.container{
+    padding: 0.5rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin: auto;
+    background-color: var(--main-color-opacity);
+    border: 2px solid var(--background-faded);
+    border-radius: 5px;
+
+    .overview{
+        margin-bottom: 0.5rem;
+    }
+
+    .map{
+        overflow-y: auto;
+        max-height: 300px;
+        padding-bottom: 10rem;
+    
+        .element{
+            cursor: pointer;
+            border: 2px solid transparent;
+            margin-bottom: 1rem;
+    
+            &:hover{
+                border-color: var(--main-color-selected);
+            }
+        }
+    }
+}

@@ -3,13 +3,13 @@ import React from 'react';
 
 export const AudioInformation = (props) => {
 
-    const {trackPlaying, trackIndex, tracks, utilsOpenContent} = props;
+    const {trackPlaying, trackIndex, tracks, utilsOpenContent, onResize} = props;
 
     const onOpenContent = () => utilsOpenContent("tracks");
 
     return (
         <div className={styles.container}>
-            <p> {trackPlaying.title} </p>
+            <button className={styles.titleBtn} onClick={() => onResize("large")}> <p>{trackPlaying.title}</p> </button>
             <button className={styles.trackBtn} onClick={onOpenContent}> {(trackIndex+1)} / {tracks.length} </button>
         </div>
     )

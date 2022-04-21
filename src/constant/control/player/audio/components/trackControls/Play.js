@@ -2,7 +2,7 @@ import React from 'react';
 
 import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs';
 
-import Dropdown from '../components/Dropdown';
+import Dropdown from '../dropdown';
 
 export const Play = (props) => {
 

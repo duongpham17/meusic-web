@@ -21,7 +21,7 @@ const More = (props) => {
         setLoading(false)
     };
 
-    return ( previewPlaylist.songs &&
+    return ( previewPlaylist.songs && previewPlaylist.songs.length >= (getQueryValue("limit") || 50) &&
         <div className={styles.container}>
             {!loading && <button onClick={onLoadMore}>Load more</button>}
             {loading && <div className='loading-30 center' />}

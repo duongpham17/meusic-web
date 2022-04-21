@@ -1,5 +1,6 @@
 .container{
     width: 100%;
+    min-width: 320px;
     max-height: 100px;
     transition: ease-in-out 0.5s;
     background-color: var(--main-color-solid);
@@ -15,4 +16,10 @@
     &:hover *{
         opacity: 0.7;
     }
+}
+
+.large {
+    max-height: 92vh;
+    height: 92vh;
+    padding-top: 3rem;
 }

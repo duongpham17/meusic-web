@@ -1,12 +1,12 @@
 import styles from './TrackControls.module.scss';
 import React from 'react';
 
-import Play from './controls/Play';
-import Next from './controls/Next';
-import Resize from './controls/Resize';
-import Volume from './controls/Volume';
-import PlaybackRate from './controls/PlaybackRate';
-import Cycle from './controls/Cycle';
+import Play from '../../components/trackControls/Play';
+import Next from '../../components/trackControls/Next';
+import Cycle from '../../components/trackControls/Cycle';
+import PlaybackRate from '../../components/trackControls/PlaybackRate';
+import Volume from '../../components/trackControls/Volume';
+import Resize from '../../components/trackControls/Resize';
 
 const TrackControls = (props) => {
   return (

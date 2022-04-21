@@ -26,8 +26,8 @@ const useAudio = (audio, tracks, song) => {
     const pause = () => audio.current.pause();
 
     // Seek the specified track time.
-    const seek = (v) => {
-        audio.current.currentTime = !v.target ? v : v.target.value;
+    const seek = (val) => {
+        audio.current.currentTime = !val.target ? val : val.target.value;
     };
 
     // playBackRate

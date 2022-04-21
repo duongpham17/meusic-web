@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+
+    .range[type=range] {
+        -webkit-appearance: none;
+        width: 100%;
+        cursor: pointer;
+        margin: 0 0.5rem;
+    }
+    .range[type=range]:focus {
+        outline: none;
+    }
+    .range[type=range]::-webkit-slider-runnable-track {
+        height: 5px;
+        background: var(--background-faded);
+        border-radius: 5px;
+    }
+    .range[type=range]::-webkit-slider-thumb {
+        height: 15px;
+        width: 15px;
+        margin-top: -0.3rem;
+        border-radius: 50px;
+        background: var(--main-color);
+        -webkit-appearance: none;
+    }
+
+}

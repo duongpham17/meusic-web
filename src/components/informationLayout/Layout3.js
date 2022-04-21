@@ -8,10 +8,9 @@ export const Layout2 = ({ song, isPlaying, index, played, artist }) => {
     return (
         <div className={styles.container}>
 
-            <div className={`${styles.image} ${isPlaying && styles.isPlaying} ${styles.layout2Image}`}>
+            <div className={`${styles.image} ${isPlaying && styles.isPlaying} ${styles.layout3Image}`}>
                 {isPlaying && <MusicPlaying/>}
                 <img src={song.image} alt="i"/>
-                <p className={styles.index}>{index+1}</p>
             </div>
 
             <div className={`${styles.information} ${styles.layout2information}`}>
@@ -20,6 +19,10 @@ export const Layout2 = ({ song, isPlaying, index, played, artist }) => {
                 <p className={styles.text}>{MinSec(song.duration)}</p>
                 <p className={styles.text}>{played && `Played ${song.played}`}</p>
             </div>  
+
+            <div className={styles.layout3Index}>
+                <p className={styles.index}>{index+1}</p>
+            </div>
 
         </div>
     )

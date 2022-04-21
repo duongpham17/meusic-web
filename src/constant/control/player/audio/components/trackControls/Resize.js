@@ -2,15 +2,15 @@ import React from 'react';
 
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
-import Dropdown from '../components/Dropdown';
+import Dropdown from '../dropdown';
 
 const Resize = (props) => {
 
-    const {onOpen} = props;
+    const {onResize} = props;
 
     return (
         <Dropdown button={
-            <button onClick={onOpen}>
+            <button onClick={() => onResize("close")}>
                 <MdKeyboardArrowDown/>
             </button>
         } />

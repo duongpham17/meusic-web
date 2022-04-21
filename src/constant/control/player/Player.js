@@ -1,8 +1,7 @@
 import styles from './Player.module.scss';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 import {connect} from 'react-redux';
-
-import useOpen from 'hooks/useOpen';
 
 import Audio from './audio';
 import Resize from './resize';
@@ -11,20 +10,30 @@ export const Player = (props) => {
 
     const {playing} = props;
 
-    const {song} = playing;
+    const [resize, setResize] = useState("small"); //enum  "close" || "small" || "large";
 
-    const {onOpen, open} = useOpen();
+    const location = useLocation();
 
+    const onResize = (value) => {
+        if(resize === value) return setResize("");
+        setResize(value);
+    };
+
+    useEffect(() => {
+        setResize("small")
+    }, [location]);
+    
     props = {
         ...props,
-        onOpen,
-        open
+        onResize,
+        setResize,
+        resize
     };
 
     return ( 
-        <div className={`${styles.container} ${`${song.title && styles.open}`}  ${`${open && styles.closed}`} ` }>
-            {song.title && <Audio {...props} />}
-            <Resize open={open} onOpen={onOpen} />
+        <div className={`${styles.container} ${`${playing.song.title && styles.open}`}  ${`${resize === "close" && styles.closed}`} ${`${resize === "large" && styles.large}`} ` }>
+            {playing.song.title && <Audio {...props} />}
+            <Resize {...props} />
         </div>
     )
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {BiShuffle, BiRepeat, BiInfinite} from 'react-icons/bi';
 
-import Dropdown from '../components/Dropdown';
+import Dropdown from '../dropdown';
 
 const Cycle = (props) => {
 

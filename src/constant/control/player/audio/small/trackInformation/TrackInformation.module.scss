@@ -1,0 +1,36 @@
+.container{
+    margin: 0.2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .titleBtn{
+        width: 100%;
+
+        &:hover{
+            p{
+                color: var(--main-color-selected);
+            }
+        }
+
+        p{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+    }
+
+    .trackBtn{
+        text-align: right;
+        margin-left: 1rem;
+        min-width: 60px;
+
+        &:hover{
+            color: var(--main-color-selected);
+        }
+    }
+}

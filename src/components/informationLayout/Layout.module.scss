@@ -1,5 +1,6 @@
 .container{
     display: flex;
+    align-items: center;
     width: 100%;
     position: relative;
     
@@ -54,6 +55,18 @@
             font-size: 0.8rem;
             max-height: 30px;
             overflow: hidden;
+        }
+    }
+
+    .layout3Image{
+        img{
+            width: 45px;
+            height: 45px;
+        }
+    }
+    .layout3Index{
+        p{
+            padding: 0.5rem;
         }
     }
 

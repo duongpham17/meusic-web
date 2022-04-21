@@ -6,13 +6,12 @@ import { utilsOpenContent } from 'redux/actions/utilsActions';
 
 import useAudio from 'hooks/useAudio';
 
-import TrackInformation from './trackInformation';
-import TrackProgress from './trackProgress';
-import TrackControls from './trackControls';
+import Small from './small';
+import Large from './large';
 
 export const AudioPlayer = (props) => {
 
-    const {playing, playingChangeSong, playingIncrementSongPlayed} = props;
+    const {playing, playingChangeSong, playingIncrementSongPlayed, resize} = props;
 
     const {song, playlist} = playing;
 
@@ -20,12 +19,10 @@ export const AudioPlayer = (props) => {
 
     const useAudioHook = useAudio(audio, playlist, song);
 
-    const {trackIndex} = useAudioHook;
-
     // custom update global state
     useEffect(() => {
-        playingChangeSong(trackIndex);
-    }, [playingChangeSong, trackIndex]); 
+        playingChangeSong(useAudioHook.trackIndex);
+    }, [playingChangeSong, useAudioHook.trackIndex]); 
     
     useEffect(() => {
         playingIncrementSongPlayed(song._id)
@@ -41,11 +38,9 @@ export const AudioPlayer = (props) => {
 
             <audio ref={audio} autoPlay/>
 
-            <TrackInformation {...props} />
+            {resize !== "large" && <Small {...props} />}
 
-            <TrackProgress {...props} />
-
-            <TrackControls {...props} />
+            {resize === "large" && <Large  {...props} />}
 
         </>
     );
