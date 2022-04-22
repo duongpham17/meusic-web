@@ -4,7 +4,7 @@ import React from 'react';
 const Developer = () => {
   return (
     <div className={styles.container}>
-        <a href="https://meusic-api-app.herokuapp.com" target="_blank" rel="noreferrer noopener">
+        <a href="https://meusicapi.herokuapp.com" target="_blank" rel="noreferrer noopener">
           Api
         </a>
     </div>
