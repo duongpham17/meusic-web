@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {MdOutlineReorder} from 'react-icons/md';
+import {MdDragHandle} from 'react-icons/md';
 
 import BigButton from '../component/BigButton';
 
@@ -11,7 +11,7 @@ export const Reorder = (props) => {
 
     return (
         <div>
-            <BigButton description="Reorder" onClick={onReorder} icon={<MdOutlineReorder />} />
+            <BigButton description="Reorder" onClick={onReorder} icon={<MdDragHandle />} />
         </div>
     )
 }

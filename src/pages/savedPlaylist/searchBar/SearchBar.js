@@ -26,7 +26,7 @@ export const Search = (props) => {
 
     return (
         <div className={styles.container}>
-            <SearchBar value={value} onChange={onChange} onClear={onClear} placeholder="Search songs in playlist" />
+            <SearchBar value={value} onChange={onChange} onClear={onClear} placeholder="Search saved songs" />
         </div>
     )
 }

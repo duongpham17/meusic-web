@@ -10,7 +10,7 @@ const Search = (props) => {
     const {value, onClear, loading, onChange} = useDelayFetch(roomSearchRoom);
 
     return (
-        <SearchBar placeholder='Search Rooms' value={value} onClear={onClear} onChange={onChange} loading={loading} />
+        <SearchBar placeholder='Search rooms' value={value} onClear={onClear} onChange={onChange} loading={loading} />
     )
 };
 

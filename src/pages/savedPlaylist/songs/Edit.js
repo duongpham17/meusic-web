@@ -24,7 +24,7 @@ export const Edit = (props) => {
             <Dropdown>
                 <ul>
                     <li onClick={() => setAddSong(song)}> 
-                        <span>Add</span>
+                        <span>Playlist</span>
                         <BsFillCollectionPlayFill/> 
                     </li>
                     <li onClick={onDownload}>

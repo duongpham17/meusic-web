@@ -39,6 +39,7 @@ export const Search = (props) => {
         const query = setQuery(params, value);
         if(value && value.length >= 3 && value.length <= 13 && previewPlaylist.songs.length >= 1) onSet("add", value);
         localStorage.setItem('filtered', query);
+        if(!value) previewGetSongs();
     };
 
     const onPreviousSearchValue = (params, value) => {
@@ -54,6 +55,13 @@ export const Search = (props) => {
         localStorage.removeItem('filtered');
     };
 
+    props = {
+        ...props,
+        previousSearch,
+        onSet,
+        onPreviousSearchValue
+    }
+
     return (
         <div className={styles.container}>
             
@@ -62,7 +70,7 @@ export const Search = (props) => {
             </div>
             
             <div>
-                <PreviousSearch previousSearch={previousSearch} onSet={onSet} onPreviousSearchValue={onPreviousSearchValue} />
+                <PreviousSearch {...props} />
             </div>
 
         </div>

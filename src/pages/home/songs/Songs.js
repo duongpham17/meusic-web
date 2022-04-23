@@ -10,7 +10,6 @@ import { adminDeleteSong } from 'redux/actions/adminActions';
 
 import useApiGet from 'hooks/useApiGet';
 
-import Admin from './Admin';
 import Information from './Information';
 import Options from './Options';
 import AddToPlaylist from './AddToPlaylist';
@@ -36,10 +35,6 @@ export const Songs = (props) => {
 
             {previewPlaylist.songs.map((el, index) => 
                 <div key={el._id} className={styles.element} onClick={onPlay(el)}>
-
-                    <div className={styles.admin}>
-                    <Admin {...props} song={el} />
-                    </div>
                     
                     <Information {...props} song={el} index={index} />
 

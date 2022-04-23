@@ -10,13 +10,5 @@
         &:hover{
             border-color: var(--main-color-selected)
         }
-
-        &:hover .admin{
-            display: block;
-        }
-
-        .admin{
-            display: none;
-        }
     }
 }

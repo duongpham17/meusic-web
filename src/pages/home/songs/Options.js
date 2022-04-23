@@ -1,13 +1,14 @@
 import styles from './Options.module.scss';
 import React from 'react';
 
-import {BsSuitHeartFill, BsSuitHeart, BsPlus} from 'react-icons/bs';
+import {FaRegTrashAlt} from 'react-icons/fa';
+import {BsSuitHeartFill, BsSuitHeart, BsFillCollectionPlayFill} from 'react-icons/bs';
 
 import Dropdown from 'components/dropdown/Dropdown';
 
 export const Options = (props) => {
 
-    const {song, savedPlaylist, setAddSong, savedPlaylistAddTo, savedPlaylistRemoveFrom} = props;
+    const {song, savedPlaylist, setAddSong, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong} = props;
 
     const {playlist} = savedPlaylist;
 
@@ -21,6 +22,16 @@ export const Options = (props) => {
                 {        
                     playlist &&                    
                     <ul>
+
+                        {user && user.user.role === "admin" && 
+                            <li>
+                                <button onClick={() => adminDeleteSong(song._id)}>
+                                    <span>Delete</span>
+                                    <span><FaRegTrashAlt /></span>
+                                </button>
+                            </li>
+                        }
+
                         <li>                        
                             {
                                 alreadyAdded(playlist, song._id) 
@@ -36,12 +47,14 @@ export const Options = (props) => {
                                 </button>
                             }
                         </li>
+
                         <li>
                             <button onClick={() => setAddSong(song)}>
                                 <span>Playlist</span>
-                                <span><BsPlus/></span>
+                                <span><BsFillCollectionPlayFill/></span>
                             </button>
                         </li>
+
                     </ul>
                 }
             </Dropdown>
