@@ -8,6 +8,7 @@ import useOpen from 'hooks/useOpen';
 import SlideIn from 'components/slideIn';
 
 import Admin from './Admin';
+import Download from './Download';
 import LinkList from './LinkList';
 import Logout from './Logout';
 
@@ -20,9 +21,11 @@ export const Menu = () => {
 
             <button className={styles.menuBtn} onClick={onOpen}><FiMenu /></button>
 
-            <SlideIn open={open} onOpen={onOpen}>
+            <SlideIn open={open} onOpen={onOpen} >
 
                 <Admin />
+
+                <Download open={open} onOpen={onOpen}/>
 
                 <div className={styles.links}>
                     {LinkList.map(el => 

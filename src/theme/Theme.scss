@@ -15,13 +15,7 @@ div, section, main, table, form, header, nav, footer{
 
 body{
     &::-webkit-scrollbar {
-        height: 6px;
-        width: 6px;
-        background: black;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: white;
+        display: none;
     }
 }
 

@@ -10,7 +10,6 @@ import Theme from 'theme';
 
 import Alert from 'constant/alert';
 import Download from 'constant/download';
-import Tracks from 'constant/tracks';
 import Navbar from 'constant/navbar';
 import Upload from 'constant/upload';
 import ScrollToTop from 'constant/scrollToTop';
@@ -33,7 +32,6 @@ export const App = () => (
         <Routing />
         <Upload />
         <Navbar />
-        <Tracks/>
         <Pages />
         <ScrollToTop/>
         <Control />

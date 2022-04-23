@@ -1,5 +1,5 @@
 import React from 'react';
-import {BsFillHouseFill, BsMusicNote, BsFillCollectionPlayFill, BsFillShareFill, BsSun, BsDownload} from 'react-icons/bs';
+import {BsFillHouseFill, BsSuitHeartFill, BsFillCollectionPlayFill, BsSun} from 'react-icons/bs';
 import {FaCouch} from 'react-icons/fa';
 
 const ControlListLoggedOut = [
@@ -29,7 +29,7 @@ const ControlListLoggedIn = [
     },
     {
         id: 2,
-        icon: <BsMusicNote/>,
+        icon: <BsSuitHeartFill/>,
         name: "Saved",
         link: "/saved",
         keyboard: "Press Ctrl + 3",
@@ -45,27 +45,11 @@ const ControlListLoggedIn = [
     },
     {
         id: 4,
-        icon: <BsFillShareFill/>,
-        name: "Others",
-        link: "/others",
-        keyboard: "Press Ctrl + 5",
-        type: "link"
-    },
-    {
-        id: 5,
         icon: <FaCouch/>,
         name: "Room",
         link: "/room",
         keyboard: "Press Ctrl + 6",
         type: "link"
-    },
-    {
-        id: 6,
-        icon: <BsDownload/>,
-        name: "Download",
-        link: "",
-        keyboard: "Press Ctrl + 1",
-        type: "button"
     },
 ]
 

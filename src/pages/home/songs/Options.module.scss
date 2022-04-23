@@ -1,0 +1,28 @@
+.container{ 
+    ul{
+        width: 100px;
+
+        li{
+            button{
+                padding: 0.3rem;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-radius: 5px;
+                &:hover{
+                    background-color: var(--background-faded);
+                }
+            }
+        }
+
+        svg{
+            display: flex;
+        }
+
+        .heart{
+            font-size: 1rem;
+            color: var(--main-color-red);
+        }
+    }
+}

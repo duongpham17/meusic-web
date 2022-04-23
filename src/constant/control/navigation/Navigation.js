@@ -4,12 +4,10 @@ import {Link, useLocation, useNavigate} from 'react-router-dom';
 import {ControlListLoggedOut, ControlListLoggedIn} from './ControlList';
 import {connect} from 'react-redux';
 import {utilsOpenContent} from 'redux/actions/utilsActions';
-import {BsDownload} from 'react-icons/bs';
 
-const Navigation = ({ auth, upload, utilsOpenContent }) => {
+const Navigation = ({ auth, utilsOpenContent }) => {
 
   const {isLoggedIn} = auth;
-  const {open} = upload;
 
   const [location, navigate] = [useLocation(), useNavigate()];
 
@@ -60,17 +58,9 @@ const Navigation = ({ auth, upload, utilsOpenContent }) => {
           {ControlListLoggedIn.map(el => 
             <div key={el.id} className={styles.element}>
               <abbr title={el.keyboard}>
-
                 {el.type === "link" &&
                   <Link className={`${location.pathname === el.link && styles.selected}`} to={el.link}> {el.icon} </Link>
                 }
-
-                {el.type === "button" &&
-                  <button onClick={() => utilsOpenContent("upload")} className={`${open && styles.selected}`}>
-                    <BsDownload/>
-                  </button>
-                }
-
               </abbr>
             </div>
           )}
@@ -83,7 +73,6 @@ const Navigation = ({ auth, upload, utilsOpenContent }) => {
 
 const mapStateToProps = state =>({
   auth: state.authReducers,
-  upload: state.uploadReducers
 })
 
 const mapDispatchToProps = {

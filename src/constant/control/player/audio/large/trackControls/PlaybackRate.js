@@ -3,7 +3,7 @@ import React from 'react';
 
 import {MdSpeed} from 'react-icons/md';
 
-import Dropdown from '../dropdown';
+import Dropdown from '../components/dropdown';
 
 const PlaybackRate = (props) => {
 

@@ -12,7 +12,7 @@ export const SearchBar = ({othersPlaylistSearch}) => {
   const {value, loading, onChange, onClear} = useDelayFetch(othersPlaylistSearch);
 
   return (
-    <Search value={value} loading={loading} onChange={onChange} onClear={onClear}  />
+    <Search value={value} loading={loading} onChange={onChange} onClear={onClear} placeholder="Seach other's playlists"  />
   )
 }
 

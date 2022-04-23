@@ -14,7 +14,7 @@ const UpdateButton = (props) => {
     return (
         <div className={styles.container}>
             <button onClick={onUpdatePlaylist}>
-                <p>UPDATE</p>
+                <p>SAVE CHANGES</p>
                 <MdKeyboardArrowRight/>
             </button>
         </div>

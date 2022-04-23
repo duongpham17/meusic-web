@@ -1,5 +1,6 @@
 .container{
     text-align: center;
+    
     img{
         margin-bottom: 0.5rem;
         border-radius: 5px;
@@ -12,5 +13,12 @@
         height: 2rem;
         max-width: 380px;
         margin: auto;
+    }
+
+    @media (max-width: 600px){
+        img{
+            width: 100px;
+            height: 80px;
+        }
     }
 }

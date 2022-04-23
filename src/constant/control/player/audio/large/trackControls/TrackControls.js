@@ -1,9 +1,9 @@
 import styles from './TrackControls.module.scss';
 import React from 'react';
 
-import Cycle from '../../components/trackControls/Cycle';
-import PlaybackRate from '../../components/trackControls/PlaybackRate';
-import Volume from '../../components/trackControls/Volume';
+import Cycle from './Cycle';
+import PlaybackRate from './PlaybackRate';
+import Volume from './Volume';
 
 export const TrackControls = (props) => {
   return (

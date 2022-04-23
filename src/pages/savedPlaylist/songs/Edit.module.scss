@@ -9,10 +9,6 @@
             align-items: center;
             justify-content: space-between;
             gap: 0.5rem;
-
-            svg{
-                font-size: 1.2rem;
-            }
         
             &:hover *{
                 color: var(--main-color-selected);

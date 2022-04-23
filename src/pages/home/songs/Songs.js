@@ -1,25 +1,35 @@
 import styles from './Songs.module.scss';
-import React from 'react';
+import React, {useState} from 'react';
 
 import { connect } from 'react-redux';
 import { previewGetSongs } from 'redux/actions/previewPlaylistActions';
 import { savedPlaylistAddTo, savedPlaylistRemoveFrom } from 'redux/actions/savedPlaylistActions';
 import { playingPreviewSelectPlaylist } from 'redux/actions/playingActions';
+import { customisePlaylistGet, customisePlaylistUpdate } from 'redux/actions/customisePlaylistActions';
 import { adminDeleteSong } from 'redux/actions/adminActions';
 
 import useApiGet from 'hooks/useApiGet';
 
 import Admin from './Admin';
 import Information from './Information';
-import Save from './Save';
+import Options from './Options';
+import AddToPlaylist from './AddToPlaylist';
 
 export const Songs = (props) => {
 
     const {previewPlaylist, playingPreviewSelectPlaylist, previewGetSongs} = props;
 
+    const [addSong, setAddSong] = useState("");
+
     useApiGet(previewGetSongs, previewPlaylist.songs);
 
     const onPlay = (song) => () =>  playingPreviewSelectPlaylist(song);
+
+    props = {
+        ...props,
+        addSong,
+        setAddSong
+    }
 
     return ( !previewPlaylist.songs ? <div className="loading" /> :
         <div className={styles.container}>
@@ -31,12 +41,14 @@ export const Songs = (props) => {
                     <Admin {...props} song={el} />
                     </div>
                     
-                    <Information {...props} song={el} index={index} show />
+                    <Information {...props} song={el} index={index} />
 
-                    <Save {...props} song={el} />
+                    <Options {...props} song={el} />
 
                 </div>    
             )}
+
+            {addSong && <AddToPlaylist {...props} />}
 
         </div>
     );
@@ -47,6 +59,7 @@ const mapStateToProps = state => ({
     playing: state.playingReducers,
     savedPlaylist: state.savedPlaylistReducers,
     previewPlaylist: state.previewPlaylistReducers,
+    customisePlaylist: state.customisePlaylistReducers
 });
 
 const mapDispatchToProps = {
@@ -54,7 +67,9 @@ const mapDispatchToProps = {
     savedPlaylistAddTo,
     savedPlaylistRemoveFrom,
     playingPreviewSelectPlaylist,
-    previewGetSongs
+    previewGetSongs,
+    customisePlaylistGet, 
+    customisePlaylistUpdate 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Songs);

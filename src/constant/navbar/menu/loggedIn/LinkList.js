@@ -1,5 +1,5 @@
 import React from 'react';
-import {BsSun, BsPerson} from 'react-icons/bs';
+import {BsSun, BsPerson, BsFillShareFill} from 'react-icons/bs';
 import {MdPrivacyTip} from 'react-icons/md';
 
 const LinkList = [
@@ -15,8 +15,14 @@ const LinkList = [
         name: "Theme",
         link: "/theme"
     },
-    {   
+    {
         id: 2,
+        icon: <BsFillShareFill/>,
+        name: "Others",
+        link: "/others"
+    },
+    {   
+        id: 3,
         icon: <MdPrivacyTip/>,
         name: "Policy",
         link: "/policy"

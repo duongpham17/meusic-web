@@ -29,15 +29,10 @@
             display: flex;
             align-items: center;
             margin: 0.5rem 0;
-            border: 1px solid transparent;
+            border: 2px solid transparent;
 
             &:hover{
-                border-color: var(--main-color);
-
-                img{
-                    width: 50px;
-                    height: 50px;
-                }
+                border-color: var(--main-color-selected);
             }
 
             img{
@@ -47,7 +42,7 @@
                 margin-right: 0.3rem;
             }
             p{
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 height: 30px;
                 overflow-y: hidden;
             }

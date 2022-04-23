@@ -1,9 +1,9 @@
-import styles from './SongList.module.scss';
+import styles from './SavedPlaylist.module.scss';
 import React, {useState} from 'react';
 
 import SlideIn from 'components/slideIn/SlideIn';
 
-const SongList = (props) => {
+const SavedPlaylist = (props) => {
 
     const {savedPlaylist, setSelectedPlaylist, selectedPlaylist, onOpen, open, setEdited, edited} = props;
 
@@ -55,4 +55,4 @@ const SongList = (props) => {
     )
 }
 
-export default SongList
+export default SavedPlaylist

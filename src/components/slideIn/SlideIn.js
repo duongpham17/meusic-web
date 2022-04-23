@@ -16,7 +16,7 @@ export const SlideIn = ({children, open, onOpen, cover=true}) => {
         <div className={ styles.container} onClick={onOpen}>
             <div className={`${cover && open && styles.cover}`}>
                 <div className={`${styles.slideIn} ${open && styles.open}`} onClick={(e) => e.stopPropagation()}>
-
+                    
                     <button className={styles.closeBtn} onClick={onOpen}><HiArrowNarrowLeft/></button>
 
                     {children}

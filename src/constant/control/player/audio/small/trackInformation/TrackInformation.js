@@ -1,16 +1,56 @@
 import styles from './TrackInformation.module.scss';
 import React from 'react';
+import {BsFillPlayFill, BsPauseFill, BsSuitHeartFill, BsSuitHeart} from 'react-icons/bs';
 
 export const AudioInformation = (props) => {
 
-    const {trackPlaying, trackIndex, tracks, utilsOpenContent, onResize} = props;
+    const {trackPlaying, trackLoading, onResize, trackPaused, play, pause, savedPlaylist, savedPlaylistRemoveFrom, savedPlaylistAddTo} = props;
 
-    const onOpenContent = () => utilsOpenContent("tracks");
+    const onClick = () => {
+        if(trackPaused) return play();
+        pause();
+    };
+
+    const stopPropagation = (e) => e.stopPropagation();
+
+    const alreadyAdded = (songs, id) => songs.map(el => el._id).includes(id);
 
     return (
-        <div className={styles.container}>
-            <button className={styles.titleBtn} onClick={() => onResize("large")}> <p>{trackPlaying.title}</p> </button>
-            <button className={styles.trackBtn} onClick={onOpenContent}> {(trackIndex+1)} / {tracks.length} </button>
+        <div className={styles.container} onClick={() => onResize("large")}>
+            <div className={styles.info}>
+                <img src={trackPlaying.image} alt="small" />
+                <p>{trackPlaying.title}</p> 
+            </div>
+
+            <div className={styles.controls} onClick={stopPropagation}>
+
+                <div>
+                    { alreadyAdded(savedPlaylist.playlist, trackPlaying._id) 
+                        ?
+                            <button onClick={() => savedPlaylistRemoveFrom(trackPlaying._id)}>
+                                <BsSuitHeartFill />
+                            </button>
+                        : 
+                            <button onClick={() => savedPlaylistAddTo(trackPlaying._id)}>
+                                <BsSuitHeart />
+                            </button>
+                    }
+                </div>
+
+                <div>
+                    { trackLoading 
+                        ? 
+                            <button>
+                                <p className="loading-10" />
+                            </button>
+                        :
+                            <button className={styles.play}  onClick={onClick} >
+                                {trackPaused ? <BsFillPlayFill /> : <BsPauseFill />}
+                            </button>
+                    }
+                </div>
+
+            </div>
         </div>
     )
 }

@@ -26,7 +26,7 @@ export const savedPlaylistAddTo = (id) => async dispatch => {
             type: SAVED_PLAYLIST_ADD_TO,
             payload: res.data.saved
         });
-        dispatch(setAlert("Song added"));
+        dispatch(setAlert("Song saved"));
     } catch(error) {
         console.log(error.response)
     };

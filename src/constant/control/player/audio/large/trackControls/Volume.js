@@ -2,7 +2,7 @@ import styles from './Volume.module.scss';
 import React from 'react';
 import {MdVolumeMute, MdVolumeDownAlt, MdVolumeUp} from 'react-icons/md';
 
-import Dropdown from '../dropdown';
+import Dropdown from '../components/dropdown';
 
 export const TrackVolume = (props) => {
 

@@ -9,7 +9,7 @@ const AddButton = (props) => {
     return (
         <div className={styles.container}>
             <button onClick={onOpen}>
-                <span>SONG LIST</span>
+                <span>SAVED SONGS</span>
                 <MdKeyboardArrowRight/>
             </button>
         </div>

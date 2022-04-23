@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import useOpen from 'hooks/useOpen';
 
 import AddButton from './AddSongButton';
-import SongList from './SongList';
+import SavedPlaylist from './SavedPlaylist';
 import Songs from './Songs';
 import UpdateButton from './UpdateButton';
 
@@ -26,12 +26,12 @@ const EditPlaylist = (props) => {
 
             <AddButton {...props} />
 
-            <SongList {...props} />
-
-            <Songs  {...props} />
-               
             {edited && <UpdateButton {...props} setEdited={setEdited} />}
 
+            <SavedPlaylist {...props} />
+
+            <Songs  {...props} />
+            
         </>
     );
 };

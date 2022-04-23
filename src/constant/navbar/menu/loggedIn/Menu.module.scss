@@ -15,11 +15,9 @@
     svg, span{
         display: flex;
     }
-    span{
-        font-size: 1.1rem;
-    }
+
     svg {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
         
     .menuBtn{
@@ -27,21 +25,15 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+
         svg{
-            display: flex;
             font-size: 1.5rem;
-            &:hover{
-                color: var(--main-color-selected);
-            }
         }
     }
 
     .links{
         span{
-            font-size: 1.2rem;
-        }
-        svg{
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
     
         span{
