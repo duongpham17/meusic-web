@@ -2,6 +2,7 @@ import styles from './Private.module.scss';
 import React from 'react';
 import useBasicForm from 'hooks/useBasicForm';
 import {MdKeyboardArrowRight} from 'react-icons/md';
+import Cover from 'components/cover';
 
 const Private = (props) => {
     const {element, onOpenValue, roomPrivateUpdate} = props;
@@ -28,27 +29,29 @@ const Private = (props) => {
     }
 
     return (
-        <div className={styles.container} onClick={onStopPropagation}>
-            <form onSubmit={onSubmit(onMakePrivateRoom)}>
+        <Cover onClose={() => onOpenValue("")}>
+            <div className={styles.container}>
+                <form onSubmit={onSubmit(onMakePrivateRoom)} onClick={onStopPropagation}>
 
-                { element.private &&
-                    <button type="button" onClick={onMakePublicRoom}>
-                        <span>Make public</span>
-                        <span><MdKeyboardArrowRight/></span>
-                    </button>
-                }
+                    { element.private &&
+                        <button type="button" onClick={onMakePublicRoom}>
+                            <span>Make public</span>
+                            <span><MdKeyboardArrowRight/></span>
+                        </button>
+                    }
 
-                <input type="password" placeholder="Room password" name="password" value={value.password} onChange={onChange} />
+                    <input type="password" placeholder="Room password" name="password" value={value.password} onChange={onChange} />
 
-                { value.password &&
-                    <button>
-                        <span>Make private</span>
-                        <span><MdKeyboardArrowRight/></span>
-                    </button>
-                }
+                    { value.password &&
+                        <button>
+                            <span>Make private</span>
+                            <span><MdKeyboardArrowRight/></span>
+                        </button>
+                    }
 
-            </form>
-        </div>
+                </form>
+            </div>
+        </Cover>
     )
 }
 

@@ -2,6 +2,7 @@ import styles from './Songs.module.scss';
 import React, {useState} from 'react';
 
 import { connect } from 'react-redux';
+import { adminUpdateSong } from 'redux/actions/adminActions';
 import { previewGetSongs } from 'redux/actions/previewPlaylistActions';
 import { savedPlaylistAddTo, savedPlaylistRemoveFrom } from 'redux/actions/savedPlaylistActions';
 import { playingPreviewSelectPlaylist } from 'redux/actions/playingActions';
@@ -13,12 +14,14 @@ import useApiGet from 'hooks/useApiGet';
 import Information from './Information';
 import Options from './Options';
 import AddToPlaylist from './AddToPlaylist';
+import EditSong from './EditSong';
 
 export const Songs = (props) => {
 
     const {previewPlaylist, playingPreviewSelectPlaylist, previewGetSongs} = props;
 
     const [addSong, setAddSong] = useState("");
+    const [editSongData, setEditSongData] = useState("");
 
     useApiGet(previewGetSongs, previewPlaylist.songs);
 
@@ -27,7 +30,9 @@ export const Songs = (props) => {
     props = {
         ...props,
         addSong,
-        setAddSong
+        setAddSong,
+        editSongData,
+        setEditSongData
     }
 
     return ( !previewPlaylist.songs ? <div className="loading" /> :
@@ -38,12 +43,13 @@ export const Songs = (props) => {
                     
                     <Information {...props} song={el} index={index} />
 
-                    <Options {...props} song={el} />
+                    <Options {...props} song={el} index={index}/>
 
                 </div>    
             )}
 
             {addSong && <AddToPlaylist {...props} />}
+            {editSongData && <EditSong {...props} /> }
 
         </div>
     );
@@ -64,7 +70,8 @@ const mapDispatchToProps = {
     playingPreviewSelectPlaylist,
     previewGetSongs,
     customisePlaylistGet, 
-    customisePlaylistUpdate 
+    customisePlaylistUpdate,
+    adminUpdateSong
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Songs);

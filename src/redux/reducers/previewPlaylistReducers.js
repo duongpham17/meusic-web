@@ -1,5 +1,6 @@
 import {
     ADMIN_SONG_DELETE,
+    ADMIN_SONG_UPDATE,
     
     PREVIEW_GET_TOTAL_SONGS,
     PREVIEW_GET_SONGS,
@@ -19,6 +20,11 @@ export const Preview = (state = initialState, action) => {
                 ...state,
                 songs: state.songs.filter(el => el._id !== payload)
             };
+        case ADMIN_SONG_UPDATE: 
+            state.songs[payload.index] = payload;
+            return{
+                ...state,
+            }
 
         case PREVIEW_GET_SONGS:
             return{

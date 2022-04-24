@@ -1,13 +1,18 @@
 .container{
-    background-color: var(--main-color-solid);
-    button{
-        padding: 2rem;
-        text-align: center;
-        border: 1px solid transparent;
-        border-radius: 0;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        &:hover{
-            border-color: var(--main-color);
+    div{
+        background-color: var(--main-color-background);
+        button{
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid transparent;
+            &:hover{
+                border-color: var(--main-color);
+            }
         }
     }
 }

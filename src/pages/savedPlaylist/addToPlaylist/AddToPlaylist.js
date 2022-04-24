@@ -5,6 +5,8 @@ import useApiGet from 'hooks/useApiGet';
 import { customisePlaylistGet, customisePlaylistUpdate } from 'redux/actions/customisePlaylistActions';
 import { connect } from 'react-redux';
 
+import Cover from 'components/cover'
+
 export const AddToPlaylist = (props) => {
     const {customisePlaylist, customisePlaylistGet, addSong, setAddSong, customisePlaylistUpdate} = props;
 
@@ -17,29 +19,35 @@ export const AddToPlaylist = (props) => {
         customisePlaylistUpdate(newPlaylist)
     };
 
+    const stopPropagation = (event) => {
+        event.stopPropagation();
+    }
+
     const onClose = () => setAddSong("");
 
     return ( customisePlaylist.playlist &&
-        <div className={styles.container} onClick={onClose}>
-            
-            <div className={styles.map}>
+        <Cover onClose={onClose}>
+            <div className={styles.container}>
                 
-                {!customisePlaylist.playlist &&
-                    <div className={styles.map}>
-                        <Link to="/customise">Go to customise playlist to get started</Link>
-                    </div>
-                }
+                <div className={styles.map} onClick={stopPropagation}>
+                    
+                    {!customisePlaylist.playlist &&
+                        <div className={styles.map}>
+                            <Link to="/customise">Go to customise playlist to get started</Link>
+                        </div>
+                    }
 
-                { customisePlaylist.playlist &&
-                    customisePlaylist.playlist.map((el, i) => 
-                    <div key={el._id} className={styles.element} onClick={onAddSongToPlaylist(i)}>
-                        <b>{el.name}</b>
-                        <p>{el.song.length}</p>
-                    </div>    
-                )}
+                    { customisePlaylist.playlist &&
+                        customisePlaylist.playlist.map((el, i) => 
+                        <div key={el._id} className={styles.element} onClick={onAddSongToPlaylist(i)}>
+                            <b>{el.name}</b>
+                            <p>{el.song.length}</p>
+                        </div>    
+                    )}
+                </div>
+
             </div>
-
-        </div>
+        </Cover>
     )
 };
 

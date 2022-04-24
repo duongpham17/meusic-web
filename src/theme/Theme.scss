@@ -4,18 +4,31 @@
 
 button, a, input, textarea, ul, li, option, select, svg,
 p, q, b, label, span, kbd, small,
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+div, section, main, table, form, header, nav, footer{
     color: var(--main-color);
     transition: ease-in-out 0.1s;
-}
 
-div, section, main, table, form, header, nav, footer{
-    transition: 0.1s ease-in-out;
+    &::-webkit-scrollbar {
+        height: 4px;
+        width: 4px;
+        background: var(--background-faded);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+    }
 }
 
 body{
     &::-webkit-scrollbar {
-        display: none;
+        height: 5px;
+        width: 5px;
+        background: black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: white;
     }
 }
 

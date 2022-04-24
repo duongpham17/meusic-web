@@ -6,6 +6,7 @@ import {AiOutlinePlus} from 'react-icons/ai';
 import useForm from 'hooks/useForm';
 import useOpen from 'hooks/useOpen';
 
+import Cover from 'components/cover'
 import valiation from '../../utils/Validation';
 import BigButton from '../component/BigButton';
 
@@ -34,13 +35,15 @@ const CreatePlaylist = (props) => {
             <BigButton description="Create" onClick={onOpen} icon={<AiOutlinePlus />} />
 
             {open &&
-                <div className={styles.cover} onClick={onOpen}>
-                    <form onSubmit={onSubmit} onClick={stopPropagation}>
-                        <input type="text" placeholder="Playlist name" name="name" value={values.name} onChange={onChange} /> 
-                        <button>CREATE</button>
-                        {errors.name && <p>* {errors.name} *</p>}
-                    </form>
-                </div>
+                <Cover onClose={onOpen}>
+                    <div className={styles.content}>
+                        <form onSubmit={onSubmit} onClick={stopPropagation}>
+                            <input type="text" placeholder="Playlist name" name="name" value={values.name} onChange={onChange} /> 
+                            <button>CREATE</button>
+                            {errors.name && <p>* {errors.name} *</p>}
+                        </form>
+                    </div>
+                </Cover>
             }
         </div>
     )

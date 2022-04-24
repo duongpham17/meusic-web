@@ -1,14 +1,20 @@
 import styles from './Delete.module.scss';
-import React from 'react'
+import React from 'react';
+import Cover from 'components/cover';
 
 const Delete = (props) => {
     const {element, roomDelete, onOpenValue} = props;
 
     return (
-        <div className={styles.container}>
-            <button onClick={() => onOpenValue("delete")}>Cancel</button>
-            <button onClick={() => roomDelete(element._id)}>Delete</button>
-        </div>
+        <Cover onClose={() => onOpenValue("")}>
+            <div className={styles.container}>
+                
+                <div>
+                    <button onClick={() => onOpenValue("delete")}>Cancel</button>
+                    <button onClick={() => roomDelete(element._id)}>Delete</button>
+                </div>
+            </div>
+        </Cover>
     )
 }
 

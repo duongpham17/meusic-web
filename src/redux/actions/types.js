@@ -17,6 +17,7 @@ export const AUTH_SIGNUP_CLEAR = "AUTH_SIGNUP_CLEAR";
 
 // Admin
 export const ADMIN_SONG_DELETE = "ADMIN_SONG_DELETE";
+export const ADMIN_SONG_UPDATE = "ADMIN_SONG_UPDATE";
 
 // User
 export const USER_LOAD = "USER_LOAD";

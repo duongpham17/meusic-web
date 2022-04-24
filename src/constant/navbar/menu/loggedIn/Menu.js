@@ -8,7 +8,7 @@ import useOpen from 'hooks/useOpen';
 import SlideIn from 'components/slideIn';
 
 import Admin from './Admin';
-import Download from './Download';
+import Upload from './Upload';
 import LinkList from './LinkList';
 import Logout from './Logout';
 
@@ -25,7 +25,7 @@ export const Menu = () => {
 
                 <Admin />
 
-                <Download open={open} onOpen={onOpen}/>
+                <Upload open={open} onOpen={onOpen}/>
 
                 <div className={styles.links}>
                     {LinkList.map(el => 

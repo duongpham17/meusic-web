@@ -3,6 +3,7 @@ import React from 'react';
 
 import { MdAdd, MdKeyboardArrowRight } from 'react-icons/md';
 
+import Cover from 'components/cover';
 import useOpen from 'hooks/useOpen';
 import useBasicForm from 'hooks/useBasicForm';
 
@@ -26,7 +27,8 @@ const Create = (props) => {
             </div>
 
             { open &&
-                <div className={styles.cover} onClick={onOpen}>
+            <Cover>
+                <div className={styles.content} onClick={onOpen}>
                     <form onClick={onStopPropagation} onSubmit={onSubmit(onRoomCreate)}>
                         <input type="text" placeholder="Room name" name="name" value={value.name} onChange={onChange} />
                         {room.error.exist && <small>{room.error.exist}</small>}
@@ -39,7 +41,9 @@ const Create = (props) => {
                         }
                     </form>
                 </div>
+            </Cover>
             }
+            
         </div>
     )
 };

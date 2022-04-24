@@ -1,4 +1,7 @@
 .container{
+    border: 2px solid var(--background-faded);
+    background-color: var(--main-color-opacity);
+    padding: 0.5rem;
 
     .element{
         display: flex;

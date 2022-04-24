@@ -1,14 +1,14 @@
 import styles from './Options.module.scss';
 import React from 'react';
 
-import {FaRegTrashAlt} from 'react-icons/fa';
+import {FaRegTrashAlt, FaEdit} from 'react-icons/fa';
 import {BsSuitHeartFill, BsSuitHeart, BsFillCollectionPlayFill} from 'react-icons/bs';
 
 import Dropdown from 'components/dropdown/Dropdown';
 
 export const Options = (props) => {
 
-    const {song, savedPlaylist, setAddSong, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong} = props;
+    const {song, index, savedPlaylist, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong} = props;
 
     const {playlist} = savedPlaylist;
 
@@ -24,14 +24,22 @@ export const Options = (props) => {
                     <ul>
 
                         {user && user.user.role === "admin" && 
-                            <li>
-                                <button onClick={() => adminDeleteSong(song._id)}>
-                                    <span>Delete</span>
-                                    <span><FaRegTrashAlt /></span>
-                                </button>
-                            </li>
+                            <>
+                                <li>
+                                    <button onClick={() => setEditSongData({...song, index})}>
+                                        <span>Edit</span>
+                                        <span><FaEdit /></span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => adminDeleteSong(song._id)}>
+                                        <span>Delete</span>
+                                        <span><FaRegTrashAlt /></span>
+                                    </button>
+                                </li>
+                            </>
                         }
-
+                        
                         <li>                        
                             {
                                 alreadyAdded(playlist, song._id) 

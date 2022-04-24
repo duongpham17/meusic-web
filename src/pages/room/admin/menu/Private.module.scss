@@ -1,11 +1,15 @@
 .container{
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     form{
         border: 2px solid var(--main-color);
         background-color: var(--main-color-solid);
         width: 200px;
         border-radius: 5px;
-        padding: 1rem;
+        padding: 1.5rem;
 
         button, input{
             padding: 0.5rem;

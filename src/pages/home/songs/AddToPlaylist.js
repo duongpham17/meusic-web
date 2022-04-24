@@ -3,6 +3,8 @@ import React from 'react';
 import useApiGet from 'hooks/useApiGet';
 import {Link} from 'react-router-dom';
 
+import Cover from 'components/cover';
+
 export const AddToPlaylist = (props) => {
     const {customisePlaylist, customisePlaylistGet, customisePlaylistUpdate, addSong, setAddSong} = props;
 
@@ -17,26 +19,26 @@ export const AddToPlaylist = (props) => {
 
     return ( customisePlaylist.playlist &&
         <div className={styles.container} onClick={() => setAddSong("")}>
-
-            {
-                !customisePlaylist.playlist &&
-                <div className={styles.map}>
-                    <Link to="/customise">Go to customise playlist to get started</Link>
-                </div>
-            }
-            
-            {   
-                customisePlaylist.playlist &&
-                <div className={styles.map}>
-                    {customisePlaylist.playlist.map((el, i) => 
-                        <div key={el._id} className={styles.element} onClick={onAddSongToPlaylist(i)}>
-                            <b>{el.name}</b>
-                            <p>{el.song.length}</p>
-                        </div>    
-                    )}
-                </div>
-            }
-
+            <Cover>
+                {
+                    !customisePlaylist.playlist &&
+                    <div className={styles.map}>
+                        <Link to="/customise">Go to customise playlist to get started</Link>
+                    </div>
+                }
+                
+                {   
+                    customisePlaylist.playlist &&
+                    <div className={styles.map}>
+                        {customisePlaylist.playlist.map((el, i) => 
+                            <div key={el._id} className={styles.element} onClick={onAddSongToPlaylist(i)}>
+                                <b>{el.name}</b>
+                                <p>{el.song.length}</p>
+                            </div>    
+                        )}
+                    </div>
+                }
+            </Cover>
         </div>
     )
 };

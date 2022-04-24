@@ -39,6 +39,12 @@ export const UploadSong = (props) => {
                 <textarea type="text" placeholder='Enter Youtube url' name="url" value={values.url} onChange={onChange}/>
                 {errors.url && <p className={styles.errors}>* {errors.url} *</p>}
 
+                <div className={styles.status}>
+                    {status === "duplicate" && <p> Song already exist</p>}
+                    {status === "undefined" && <p> Song missing information</p>}
+                    {status === "undefined" && <button type="button" onClick={onClearValidation}>CLEAR</button>}
+                </div>
+
                 {status === "undefined" && 
                     <>
                         <input type="text" placeholder='Song name' name="song" value={values.song} onChange={onChange} />
@@ -48,17 +54,23 @@ export const UploadSong = (props) => {
                     </>
                 }
 
-                <div className={styles.status}>
-                    {status === "duplicate" && <p> Song already exist</p>}
-                    {status === "undefined" && <p> Song needs extra information</p>}
-                    {status === "undefined" && <button type="button" onClick={onClearValidation}>Clear validation</button>}
-                </div>
-
                 {values.url.includes("https://") && <button>UPLOAD</button>}
             </form>
         </div>
 
     )
 }
+
+/*
+                {status === "undefined" && 
+                    <>
+                        <input type="text" placeholder='Song name' name="song" value={values.song} onChange={onChange} />
+                        {errors.song && <p className={styles.errors}>* {errors.song} *</p>}
+                        <input type="text" placeholder='Artist name' name="artist" value={values.artist} onChange={onChange} />
+                        {errors.artist && <p className={styles.errors}>* {errors.artist} *</p>}
+                    </>
+                }
+
+*/
 
 export default UploadSong;

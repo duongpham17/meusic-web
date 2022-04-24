@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { utilsOpenContent } from 'redux/actions/utilsActions';
 
-import {BsDownload} from 'react-icons/bs';
+import {AiOutlineCloudUpload} from 'react-icons/ai';
 
 const Download = ({utilsOpenContent, onOpen}) => {
 
@@ -16,8 +16,8 @@ const Download = ({utilsOpenContent, onOpen}) => {
     return (
         <div className={styles.container}>
             <button onClick={onClick}>
-                <span><BsDownload/></span>
-                <span>Download</span>
+                <span><AiOutlineCloudUpload/></span>
+                <span>Upload</span>
             </button>
         </div>
     )

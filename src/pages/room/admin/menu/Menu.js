@@ -5,6 +5,8 @@ import { MdOutlineMenu, MdOutlineLock, MdOutlineLockOpen, MdOutlineDeleteOutline
 
 import useOpen from 'hooks/useOpen';
 
+import Dropdown from 'components/dropdown';
+
 import Private from './Private';
 import Delete from './Delete';
 
@@ -14,46 +16,37 @@ const Menu = (props) => {
 
     const {onOpenValue, openValue} = useOpen();
 
-    const Open = ({type, children}) => (
-        openValue === type && 
-        <div className={styles.open} onClick={() => onOpenValue(type)}>
-            {children}
-        </div>
-    );
-
     props = {
         ...props,
         onOpenValue, 
         openValue
-    }
+    };
+
+    console.log(openValue)
 
     return (
         <div className={styles.container}>
 
-            <button className={styles.menuBtn}><MdOutlineMenu/></button>
+            <Dropdown icon={<MdOutlineMenu className={styles.menu}/>}>
+                <ul>
+                    <li>
+                        <button onClick={() => onOpenValue("private")}>
+                            <span>{element.private ? <MdOutlineLock/> : <MdOutlineLockOpen />}</span>
+                            <span>Private</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button onClick={() => onOpenValue("delete")}>
+                            <span><MdOutlineDeleteOutline/></span>
+                            <span>Delete</span>
+                        </button>
+                    </li>
+                </ul>
+            </Dropdown>
 
-            <ul>
-                <li>
-                    <button onClick={() => onOpenValue("private")}>
-                        {element.private ? <MdOutlineLock/> : <MdOutlineLockOpen />}
-                        <span>Private</span>
-                    </button>
-                </li>
-                <li>
-                    <button onClick={() => onOpenValue("delete")}>
-                        <MdOutlineDeleteOutline/>
-                        <span>Delete</span>
-                    </button>
-                </li>
-            </ul>
+            {openValue === "delete" && <Delete {...props}/> }
 
-            <Open type="delete">
-                <Delete {...props} />
-            </Open>
-
-            <Open type="private">
-                <Private {...props} />
-            </Open>
+            {openValue === "private" && <Private {...props}/>}
 
         </div>
     )

@@ -10,7 +10,7 @@ const Uploading = (props) => {
 
     return ( !!uploading.length &&
         <div className={styles.container}>
-            <p>Uploading {uploading.length}</p>
+            <p>UPLOADING {uploading.length}</p>
             {uploading.map(el => 
                 <div key={generateid()} className={styles.element}>
                     <p>{el}</p> 

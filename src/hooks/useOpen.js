@@ -3,7 +3,7 @@ import {useState} from 'react';
 const useOpen = () => {
 
     const [open, setOpen] = useState(false);
-    const [openValue, setOpenValue] = useState();
+    const [openValue, setOpenValue] = useState("");
 
     const onOpen = () => setOpen(!open);
 
@@ -16,7 +16,8 @@ const useOpen = () => {
         onOpen,
         open,
         openValue,
-        onOpenValue
+        onOpenValue,
+        setOpenValue
     }
 };
 

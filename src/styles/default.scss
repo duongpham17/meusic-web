@@ -31,18 +31,6 @@ img{
     object-fit: cover;
 }
 
-div, section, main, header{
-    &::-webkit-scrollbar {
-        height: 4px;
-        width: 4px;
-        background: var(--background-faded);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: var(--main-color);
-    }
-}
-
 input{
     &::-webkit-inner-spin-button, &::-webkit-outer-spin-button{
         -webkit-appearance: none;
