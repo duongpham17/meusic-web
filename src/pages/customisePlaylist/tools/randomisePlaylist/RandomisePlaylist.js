@@ -11,7 +11,6 @@ const RandomisePlaylist = (props) => {
   const {loading, request} = useApiUpdate();
 
   const onClick = () => {
-    console.log("clicked", loading)
     if(loading) return;
     request(customisePlaylistRandomise());
   }
