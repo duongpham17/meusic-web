@@ -34,22 +34,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
-            height: 30px;
-
+            width: 40px;
+            height: 40px;
             &:hover * {
                 color: var(--main-color-selected);
             }
         }
 
-        .play {
-            svg {
-                font-size: 1.8rem;
+        .heart{
+            svg{
+                font-size: 1.5rem;
             }
         }
-
-        .heart {
-            font-size: 1.1rem;
+        .play{
+            svg{
+                font-size: 2.5rem;
+            }
         }
     }
 }

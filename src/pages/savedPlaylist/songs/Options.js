@@ -1,4 +1,4 @@
-import styles from './Edit.module.scss';
+import styles from './Options.module.scss';
 import React from 'react';
 
 import { FaRegTrashAlt } from 'react-icons/fa';
@@ -6,17 +6,17 @@ import { MdOutlineFileDownload } from 'react-icons/md';
 import { BsFillCollectionPlayFill } from 'react-icons/bs';
 import Dropdown from 'components/dropdown';
 
-export const Edit = (props) => {
+export const Options = (props) => {
 
     const {savedPlaylistRemoveFrom, song, setAddSong, download, utilsDownloadOptions} = props;
-
-    const onRemove = () => savedPlaylistRemoveFrom(song._id);
 
     const onDownload = async () => {
         utilsDownloadOptions("start", song.title);
         await download(song.url, song.title, "mp3");
         utilsDownloadOptions("end", song.title);
-    }
+    };
+
+    const onRemove = () => savedPlaylistRemoveFrom(song._id);
 
     return (
         <div className={styles.container}>
@@ -42,4 +42,4 @@ export const Edit = (props) => {
     )
 }
 
-export default Edit
+export default Options

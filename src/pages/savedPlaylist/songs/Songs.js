@@ -2,7 +2,7 @@ import styles from './Songs.module.scss';
 import React from 'react';
 
 import Information from './Information';
-import Edit from './Edit';
+import Options from './Options';
 import Alphabetical from './Alphabetical';
 
 export const Songs = (props) => {
@@ -35,7 +35,7 @@ export const Songs = (props) => {
 
                 <Information {...props} song={el} index={index} />
 
-                <Edit {...props} song={el} />
+                <Options {...props} song={el} />
 
               </div>  
             )}

@@ -5,14 +5,15 @@ const useUrlDownload = () => {
      * @param {string} url - mp3 url
      * @param {string} fileName - fileName of the downloaded content
      * @param {string} ext - file extension E.g jpeg, txt, csv, mp3, wav...
+     * @param {string} mimeType - e.g audio/mp3, audio/mp4, application/json
     */
-    const download = async (url, fileName, ext) => {
+    const download = async (url, fileName, ext, mimeType) => {
 
-        const blob = await axios.get(url, {responseType: 'blob'});
+        const {data} = await axios.get(url, {responseType: 'blob'});
 
-        const data = new Blob([blob.data]);
+        const blob = new Blob([data], {type: mimeType || "octet-stream"});
 
-        const href = URL.createObjectURL(data);
+        let href = URL.createObjectURL(blob);
 
         const a = Object.assign(document.createElement('a'), {
             href, 

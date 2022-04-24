@@ -7,8 +7,8 @@ export const AudioInformation = (props) => {
     const {trackPlaying, trackLoading, onResize, trackPaused, play, pause, savedPlaylist, savedPlaylistRemoveFrom, savedPlaylistAddTo} = props;
 
     const onClick = () => {
-        if(trackPaused) return play();
-        pause();
+        if(trackPaused) play();
+        if(!trackPaused) pause();
     };
 
     const stopPropagation = (e) => e.stopPropagation();
@@ -24,7 +24,7 @@ export const AudioInformation = (props) => {
 
             <div className={styles.controls} onClick={stopPropagation}>
 
-                <div>
+                <div className={styles.heart}>
                     { alreadyAdded(savedPlaylist.playlist, trackPlaying._id) 
                         ?
                             <button onClick={() => savedPlaylistRemoveFrom(trackPlaying._id)}>
@@ -37,14 +37,14 @@ export const AudioInformation = (props) => {
                     }
                 </div>
 
-                <div>
+                <div className={styles.play}>
                     { trackLoading 
                         ? 
                             <button>
-                                <p className="loading-10" />
+                                <p className="loading-15" />
                             </button>
                         :
-                            <button className={styles.play}  onClick={onClick} >
+                            <button onClick={onClick} >
                                 {trackPaused ? <BsFillPlayFill /> : <BsPauseFill />}
                             </button>
                     }

@@ -8,8 +8,10 @@ import { savedPlaylistAddTo, savedPlaylistRemoveFrom } from 'redux/actions/saved
 import { playingPreviewSelectPlaylist } from 'redux/actions/playingActions';
 import { customisePlaylistGet, customisePlaylistUpdate } from 'redux/actions/customisePlaylistActions';
 import { adminDeleteSong } from 'redux/actions/adminActions';
+import { utilsDownloadOptions } from 'redux/actions/utilsActions';
 
 import useApiGet from 'hooks/useApiGet';
+import useUrlDownload from 'hooks/useUrlDownload';
 
 import Information from './Information';
 import Options from './Options';
@@ -24,6 +26,7 @@ export const Songs = (props) => {
     const [editSongData, setEditSongData] = useState("");
 
     useApiGet(previewGetSongs, previewPlaylist.songs);
+    const {download} = useUrlDownload();
 
     const onPlay = (song) => () =>  playingPreviewSelectPlaylist(song);
 
@@ -32,7 +35,8 @@ export const Songs = (props) => {
         addSong,
         setAddSong,
         editSongData,
-        setEditSongData
+        setEditSongData,
+        download
     }
 
     return ( !previewPlaylist.songs ? <div className="loading" /> :
@@ -71,7 +75,8 @@ const mapDispatchToProps = {
     previewGetSongs,
     customisePlaylistGet, 
     customisePlaylistUpdate,
-    adminUpdateSong
+    adminUpdateSong,
+    utilsDownloadOptions
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Songs);

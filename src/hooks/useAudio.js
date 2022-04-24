@@ -9,10 +9,9 @@ import {useEffect, useState, useCallback} from 'react';
 const useAudio = (audio, tracks, song) => {
 
     //is audio paused or playing
-    const trackPaused = audio.current.paused;
-
     const [trackPlaying, setTrackPlaying] = useState(song);
     const [trackIndex, setTrackIndex] = useState(song.index || 0);
+    const [trackPaused, setTrackPaused] = useState(false);
     const [trackProgress, setTrackProgress] = useState(0);
     const [trackLoading, setTrackLoading] = useState(false);
     const [trackError, setTrackError] = useState(false);
@@ -21,9 +20,15 @@ const useAudio = (audio, tracks, song) => {
     const [trackVolume, setTrackVolume] = useState(JSON.parse(localStorage.getItem("muted")) ? 0 : localStorage.getItem("volume"));
     const [trackCycleType, setTrackCycleType] = useState(localStorage.getItem("trackCycle") || "loop");
 
-    const play = () => audio.current.play();
+    const play = () => {
+        audio.current.play();
+        setTrackPaused(false);
+    }
 
-    const pause = () => audio.current.pause();
+    const pause = () => {
+        audio.current.pause();
+        setTrackPaused(true);
+    }
 
     // Seek the specified track time.
     const seek = (val) => {
@@ -183,26 +188,16 @@ const useAudio = (audio, tracks, song) => {
     // keep track of progress
     useEffect(() => {
         const Audio = audio.current;
-        const timeupdate = (e) => setTrackProgress(e.target.currentTime);
+        const timeupdate = (e) => setTrackProgress(Math.ceil(e.target.currentTime));
         Audio.addEventListener("timeupdate", timeupdate);
         return () => Audio.removeEventListener("timeupdate", timeupdate);
     }, [audio]); 
 
     //1. ENDED - keep track of when the audio has ended
     useEffect(() => {
-        const Audio = audio.current;
-        const ended = (e) => setTrackEnded(e.target.ended);
-        const endedEvent = Audio.addEventListener("ended", ended);
-        return () => Audio.removeEventListener("ended", endedEvent);
-    }, [audio]);
-
-    //1. ERROR - keep track of loading errors due to ipfs
-    useEffect(() => {
-        const Audio = audio.current;
-        const error = () => setTrackError(true);
-        const errorEvent = Audio.addEventListener("error", error);
-        return () => Audio.removeEventListener("error", errorEvent);
-    },[audio]);
+        const ended = trackProgress >= trackPlaying.duration;
+        if(ended) setTrackEnded(true);
+    }, [trackProgress, trackPlaying.duration]);
 
     //2. play next
     useEffect(() => {
@@ -211,6 +206,14 @@ const useAudio = (audio, tracks, song) => {
             next();
         };
     }, [trackEnded, next]);
+
+    //1. ERROR - keep track of loading errors due to ipfs
+    useEffect(() => {
+        const Audio = audio.current;
+        const error = () => setTrackError(true);
+        const errorEvent = Audio.addEventListener("error", error);
+        return () => Audio.removeEventListener("error", errorEvent);
+    },[audio]);
 
     //reload track when error
     useEffect(() => {

@@ -3,18 +3,25 @@ import React from 'react';
 
 import {FaRegTrashAlt, FaEdit} from 'react-icons/fa';
 import {BsSuitHeartFill, BsSuitHeart, BsFillCollectionPlayFill} from 'react-icons/bs';
+import {MdOutlineFileDownload} from 'react-icons/md';
 
 import Dropdown from 'components/dropdown/Dropdown';
 
 export const Options = (props) => {
 
-    const {song, index, savedPlaylist, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong} = props;
+    const {song, index, savedPlaylist, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong, download, utilsDownloadOptions} = props;
 
     const {playlist} = savedPlaylist;
 
     const stopPropagation = event => event.stopPropagation();
 
     const alreadyAdded = (songs, id) => songs.map(el => el._id).includes(id);
+
+    const onDownload = async () => {
+        utilsDownloadOptions("start", song.title);
+        await download(song.url, song.title, "mp3", 'audio/mp3');
+        utilsDownloadOptions("end", song.title);
+    };
 
     return (
         <div className={styles.container} onClick={stopPropagation}>
@@ -60,6 +67,13 @@ export const Options = (props) => {
                             <button onClick={() => setAddSong(song)}>
                                 <span>Playlist</span>
                                 <span><BsFillCollectionPlayFill/></span>
+                            </button>
+                        </li>
+
+                        <li>
+                            <button onClick={onDownload}>
+                                <span>Download</span>
+                                <span><MdOutlineFileDownload/></span>
                             </button>
                         </li>
 
