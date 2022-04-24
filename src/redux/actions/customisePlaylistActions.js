@@ -77,7 +77,7 @@ export const customisePlaylistDelete = (id) => async dispatch => {
 
 export const customisePlaylistSaveOthers = (data) => async dispatch => {
     try{
-        const res = await api.post(`/customise/playlist/others`, data);
+        const res = await api.post(`/customise/playlist/save`, data);
 
         res.data.customise.new = true;
 
@@ -98,9 +98,21 @@ export const customisePlaylistReorder = (data) => async dispatch => {
     });
     try{
         await api.patch('/customise/playlist/reorder', data);
-        dispatch(setAlert("Playlist updated"));
-        console.log("hello there")
     } catch(error){
         console.log(error.response);
     }
-}
+};
+
+export const customisePlaylistRandomise = () => async dispatch => {
+    try{
+        const res = await api.get(`/customise/playlist/randomise`);
+        res.data.customise.new = true;
+        dispatch({
+            type: CUSTOMISE_PLAYLIST_CREATE,
+            payload: res.data.customise
+        });
+        dispatch(setAlert("Random playlist created"));
+    } catch(error){
+        console.log(error.response);
+    }
+};

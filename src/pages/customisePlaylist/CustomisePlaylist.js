@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { 
     customisePlaylistGet, customisePlaylistUpdate, 
     customisePlaylistCreate, customisePlaylistDelete, 
-    customisePlaylistDuplicate, customisePlaylistReorder 
+    customisePlaylistDuplicate, customisePlaylistReorder,
+    customisePlaylistRandomise,
 } from 'redux/actions/customisePlaylistActions';
 
 import { playingSelectPlaylist } from 'redux/actions/playingActions';
@@ -56,6 +57,7 @@ const mapDispatchToProps = {
     customisePlaylistDelete,
     customisePlaylistDuplicate,
     customisePlaylistReorder,
+    customisePlaylistRandomise,
     playingSelectPlaylist
 }
 
