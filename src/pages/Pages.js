@@ -42,7 +42,7 @@ export const Pages = () =>
             <Route path="/room" element={<Private component={Room} /> } /> 
             <Route exact path="/room/:room" element={<Private component={RoomName} /> } />
 
-            <Route path="/admin" element={<Private component={Admin} role={["admin"]} /> } />
+            <Route path="/admin" element={<Private component={Admin} roles={["admin"]} /> } />
             
             <Route path="*" element={<Unknown />} />  
         </Routes>

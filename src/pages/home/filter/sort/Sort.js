@@ -1,7 +1,5 @@
 import styles from './Sort.module.scss';
 import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
-import {previewGetSongs} from 'redux/actions/previewPlaylistActions';
 
 import {MdKeyboardArrowUp} from 'react-icons/md'
 
@@ -64,8 +62,4 @@ export const Sort = (props) => {
     )
 };
 
-const mapDispatchToProps = {
-    previewGetSongs
-}
-
-export default connect(null, mapDispatchToProps)(Sort)
+export default Sort

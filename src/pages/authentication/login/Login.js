@@ -11,7 +11,9 @@ import useForm from 'hooks/useForm';
 
 const Login = (props) => {
 
-  const {auth, authLogin} = props;
+  const {authLogin} = props;
+
+  const {login, error} = props.authReducers;
 
   const initalState = {
     email: "",
@@ -26,7 +28,7 @@ const Login = (props) => {
 
   return (
     <Authentication title="Login">
-        {auth.login
+        {login
         ?
           <EmailSent email={values.email}/>
         :
@@ -34,7 +36,7 @@ const Login = (props) => {
 
           <input type="text" placeholder="Email" name="email" values={values.email} onChange={onChange} />
           {errors.email && <span>{errors.email} *</span>}
-          {auth.error?.login?.email && <span>{auth.error.login.email} *</span>}
+          {error?.login?.email && <span>{error.login.email} *</span>}
 
           {values.email.length >= 5 && 
             <button type={`${loading && "button"}`}>
@@ -51,7 +53,7 @@ const Login = (props) => {
 }
 
 const mapStateToProps = state => ({
-  auth: state.authReducers
+  authReducers: state.authReducers
 });
 
 const mapDispatchToProps = {

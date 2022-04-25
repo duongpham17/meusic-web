@@ -26,7 +26,7 @@ const EditPlaylist = (props) => {
 
             <AddButton {...props} />
 
-            {edited && <UpdateButton {...props} setEdited={setEdited} />}
+            {edited && <UpdateButton {...props} /> }
 
             <SavedPlaylist {...props} />
 

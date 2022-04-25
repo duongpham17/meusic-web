@@ -9,9 +9,10 @@
             text-align: center;
             height: 60px;
             width: 40px;
-            border-radius: 10px;
-            margin: 0 4px;
-            border: 2px solid var(--main-color);
+            border-radius: 5px;
+            margin: 0 3px;
+            border: 2px solid var(--background-faded);
+            background-color: var(--main-color-opacity);    
             font-size: 1.5rem;
 
             &:focus {

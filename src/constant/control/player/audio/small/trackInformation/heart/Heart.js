@@ -5,19 +5,21 @@ import {BsSuitHeartFill, BsSuitHeart} from 'react-icons/bs';
 
 export const Heart = (props) => {
 
-    const {trackPlaying, savedPlaylist, savedPlaylistRemoveFrom, savedPlaylistAddTo} = props;
+    const {trackPlaying, savedPlaylistRemove, savedPlaylistSave} = props;
+
+    const {playlist} = props.savedPlaylistReducers;
 
     const alreadyAdded = (songs, id) => songs.map(el => el._id).includes(id);
 
     return (
         <div className={styles.container}>
-            { alreadyAdded(savedPlaylist.playlist, trackPlaying._id) 
+            { alreadyAdded(playlist, trackPlaying._id) 
                 ?
-                    <button onClick={() => savedPlaylistRemoveFrom(trackPlaying._id)}>
+                    <button onClick={() => savedPlaylistRemove(trackPlaying._id)}>
                         <BsSuitHeartFill />
                     </button>
                 : 
-                    <button onClick={() => savedPlaylistAddTo(trackPlaying._id)}>
+                    <button onClick={() => savedPlaylistSave(trackPlaying._id)}>
                         <BsSuitHeart />
                     </button>
             }

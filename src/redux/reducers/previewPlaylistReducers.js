@@ -2,13 +2,13 @@ import {
     ADMIN_SONG_DELETE,
     ADMIN_SONG_UPDATE,
     
-    PREVIEW_GET_TOTAL_SONGS,
-    PREVIEW_GET_SONGS,
+    PREVIEW_PLAYLIST,
+    PREVIEW_TOTAL_SONGS
 } from '../actions/types';
 
 const initialState = {
     total: "",
-    songs: "",
+    playlist: "",
 }
 
 export const Preview = (state = initialState, action) => {
@@ -18,21 +18,21 @@ export const Preview = (state = initialState, action) => {
         case ADMIN_SONG_DELETE:
             return{
                 ...state,
-                songs: state.songs.filter(el => el._id !== payload)
+                playlist: state.playlist.filter(el => el._id !== payload)
             };
         case ADMIN_SONG_UPDATE: 
-            state.songs[payload.index] = payload;
+            state.playlist[payload.index] = payload;
             return{
                 ...state,
             }
 
-        case PREVIEW_GET_SONGS:
+        case PREVIEW_PLAYLIST:
             return{
                 ...state,
-                songs: payload,
+                playlist: payload,
             }
 
-        case PREVIEW_GET_TOTAL_SONGS: 
+        case PREVIEW_TOTAL_SONGS: 
             return{
                 ...state,
                 total: payload

@@ -7,7 +7,9 @@ import Search from 'components/searchBar';
 
 import useDelayFetch from 'hooks/useDelayFetch';
 
-export const SearchBar = ({othersPlaylistSearch}) => {
+export const SearchBar = (props) => {
+
+  const {othersPlaylistSearch} = props;
 
   const {value, loading, onChange, onClear} = useDelayFetch(othersPlaylistSearch);
 

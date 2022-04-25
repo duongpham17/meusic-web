@@ -1,75 +1,58 @@
 .container{
     max-width: 400px;
     margin: 4rem auto;
+    padding: 1rem;
+    border: 2px solid var(--background-faded);
+    background-color: var(--main-color-opacity);
 
-    .authentication, .links{
-        border: 1px solid var(--background-faded);
-        background-color: var(--main-color-opacity);
-    }
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-    .authentication{
-        margin-bottom: 1rem;
-        padding: 0.5rem;
-
-        h2{
-            text-align: center;
-            margin-bottom: 1rem;
+        b{
+            font-size: 2rem;
         }
-
-        form{
-            position: relative;
-            min-height: 200px;
-
-            input, button{
-                border: 1px solid var(--main-color);
-                background-color: var(--main-color-opacity);
-                padding: 0.5rem;
-                width: 100%;
-                border-radius: 5px;
-                box-sizing: border-box;
-
-                &:hover{
-                    border-color: var(--main-color-selected);
-                }
-            }
-
-            input{
-                margin-top: 0.5rem;
-            }
-
-            span{
-                display: block;
-                margin: 0.5rem 0;
-                font-size: 0.9rem;
-                opacity: 0.9;
-            }
-
-            button{
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                &:hover *{
-                    color: var(--main-color-selected);
-                }
-            }
-
-        }
-
-    }
-
-    .links{
-
-        &:hover{
-            border-color: var(--main-color-selected);
-        }
-
         a{
-            width: 100%;
-            text-align: center;
-            display: block;
-            padding: 0.5rem;
+            color: var(--main-color-light);
+
+            &:hover{
+                color: var(--main-color-selected);
+            }
         }
     }
 
+    form{
+        position: relative;
+        margin-top: 1rem;
+
+        input, button{
+            border: 2px solid var(--background-faded);
+            background-color: var(--main-color-opacity);
+            padding: 0.5rem;
+            width: 100%;
+            border-radius: 5px;
+            box-sizing: border-box;
+
+            &:hover{
+                border-color: var(--main-color-selected);
+            }
+        }
+
+        input{
+            margin-top: 0.5rem;
+        }
+
+        button{
+            margin-top: 1rem;
+        }
+
+        span{
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    }
 
 }

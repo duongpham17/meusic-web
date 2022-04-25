@@ -2,18 +2,19 @@ import styles from './AutoPlay.module.scss';
 import React, {useState} from 'react'
 
 const AutoPlay = (props) => {
-    const {play} = props;
+
+    const {onPlay} = props;
 
     const [auto, setAuto] = useState(false);
 
-    const onPlay = () => {
+    const onMouseEnter = () => {
         if(auto) return;
-        play();
+        onPlay();
         setAuto(true);
-    }
+    };
 
     return (
-       !auto && <div className={styles.container} onMouseEnter={onPlay} />
+       !auto && <div className={styles.container} onMouseEnter={onMouseEnter} />
     )
 }
 

@@ -8,7 +8,7 @@ import Customise from './customise';
 
 const Songs = (props) => {
 
-    const {savedPlaylist} = props;
+    const {playlist} = props.savedPlaylistReducers;
 
     const [open, setOpen] = useState("");
 
@@ -29,7 +29,7 @@ const Songs = (props) => {
             <div className={styles.content} onClick={() => onOpen("saved")}>
                 <button className={styles.button}>My Songs</button>
                 <SlideIn onOpen={onOpen} open={open === "saved"}>
-                    {savedPlaylist.playlist && open === "saved" && <Saved {...props} />}
+                    {playlist && open === "saved" && <Saved {...props} />}
                 </SlideIn>
             </div>
 

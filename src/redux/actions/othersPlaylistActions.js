@@ -3,10 +3,22 @@ import {setAlert} from './alertActions';
 
 import {
     OTHERS_PLAYLIST_SEARCH,
-    OTHERS_PLAYLIST_GET,
+    OTHERS_PLAYLIST,
     OTHERS_PLAYLIST_SAVE,
     OTHERS_PLAYLIST_DELETE
 } from './types';
+
+export const othersPlaylistGet = () => async dispatch => {
+    try{
+        const res = await api.get(`/others/playlist`);
+        dispatch({
+            type: OTHERS_PLAYLIST,
+            payload: res.data.others
+        });
+    } catch(error) {
+        console.log(error.response)
+    }
+};
 
 export const othersPlaylistSearch = (name) => async dispatch => {
     try{
@@ -25,18 +37,6 @@ export const othersPlaylistClear = () => async dispatch => {
         type: OTHERS_PLAYLIST_SEARCH,
         payload: []
     })
-};
-
-export const othersPlaylistGet = () => async dispatch => {
-    try{
-        const res = await api.get(`/others/playlist`);
-        dispatch({
-            type: OTHERS_PLAYLIST_GET,
-            payload: res.data.others
-        });
-    } catch(error) {
-        console.log(error.response)
-    }
 };
 
 export const othersPlaylistSave = (id) => async dispatch => {

@@ -27,18 +27,22 @@
         }
 
         input, button{
-            background-color: var(--background-faded);
             padding: 0.5rem;
             border-radius: 0;
             display: flex;
+            border: 2px solid var(--background-faded);
+            background-color: var(--main-color-opacity);
+
+            &:hover{
+                border-color: var(--main-color-selected);
+            }
+        }
+        button{
+            padding: 0.5rem 2rem;
         }
         input{
             width: 100%;
             margin-right: 0.5rem;
-
-            &:hover{
-                border-left: 2px solid var(--main-color-selected);
-            }
         }
     }
 

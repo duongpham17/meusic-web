@@ -29,7 +29,7 @@ const Room = (props) => {
 };
 
 const mapStateToProps = state => ({
-    room: state.roomReducers
+    roomReducers: state.roomReducers
 });
 
 const mapDispatchToProps = {

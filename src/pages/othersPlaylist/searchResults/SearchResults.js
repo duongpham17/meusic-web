@@ -1,13 +1,15 @@
 import styles from './SearchResults.module.scss';
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import defaultImage from 'assets/logo.webp';
 
 import {othersPlaylistSave, othersPlaylistClear} from 'redux/actions/othersPlaylistActions';
 
-const SearchResults = ({othersPlaylist, othersPlaylistSave, othersPlaylistClear}) => {
+const SearchResults = (props) => {
 
-    const {search} = othersPlaylist;
+    const {othersPlaylistSave, othersPlaylistClear} = props;
+
+    const {search} = props.othersPlaylistReducers;
 
     return ( !!search.length &&
         <div className={styles.container}>
@@ -35,7 +37,7 @@ const SearchResults = ({othersPlaylist, othersPlaylistSave, othersPlaylistClear}
 }
 
 const mapStateToProps = state => ({
-    othersPlaylist: state.othersPlaylistReducers
+    othersPlaylistReducers: state.othersPlaylistReducers
 });
 
 const mapDispatchToProps = {

@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 
 import { connect } from 'react-redux';
-import { savedPlaylistAddTo, savedPlaylistRemoveFrom } from 'redux/actions/savedPlaylistActions';
+import { savedPlaylistSave, savedPlaylistRemove } from 'redux/actions/savedPlaylistActions';
 import { playingChangeSong, playingIncrementSongPlayed } from 'redux/actions/playingActions';
 import { utilsOpenContent } from 'redux/actions/utilsActions';
 
@@ -12,9 +12,9 @@ import Large from './large';
 
 export const AudioPlayer = (props) => {
 
-    const {playing, playingChangeSong, playingIncrementSongPlayed, resize} = props;
+    const {playingChangeSong, playingIncrementSongPlayed, resize} = props;
 
-    const {song, playlist} = playing;
+    const {song, playlist} = props.playingReducers;
 
     const audio = useRef("");
 
@@ -51,8 +51,8 @@ const mapDispatchToProps = {
     playingChangeSong,
     playingIncrementSongPlayed,
     utilsOpenContent,
-    savedPlaylistRemoveFrom,
-    savedPlaylistAddTo
+    savedPlaylistRemove,
+    savedPlaylistSave
 }
 
 export default connect(null, mapDispatchToProps)(AudioPlayer);

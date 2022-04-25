@@ -5,7 +5,9 @@ import {MdKeyboardArrowRight} from 'react-icons/md';
 import Cover from 'components/cover';
 
 const Private = (props) => {
+    
     const {element, onOpenValue, roomPrivateUpdate} = props;
+
     const {value, onChange, onStopPropagation, onSubmit} = useBasicForm({password: ""});
 
     const onMakePrivateRoom = async () => {

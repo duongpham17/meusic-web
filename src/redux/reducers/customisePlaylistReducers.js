@@ -1,9 +1,8 @@
 import {
-    CUSTOMISE_PLAYLIST_GET,
+    CUSTOMISE_PLAYLIST,
     CUSTOMISE_PLAYLIST_CREATE,
     CUSTOMISE_PLAYLIST_UPDATE,
     CUSTOMISE_PLAYLIST_DELETE,
-    CUSTOMISE_PLAYLIST_REORDER
 } from '../actions/types';
 
 const initialState = {
@@ -15,8 +14,7 @@ export const Customise = (state = initialState, action) => {
     
     switch(type){
 
-        case CUSTOMISE_PLAYLIST_REORDER:
-        case CUSTOMISE_PLAYLIST_GET:
+        case CUSTOMISE_PLAYLIST:
             return{
                 ...state,
                 playlist: payload

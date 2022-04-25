@@ -4,9 +4,7 @@ import { generateid } from 'utils/generateid';
 
 const Uploading = (props) => {
 
-    const {upload} = props;
-
-    const {uploading} = upload;
+    const {uploading} = props.uploadReducers;
 
     return ( !!uploading.length &&
         <div className={styles.container}>

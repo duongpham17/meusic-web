@@ -7,9 +7,7 @@ import DeleteSongsFromStorage from './DeleteSongsFromStorage';
 
 const Delete = (props) => (
     <>
-
         <DeleteSongsFromStorage {...props}/>
-
     </>
 )
 

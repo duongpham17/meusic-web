@@ -2,15 +2,15 @@ import { api } from '../api';
 import { setAlert } from './alertActions';
 
 import {
-    ROOM_CLEAR_ERROR,
-    ROOM_GET,
+    ROOM,
     ROOM_CREATED_BY_ME,
     ROOM_SEARCH_ROOM,
     ROOM_SEARCH_SONG,
     ROOM_CREATE,
     ROOM_DELETE,
-    ROOM_ERROR,
     ROOM_PRIVATE_UPDATE,
+    ROOM_ERROR,
+    ROOM_CLEAR_ERROR,
 } from './types';
 
 export const roomClearError = () => async dispatch => {
@@ -24,13 +24,13 @@ export const roomGet = (name) => async dispatch => {
         const res = await api.get(`/rooms/${name}`);
         if(res.data.room === null){
             dispatch({
-                type: ROOM_GET,
+                type: ROOM,
                 payload: "nothing"
             });
         }
         if(res.data.room){
             dispatch({
-                type: ROOM_GET,
+                type: ROOM,
                 payload: res.data.room
             });
         }
@@ -132,7 +132,7 @@ export const roomCheckPassword = (data) => async dispatch => {
     try{
         const res = await api.post(`/rooms/password`, data);
         dispatch({
-            type: ROOM_GET,
+            type: ROOM,
             payload: res.data.room
         });
         dispatch(setAlert(`Welcome to ${data.room}`));

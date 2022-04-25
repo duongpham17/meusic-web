@@ -7,7 +7,9 @@ import useDelayFetch from 'hooks/useDelayFetch';
 
 const Find = (props) => {
 
-    const {room, roomSearchSong, emitUpdateSong, params, setAlert} = props;
+    const {roomSearchSong, emitUpdateSong, params, setAlert} = props;
+
+    const {room} = props.roomReducers;
 
     const {value, onChange, onClear, loading} = useDelayFetch(roomSearchSong);
 

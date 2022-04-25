@@ -8,7 +8,7 @@ import Resize from './resize';
 
 export const Player = (props) => {
 
-    const {playing} = props;
+    const {song} = props.playingReducers
 
     const [resize, setResize] = useState("small"); //enum "small" || "large";
 
@@ -27,21 +27,22 @@ export const Player = (props) => {
         ...props,
         onResize,
         setResize,
+        location,
         resize
     };
 
     return ( 
-        <div className={`${styles.container} ${`${playing.song.title && styles.open}`} ${`${resize === "large" && styles.large}`} ` }>
-            {playing.song.title && <Audio {...props} />}
+        <div className={`${styles.container} ${`${song.title && styles.open}`} ${`${resize === "large" && styles.large}`} ` }>
+            {song.title && <Audio {...props} />}
             <Resize {...props} />
         </div>
     )
 };
 
 const mapStateToProps = state => ({
-    auth: state.authReducers,
-    playing: state.playingReducers,
-    savedPlaylist: state.savedPlaylistReducers
+    authReducers: state.authReducers,
+    playingReducers: state.playingReducers,
+    savedPlaylistReducers: state.savedPlaylistReducers
 });
 
 export default connect(mapStateToProps)(Player);

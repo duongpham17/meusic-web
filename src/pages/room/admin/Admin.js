@@ -6,18 +6,20 @@ import Menu from './menu/Menu';
 
 const Admin = (props) => {
 
-    const {room, roomGetCreateByMe} = props;
+    const { roomGetCreateByMe} = props;
 
-    useApiGet(roomGetCreateByMe, room.admin.length);
+    const {admin} = props.roomReducers;
 
-    return ( !!room.admin.length &&
+    useApiGet(roomGetCreateByMe, admin.length);
+
+    return ( !!admin.length &&
         <section className={styles.container}>
             <b>
                 <span>Admin</span> 
-                <span>{room.admin.length} Room</span>
+                <span>{admin.length} Room</span>
             </b>
             <div className={styles.map}>
-                {room.admin.map(el => 
+                {admin.map(el => 
                     <div className={styles.element} key={el._id}>
                         <a href={`/room/${el.room}`}> {el.room}</a>
                         <Menu {...props} element={el} />

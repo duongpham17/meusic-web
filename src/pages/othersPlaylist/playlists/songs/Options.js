@@ -16,22 +16,21 @@ const Options = (props) => {
     if(type === "remove") othersPlaylistDelete(element._id)
   };
 
+  const Item = ({description, option, icon}) => (
+    <li>
+      <button onClick={onOptionsSelect(option)}>
+        <span>{description}</span>
+        {icon}
+      </button>
+    </li>
+  );
+
   return (
     <div className={styles.container}>
       <Dropdown>
         <ul>
-          <li>
-            <button onClick={onOptionsSelect("save")}>
-              <span>Save</span>
-              <BsFillCollectionPlayFill/>
-            </button>
-          </li>
-          <li>
-            <button onClick={onOptionsSelect("remove")}>
-              <span>Remove</span>
-              <FaRegTrashAlt/>
-            </button>
-          </li>
+          <Item description="Save" icon={<BsFillCollectionPlayFill/>} option={"save"} />
+          <Item description="Remove" icon={<FaRegTrashAlt/>} option={"remove"} />
         </ul>
       </Dropdown>
     </div>

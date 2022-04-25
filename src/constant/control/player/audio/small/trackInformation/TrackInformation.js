@@ -6,7 +6,9 @@ import Play from './play';
 
 export const AudioInformation = (props) => {
 
-    const {trackPlaying, onResize, auth} = props;
+    const {trackPlaying, onResize} = props;
+
+    const {isLoggedIn} = props.authReducers
 
     const stopPropagation = (e) => e.stopPropagation();
 
@@ -20,7 +22,7 @@ export const AudioInformation = (props) => {
 
             <div className={styles.controls} onClick={stopPropagation}>
 
-                {auth.isLoggedIn && <Heart {...props} />}
+                {isLoggedIn && <Heart {...props} />}
 
                 <Play {...props} />
 

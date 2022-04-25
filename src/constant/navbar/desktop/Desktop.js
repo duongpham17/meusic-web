@@ -10,7 +10,7 @@ import Dropdown from 'components/dropdown';
 const Desktop = () => {
     return (
         <div className={styles.container}>
-            <Dropdown icon={<button className={styles.button}>Desktop</button>}>
+            <Dropdown icon={<button>Desktop</button>}>
                 <ul>
                     <li> 
                         <a href={mac} target="_blank" rel="noreferrer" download="name.zip">

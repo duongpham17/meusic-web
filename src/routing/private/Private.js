@@ -2,24 +2,26 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Unknown from 'pages/unknown';
 
-const Private = ({component: Component, auth:{isLoggedIn}, user:{user}, role=["user", "admin"]}) => {
+const Private = (props) => {
 
-  const localIsLoggedIn = localStorage.getItem("isLoggedIn")
+  const {component: Component, roles=["user", "admin"]} = props;
 
-  if (isLoggedIn && role.includes(user?.role)) {
-    return <Component />
-  } 
+  const {isLoggedIn} = props.authReducers;
+
+  const {user} = props.userReducers;
+
+  const localIsLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn && roles.includes(user?.role)) return <Component />
   
-  if(!isLoggedIn && !localIsLoggedIn ) {
-    return <Unknown />
-  }
+  if(!isLoggedIn && !localIsLoggedIn ) return <Unknown />
   
   return <div className='loading' />
 }
 
 const mapStateToProps = state => ({
-  auth: state.authReducers,
-  user: state.userReducers
+  authReducers: state.authReducers,
+  userReducers: state.userReducers
 })
 
 export default connect(mapStateToProps)(Private)

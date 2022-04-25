@@ -3,6 +3,7 @@ import React from 'react';
 import Cover from 'components/cover';
 
 const Delete = (props) => {
+    
     const {element, roomDelete, onOpenValue} = props;
 
     return (

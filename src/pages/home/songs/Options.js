@@ -9,9 +9,13 @@ import Dropdown from 'components/dropdown/Dropdown';
 
 export const Options = (props) => {
 
-    const {song, auth, index, savedPlaylist, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong, download, utilsDownloadOptions} = props;
+    const {song, index, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, adminDeleteSong, download, utilsDownloadOptions} = props;
 
-    const {playlist} = savedPlaylist;
+    const {playlist} = props.savedPlaylistReducers;
+
+    const {isLoggedIn} = props.authReducers;
+
+    const {user} = props.userReducers;
 
     const stopPropagation = event => event.stopPropagation();
 
@@ -23,6 +27,15 @@ export const Options = (props) => {
         utilsDownloadOptions("end", song.title);
     };
 
+    const Item = ({onClick, description, icon}) => (
+        <li>
+            <button onClick={onClick}>
+                <span>{description}</span>
+                <span>{icon}</span>
+            </button>
+        </li>
+    )
+
     return (
         <div className={styles.container} onClick={stopPropagation}>
             <Dropdown>
@@ -30,57 +43,26 @@ export const Options = (props) => {
                     playlist &&                    
                     <ul>
 
-                        {user && user.user.role === "admin" && 
-                            <>
-                                <li>
-                                    <button onClick={() => setEditSongData({...song, index})}>
-                                        <span>Edit</span>
-                                        <span><FaEdit /></span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button onClick={() => adminDeleteSong(song._id)}>
-                                        <span>Delete</span>
-                                        <span><FaRegTrashAlt /></span>
-                                    </button>
-                                </li>
+                        {user && user.role === "admin" && 
+                            <>  
+                                <Item description="Edit" icon={<FaEdit/>} onClick={() => setEditSongData({...song, index})} />
+                                <Item description="Delete" icon={<FaRegTrashAlt/>} onClick={() => adminDeleteSong(song._id)} />
                             </>
                         }
                         
-                        { auth.isLoggedIn &&
+                        { isLoggedIn &&
                             <>
-                                <li>
-                                    {                   
-                                        alreadyAdded(playlist, song._id) 
-                                        ?
-                                        <button onClick={() => savedPlaylistRemoveFrom(song._id)}>
-                                            <span>Remove</span>
-                                            <span><BsSuitHeartFill className={styles.heart}/></span>
-                                        </button>
-                                        : 
-                                        <button onClick={() => savedPlaylistAddTo(song._id)}>
-                                            <span>Save</span>
-                                            <span><BsSuitHeart className={styles.heart}/></span>
-                                        </button>
-                                    }
-                                </li>
+                                {                   
+                                    alreadyAdded(playlist, song._id) 
+                                    ? <Item description="Remove" icon={<BsSuitHeartFill/>} onClick={() => savedPlaylistRemoveFrom(song._id)} />
+                                    : <Item description="Save" icon={<BsSuitHeart/>} onClick={() => savedPlaylistAddTo(song._id)} />
+                                }
 
-                                <li>
-                                    <button onClick={() => setAddSong(song)}>
-                                        <span>Playlist</span>
-                                        <span><BsFillCollectionPlayFill/></span>
-                                    </button>
-                                </li>
+                                <Item description="Playlist" icon={<BsFillCollectionPlayFill/>} onClick={() => setAddSong(song)} />  
                             </>
                         }
 
-
-                        <li>
-                            <button onClick={onDownload}>
-                                <span>Download</span>
-                                <span><MdOutlineFileDownload/></span>
-                            </button>
-                        </li>
+                        <Item description="Download" icon={<MdOutlineFileDownload/>} onClick={() => onDownload()} />     
 
                     </ul>
                 }

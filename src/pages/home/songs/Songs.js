@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { adminUpdateSong } from 'redux/actions/adminActions';
 import { previewGetSongs } from 'redux/actions/previewPlaylistActions';
-import { savedPlaylistAddTo, savedPlaylistRemoveFrom } from 'redux/actions/savedPlaylistActions';
+import { savedPlaylistSave, savedPlaylistRemove } from 'redux/actions/savedPlaylistActions';
 import { playingPreviewSelectPlaylist } from 'redux/actions/playingActions';
 import { customisePlaylistGet, customisePlaylistUpdate } from 'redux/actions/customisePlaylistActions';
 import { adminDeleteSong } from 'redux/actions/adminActions';
@@ -20,12 +20,14 @@ import EditSong from './EditSong';
 
 export const Songs = (props) => {
 
-    const {previewPlaylist, playingPreviewSelectPlaylist, previewGetSongs} = props;
+    const {playingPreviewSelectPlaylist, previewGetSongs} = props;
+
+    const {playlist} = props.previewPlaylistReducers;
 
     const [addSong, setAddSong] = useState("");
     const [editSongData, setEditSongData] = useState("");
 
-    useApiGet(previewGetSongs, previewPlaylist.songs);
+    useApiGet(previewGetSongs, playlist);
     const {download} = useUrlDownload();
 
     const onPlay = (song) => () =>  playingPreviewSelectPlaylist(song);
@@ -39,16 +41,13 @@ export const Songs = (props) => {
         download
     }
 
-    return ( !previewPlaylist.songs ? <div className="loading" /> :
+    return ( !playlist ? <div className="loading" /> :
         <div className={styles.container}>
 
-            {previewPlaylist.songs.map((el, index) => 
+            {playlist.map((el, index) => 
                 <div key={el._id} className={styles.element} onClick={onPlay(el)}>
-                    
                     <Information {...props} song={el} index={index} />
-
                     <Options {...props} song={el} index={index}/>
-
                 </div>    
             )}
 
@@ -60,18 +59,18 @@ export const Songs = (props) => {
 };
 
 const mapStateToProps = state => ({
-    auth: state.authReducers,
-    user: state.userReducers,
-    playing: state.playingReducers,
-    savedPlaylist: state.savedPlaylistReducers,
-    previewPlaylist: state.previewPlaylistReducers,
-    customisePlaylist: state.customisePlaylistReducers
+    authReducers: state.authReducers,
+    userReducers: state.userReducers,
+    playingReducers: state.playingReducers,
+    savedPlaylistReducers: state.savedPlaylistReducers,
+    previewPlaylistReducers: state.previewPlaylistReducers,
+    customisePlaylistReducers: state.customisePlaylistReducers
 });
 
 const mapDispatchToProps = {
     adminDeleteSong,
-    savedPlaylistAddTo,
-    savedPlaylistRemoveFrom,
+    savedPlaylistSave,
+    savedPlaylistRemove,
     playingPreviewSelectPlaylist,
     previewGetSongs,
     customisePlaylistGet, 

@@ -13,7 +13,9 @@ import PreviousSearch from './PreviousSearch';
 
 export const Search = (props) => {
 
-    const {previewGetSongs, previewPlaylist} = props;
+    const {previewGetSongs}  = props;
+
+    const {playlist} = props.previewPlaylistReducers;
 
     const {getQueryValue, setQuery, clearQuery} = useQuery();
     
@@ -37,7 +39,7 @@ export const Search = (props) => {
         const {value} = e.target;
         setValue(value);
         const query = setQuery(params, value);
-        if(value && value.length >= 3 && value.length <= 13 && previewPlaylist.songs.length >= 1) onSet("add", value);
+        if(value && value.length >= 3 && value.length <= 13 & playlist.length >= 1) onSet("add", value);
         localStorage.setItem('filtered', query);
         if(!value) previewGetSongs();
     };
@@ -65,7 +67,7 @@ export const Search = (props) => {
         <div className={styles.container}>
             
             <div className={styles.searchBar}>
-                <SearchBar value={value} loading={loading} onChange={onChange("title")} onClear={onClear} placeholder="Search songs" />
+                <SearchBar value={value} loading={loading} onChange={onChange("title")} onClear={onClear} placeholder="Search playlist" />
             </div>
             
             <div>
@@ -77,7 +79,7 @@ export const Search = (props) => {
 }
 
 const mapStateToProps = state => ({
-    previewPlaylist: state.previewPlaylistReducers,
+    previewPlaylistReducers: state.previewPlaylistReducers,
 });
 
 const mapDispatchToProps = {

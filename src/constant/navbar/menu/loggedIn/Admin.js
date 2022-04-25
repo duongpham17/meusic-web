@@ -1,13 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 import {BiCrown} from 'react-icons/bi';
 
 const Admin = (props) => {
 
-    const {user} = props;
+    const {user} = props.userReducers;
 
-    return ( user?.user?.role === "admin" &&
+    return ( user?.role === "admin" &&
         <div>
             <Link to='/admin'>
                 <span><BiCrown/></span> 
@@ -17,8 +16,4 @@ const Admin = (props) => {
     );
 };
 
-const mapStateToProps = state => ({
-    user: state.userReducers
-});
-
-export default connect(mapStateToProps)(Admin);
+export default Admin;

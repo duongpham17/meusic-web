@@ -1,7 +1,7 @@
 import {api} from '../api';
 
 import {
-    USER_LOAD,
+    USER,
 
     AUTH_LOGIN,
     AUTH_ERROR,
@@ -31,7 +31,7 @@ export const authLoadUser = () => async dispatch => {
             type: AUTH_CONFIRM,
         });
         dispatch({
-            type: USER_LOAD,
+            type: USER,
             payload: res.data.user
         });
     } catch(error) {

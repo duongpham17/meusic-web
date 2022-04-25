@@ -5,9 +5,11 @@ import InformationLayout1 from 'components/informationLayout/Layout3';
 
 const TrackPlaylist = (props) => {
 
-    const {playing, playingChangeSong} = props;
+    const {playingChangeSong} = props;
 
-    const isPlaying = (element) => playing.playlistType === "previewPlaylist" ?  playing.song.previewId === element.previewId : playing.song._id === element._id;
+    const {playlistType, song, playlist} = props.playingReducers;
+
+    const isPlaying = (element) => playlistType === "previewPlaylist" ?  song.previewId === element.previewId : song._id === element._id;
 
     const onPlay = (index) => () => playingChangeSong(index);
     
@@ -15,11 +17,11 @@ const TrackPlaylist = (props) => {
         <div className={styles.container}>
 
             <div className={styles.overview}>
-                <b>SONG {playing.song.index+1} / {playing.playlist.length}</b>
+                <b>SONG {song.index+1} / {playlist.length}</b>
             </div>
 
             <div className={styles.map}>
-                {playing.playlist.map((el, index) => 
+                {playlist.map((el, index) => 
                     <div className={styles.element} key={el.previewId || el._id} onClick={onPlay(index)}>
                         <InformationLayout1 song={el} index={index} isPlaying={isPlaying(el)} />  
                     </div>  

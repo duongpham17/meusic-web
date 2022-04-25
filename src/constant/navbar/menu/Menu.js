@@ -4,14 +4,14 @@ import {connect} from 'react-redux';
 import LoggedIn from './loggedIn';
 import LoggedOut from './loggedOut'
 
-export const Menu = ({auth}) => {
+export const Menu = (props) => {
 
-  const {isLoggedIn} = auth;
+  const {isLoggedIn} = props.authReducers;
 
   return ( 
     <>
 
-      {isLoggedIn && <LoggedIn/>}
+      {isLoggedIn && <LoggedIn />}
 
       {!isLoggedIn && <LoggedOut />}
 
@@ -20,7 +20,7 @@ export const Menu = ({auth}) => {
 };
 
 const mapStateToProps = state => ({
-  auth: state.authReducers
-})
+  authReducers: state.authReducers,
+});
 
 export default connect(mapStateToProps)(Menu);

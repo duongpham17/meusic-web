@@ -1,5 +1,5 @@
 import {
-    ROOM_GET,
+    ROOM,
     ROOM_SEARCH_ROOM,
     ROOM_SEARCH_SONG,
     ROOM_CREATED_BY_ME,
@@ -22,7 +22,7 @@ export const Room = (state = initialState, action) => {
     const {type, payload} = action;
     
     switch(type){
-        case ROOM_GET:
+        case ROOM:
             return{
                 ...state,
                 room: payload

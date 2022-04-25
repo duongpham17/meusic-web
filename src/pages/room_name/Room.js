@@ -16,7 +16,9 @@ const Room = (props) => {
 
   const {roomGet, playingClear} = props;
 
-  const [room, user] = [props.room.room, props.user.user];
+  const {room} = props.roomReducers;
+
+  const {user} = props.userReducers;
 
   const [verified, setVerified] = useState("");
 
@@ -67,10 +69,10 @@ const Room = (props) => {
 };
 
 const mapStateToProps = state => ({
-  room: state.roomReducers,
-  user: state.userReducers,
-  savedPlaylist: state.savedPlaylistReducers,
-  customisePlaylist: state.customisePlaylistReducers
+  roomReducers: state.roomReducers,
+  userReducers: state.userReducers,
+  savedPlaylistReducers: state.savedPlaylistReducers,
+  customisePlaylistReducers: state.customisePlaylistReducers
 })
 
 const mapDispatchToProps = {

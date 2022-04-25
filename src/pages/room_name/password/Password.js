@@ -6,12 +6,14 @@ import Cover from 'components/cover';
 
 const Password = (props) => {
 
-    const {room, verified, setVerified, roomCheckPassword, roomClearError} = props;
+    const {verified, setVerified, roomCheckPassword, roomClearError} = props;
+
+    const {room:{room, error}} = props.roomReducers;
 
     const {value, loading, onChange, onSubmit} = useBasicForm({password: ""});
     
     const onCheckPassword = async () => {
-        const data = {...value, ...room.room}
+        const data = {...value, ...room}
         const verify = await roomCheckPassword(data);
         if(verify) return setVerified(true);
     };
@@ -31,7 +33,7 @@ const Password = (props) => {
                         <input type="password" placeholder="Password" name="password" value={value.password} onChange={onChange} />
                     </div>
 
-                    {room.error && <small> {room.error.password} </small> }
+                    {error && <small> {error.password} </small> }
 
                     {value.password &&
                         <button>

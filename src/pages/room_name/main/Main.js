@@ -9,7 +9,9 @@ import Songs from './songs';
 
 const Main = (props) => {
 
-  const [room, user] = [props.room.room, props.user.user];
+  const {room} = props.roomReducers;
+
+  const {user} = props.userReducers;
 
   const data = {room, user};
 

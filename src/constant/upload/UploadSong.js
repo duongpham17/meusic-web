@@ -7,9 +7,9 @@ import CustomValidation from './validation/CustomValidation';
 
 export const UploadSong = (props) => {
 
-    const {upload, uploadSong, uploadClearError} = props;
+    const {uploadSong, uploadClearError} = props;
     
-    const {status, uploading} = upload;
+    const {status, uploading} = props.uploadReducers;
 
     const initalState = {
         url: "",
@@ -30,7 +30,7 @@ export const UploadSong = (props) => {
     const onClearValidation = () => {
         uploadClearError();
         onClear();
-    }
+    };
 
     return (
         <div className={styles.container}>
@@ -59,18 +59,6 @@ export const UploadSong = (props) => {
         </div>
 
     )
-}
-
-/*
-                {status === "undefined" && 
-                    <>
-                        <input type="text" placeholder='Song name' name="song" value={values.song} onChange={onChange} />
-                        {errors.song && <p className={styles.errors}>* {errors.song} *</p>}
-                        <input type="text" placeholder='Artist name' name="artist" value={values.artist} onChange={onChange} />
-                        {errors.artist && <p className={styles.errors}>* {errors.artist} *</p>}
-                    </>
-                }
-
-*/
+};
 
 export default UploadSong;

@@ -1,6 +1,7 @@
 import React from 'react';
-import {BsSun, BsPerson, BsFillShareFill} from 'react-icons/bs';
-import {MdPrivacyTip} from 'react-icons/md';
+import {BsSun, BsPerson} from 'react-icons/bs';
+import {MdPrivacyTip, MdShare} from 'react-icons/md';
+
 
 const LinkList = [
     {
@@ -17,7 +18,7 @@ const LinkList = [
     },
     {
         id: 2,
-        icon: <BsFillShareFill/>,
+        icon: <MdShare/>,
         name: "Others",
         link: "/others"
     },

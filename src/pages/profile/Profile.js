@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 
 import Username from './username';
 
-const Profile = ({User}) => {
+const Profile = (props) => {
 
-    const {user} = User;
+    const {user} = props.userReducers;
 
     const Boxed = ({ title, component:Component }) => (
         <div className={styles.boxed}>
@@ -16,20 +16,20 @@ const Profile = ({User}) => {
     )
 
     return ( 
-        !User ? <div className='loading' /> :
+        !user ? <div className='loading' /> :
 
         <div className={styles.container}>
 
             <Boxed title="Email" component={<p>{user.email}</p>} />
 
-            <Boxed title="Username" component={<Username User={User}/>} />
+            <Boxed title="Username" component={<Username {...props}/>} />
 
         </div>
     )
 }
 
 const mapStateToProps = state => ({
-    User: state.userReducers
+    userReducers: state.userReducers
 })
 
 export default connect(mapStateToProps)(Profile)

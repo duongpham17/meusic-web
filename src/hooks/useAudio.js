@@ -16,87 +16,89 @@ const useAudio = (audio, tracks, song) => {
     const [trackLoading, setTrackLoading] = useState(false);
     const [trackError, setTrackError] = useState(false);
     const [trackEnded, setTrackEnded] = useState(false);
-    const [trackMuted, setTrackMuted] = useState(JSON.parse(localStorage.getItem("muted")) || false);
-    const [trackVolume, setTrackVolume] = useState(JSON.parse(localStorage.getItem("muted")) ? 0 : localStorage.getItem("volume"));
+    const [trackMuted, setTrackMuted] = useState(JSON.parse(localStorage.getItem("trackMuted")) || false);
+    const [trackVolume, setTrackVolume] = useState(JSON.parse(localStorage.getItem("trackMuted")) ? 0 : localStorage.getItem("trackMuted"));
     const [trackCycleType, setTrackCycleType] = useState(localStorage.getItem("trackCycle") || "loop");
+    const [trackPlaybackRate, setTrackPlaybackRate] = useState(JSON.parse(localStorage.getItem("trackPlaybackRate")) || 1);
 
-    const play = () => {
+    const onPlay = () => {
         audio.current.play();
         setTrackPaused(false);
     }
 
-    const pause = () => {
+    const onPause = () => {
         audio.current.pause();
         setTrackPaused(true);
     }
 
     // Seek the specified track time.
-    const seek = (val) => {
+    const onSeek = (val) => {
         audio.current.currentTime = !val.target ? val : val.target.value;
     };
 
     // playBackRate
-    const playbackRate = (v) => {
+    const onPlaybackRate = (v) => {
         const rateValue = !v.target ? v : v.target.value;
-        localStorage.setItem("playbackRate", rateValue);
+        localStorage.setItem("trackPlaybackRate", rateValue);
+        setTrackPlaybackRate(rateValue);
         audio.current.playbackRate = rateValue;
     };
 
     // change volume
-    const volume = (v) => {
+    const onVolume = (v) => {
         const volumeValue = !v.target ? v : v.target.value;
         audio.current.volume = volumeValue;
         audio.current.muted = false;
 
         if(volumeValue <= 0){
             setTrackMuted(true);
-            localStorage.setItem("muted", true);
+            localStorage.setItem("trackMuted", true);
         }
 
         if(volumeValue > 0){
             setTrackMuted(false);
-            localStorage.setItem("muted", false);
+            localStorage.setItem("trackMuted", false);
         }
 
         setTrackVolume(volumeValue);
-        localStorage.setItem("volume", volumeValue);
+        localStorage.setItem("trackVolume", volumeValue);
     };
 
-    const muteVolume = () => {
+    const onMuteVolume = () => {
         audio.current.muted = true;
         setTrackVolume(0);
         setTrackMuted(true);
-        localStorage.setItem("previousVolume", audio.current.volume);
-        localStorage.setItem("muted", true);
+        localStorage.setItem("trackPreviousVolume", audio.current.volume);
+        localStorage.setItem("trackMuted", true);
     };
 
-    const previousVolume = () => {
-        const previousVolumeValue = localStorage.getItem("previousVolume", audio.current.volume);
+    const onPreviousVolume = () => {
+        const previousVolumeValue = localStorage.getItem("trackPreviousVolume", audio.current.volume);
         audio.current.muted = false;
         setTrackVolume(previousVolumeValue);
         setTrackMuted(false);
     }
 
     // play song in order
-    const loop = () => {
+    const onLoop = () => {
         localStorage.setItem("trackCycle", "loop");
         setTrackCycleType("loop");
     }; 
 
     // play song in random order
-    const shuffle = () => {
+    const onShuffle = () => {
         localStorage.setItem("trackCycle", "shuffle");
         setTrackCycleType("shuffle");
     };
 
     // play same song over and over again
-    const repeat = () => {
+    const onRepeat = () => {
         localStorage.setItem("trackCycle", "repeat");
         setTrackCycleType("repeat");
     };
 
     // play next track, loops to the start when it reaches the end.
-    const next = useCallback(() => {
+    const onNext = useCallback(() => {
         const trackLength = tracks.length - 1;
         const randomIndex = Math.floor(Math.random() * trackLength + 1);
 
@@ -131,7 +133,7 @@ const useAudio = (audio, tracks, song) => {
     }, [trackIndex, trackCycleType, tracks]);
 
     // play previous track, loops to the end when it reaches the start.
-    const previous = useCallback(() => {
+    const onPrevious = useCallback(() => {
         const trackLength = tracks.length - 1;
 
         // playlist only has one song
@@ -169,10 +171,10 @@ const useAudio = (audio, tracks, song) => {
         Audio.load();
 
         const canplay = Audio.addEventListener("canplay", () => { 
-            const volumeMuted = JSON.parse(localStorage.getItem("muted"));
-            const volumeValue = JSON.parse(localStorage.getItem("volume"));
+            const volumeMuted = JSON.parse(localStorage.getItem("trackMuted"));
+            const volumeValue = JSON.parse(localStorage.getItem("trackVolume"));
             const volume = volumeMuted ? 0 : volumeValue === 0 || volumeValue ? volumeValue : 1;
-            const playbackRate = JSON.parse(localStorage.getItem("playbackRate") || 1);
+            const playbackRate = JSON.parse(localStorage.getItem("trackPlaybackRate") || 1);
 
             Audio.muted = volumeMuted;
             Audio.volume = volume;
@@ -203,9 +205,9 @@ const useAudio = (audio, tracks, song) => {
     useEffect(() => {
         if(trackEnded) {
             setTrackEnded(false);
-            next();
+            onNext();
         };
-    }, [trackEnded, next]);
+    }, [trackEnded, onNext]);
 
     //1. ERROR - keep track of loading errors due to ipfs
     useEffect(() => {
@@ -237,19 +239,20 @@ const useAudio = (audio, tracks, song) => {
         trackVolume,
         trackMuted,
         trackLoading,
+        trackPlaybackRate,
 
-        playbackRate,
-        previous,
-        next,
-        loop,
-        shuffle,
-        repeat,
-        play,
-        pause,
-        seek,
-        volume,
-        muteVolume,
-        previousVolume
+        onPlaybackRate,
+        onPrevious,
+        onNext,
+        onLoop,
+        onShuffle,
+        onRepeat,
+        onPlay,
+        onPause,
+        onSeek,
+        onVolume,
+        onMuteVolume,
+        onPreviousVolume
     }
 }
 

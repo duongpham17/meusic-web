@@ -6,13 +6,13 @@ import Dropdown from '../components/dropdown';
 
 const Cycle = (props) => {
 
-    const {shuffle, loop, repeat, trackCycleType} = props;
+    const {onShuffle, onLoop, onRepeat, trackCycleType} = props;
 
     const onCycle = () => {
-        if(trackCycleType === "loop") return shuffle();
-        if(trackCycleType === "shuffle") return repeat();
-        if(trackCycleType === "repeat") return loop();
-    }
+        if(trackCycleType === "loop") return onShuffle();
+        if(trackCycleType === "shuffle") return onRepeat();
+        if(trackCycleType === "repeat") return onLoop();
+    };
 
     return (
         <Dropdown button={

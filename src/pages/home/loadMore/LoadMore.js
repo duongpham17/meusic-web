@@ -6,7 +6,9 @@ import { previewGetSongs } from 'redux/actions/previewPlaylistActions';
 
 const More = (props) => {
 
-    const {previewGetSongs, previewPlaylist} = props;
+    const {previewGetSongs} = props;
+
+    const {playlist} = props.previewPlaylistReducers;
 
     const {setQuery, getQueryValue} = useQuery();
 
@@ -21,7 +23,7 @@ const More = (props) => {
         setLoading(false)
     };
 
-    return ( previewPlaylist.songs && previewPlaylist.songs.length >= (getQueryValue("limit") || 50) &&
+    return ( playlist && playlist.length >= (getQueryValue("limit") || 50) &&
         <div className={styles.container}>
             {!loading && <button onClick={onLoadMore}>Load more</button>}
             {loading && <div className='loading-30 center' />}
@@ -30,7 +32,7 @@ const More = (props) => {
 };
 
 const mapStateToProps = state => ({
-    previewPlaylist: state.previewPlaylistReducers
+    previewPlaylistReducers: state.previewPlaylistReducers
 });
 
 const mapDispatchToProps = {

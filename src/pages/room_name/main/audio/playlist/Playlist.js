@@ -6,7 +6,9 @@ import { FaRegTrashAlt } from 'react-icons/fa';
 
 const Playlist = (props) => {
 
-    const {roomData, user, roomPlaying, emitChangeSong, emitUpdateSong, setAlert} = props;
+    const {roomData, roomPlaying, emitChangeSong, emitUpdateSong, setAlert} = props;
+
+    const {user} = props.userReducers;
 
     const onPlay = (index) => () => {
         const data = {
@@ -39,7 +41,7 @@ const Playlist = (props) => {
     return (
         <div className={styles.container}>
 
-            {user.user._id === roomData.admin && 
+            {user._id === roomData.admin && 
                 <div className={styles.clear}>
                     <b>{roomData.songs.length} Songs</b>
                     <button onClick={onClearPlaylist}><b>Clear</b></button>

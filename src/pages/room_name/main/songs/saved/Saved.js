@@ -6,9 +6,14 @@ import SearchBar from 'components/searchBar';
 
 const Saved = (props) => {
 
-    const {savedPlaylist, emitUpdateSong, params, setAlert, open} = props;    
-    const initalPlaylist = savedPlaylist.playlist;
+    const {emitUpdateSong, params, setAlert, open} = props;    
+
+    const {playlist} = props.savedPlaylistReducers;
+
+    const initalPlaylist = playlist;
+    
     const [userSongs, setUserSongs] = useState(initalPlaylist || []);
+    
     const [value, setValue] = useState("");
 
     const onChange = (e) => {

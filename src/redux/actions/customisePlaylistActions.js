@@ -2,18 +2,17 @@ import {api} from '../api';
 import {setAlert} from './alertActions';
 
 import {
-    CUSTOMISE_PLAYLIST_GET,
+    CUSTOMISE_PLAYLIST,
     CUSTOMISE_PLAYLIST_CREATE,
     CUSTOMISE_PLAYLIST_DELETE,
     CUSTOMISE_PLAYLIST_UPDATE,
-    CUSTOMISE_PLAYLIST_REORDER
 } from './types';
 
 export const customisePlaylistGet = () => async dispatch => {
     try{
         const res = await api.get('/customise/playlist');
         dispatch({
-            type: CUSTOMISE_PLAYLIST_GET,
+            type: CUSTOMISE_PLAYLIST,
             payload: res.data.customise
         });
     } catch(error) {
@@ -93,7 +92,7 @@ export const customisePlaylistSaveOthers = (data) => async dispatch => {
 
 export const customisePlaylistReorder = (data) => async dispatch => {
     dispatch({
-        type: CUSTOMISE_PLAYLIST_REORDER,
+        type: CUSTOMISE_PLAYLIST,
         payload: data
     });
     try{

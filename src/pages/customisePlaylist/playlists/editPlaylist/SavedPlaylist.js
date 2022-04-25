@@ -5,9 +5,11 @@ import SlideIn from 'components/slideIn/SlideIn';
 
 const SavedPlaylist = (props) => {
 
-    const {savedPlaylist, setSelectedPlaylist, selectedPlaylist, onOpen, open, setEdited, edited} = props;
+    const {setSelectedPlaylist, selectedPlaylist, onOpen, open, setEdited, edited} = props;
 
-    const initalState = savedPlaylist.playlist;
+    const {playlist} = props.savedPlaylistReducers;
+
+    const initalState = playlist;
 
     const [search, setSearch] = useState(initalState);
     const [value, setValue] = useState("");
@@ -39,7 +41,7 @@ const SavedPlaylist = (props) => {
 
                 <div className={styles.total}>
                     <p>Songs</p>
-                    <p>{savedPlaylist.playlist.length}</p>
+                    <p>{playlist.length}</p>
                 </div>
 
                 {search.map(el => 

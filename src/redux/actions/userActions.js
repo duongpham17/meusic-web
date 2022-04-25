@@ -2,7 +2,7 @@ import { api } from '../api';
 import { setAlert } from './alertActions';
 
 import {
-    USER_UPDATE,
+    USER,
     USER_ERRORS
 } from './types';
 
@@ -14,7 +14,7 @@ export const userUpdateUsername = (data) => async dispatch => {
     try{
         const res = await api.patch('/users/username', data);
         dispatch({
-            type: USER_UPDATE,
+            type: USER,
             payload: res.data.user
         });
         dispatch(setAlert("Username updated"))

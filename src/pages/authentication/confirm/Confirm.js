@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 
 export const Confirm = (props) => {
 
-    const {auth, authConfirmEmail} = props;
+    const {authConfirmEmail} = props;
 
-    const {isLoggedIn, error} = auth;
+    const {isLoggedIn, error} = props.authReducers;
 
     const {code} = useParams();
     
@@ -45,7 +45,7 @@ export const Confirm = (props) => {
 }
 
 const mapStateToProps = state => ({
-    auth: state.authReducers
+    authReducers: state.authReducers
 });
 
 const mapDispatchToProps = {

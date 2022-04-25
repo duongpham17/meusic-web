@@ -8,38 +8,31 @@ import {playingSelectPlaylist} from 'redux/actions/playingActions';
 
 import useApiGet from 'hooks/useApiGet';
 
-import Element from './Element';
+import Total from './total';
+import Songs from './songs';
 
 export const Playlists = (props) => {
 
-    const {othersPlaylist, othersPlaylistGet} = props;
+    const {othersPlaylistGet} = props;
 
-    useApiGet(othersPlaylistGet, othersPlaylist.playlist);
-    
-    const {playlist} = othersPlaylist;
+    const {playlist} = props.othersPlaylistReducers;
 
-    return ( playlist &&
+    useApiGet(othersPlaylistGet, playlist.length);
+
+    return ( !playlist ? <div className='loading' /> :
         <div className={styles.container}>
 
-            { !!playlist.length &&
-                <div className={styles.total}>
-                    <p><b>PLAYLISTS {playlist.length}</b></p>
-                </div>
-            }
-
-            { playlist.map(el => el &&
-                <div className={styles.element} key={el._id}>
-                    <Element {...props} element={el} />
-                </div>    
-            )}
+            <Total {...props} />
+            
+            <Songs {...props} />
 
         </div>
     )
-}
+};
 
 const mapStateToProps = state => ({
-    playing: state.playingReducers,
-    othersPlaylist: state.othersPlaylistReducers,
+    playingReducers: state.playingReducers,
+    othersPlaylistReducers: state.othersPlaylistReducers,
 });
 
 const mapDispatchToProps = {

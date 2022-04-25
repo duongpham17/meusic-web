@@ -8,8 +8,13 @@ import useOpen from 'hooks/useOpen';
 import useBasicForm from 'hooks/useBasicForm';
 
 const Create = (props) => {
-    const {room, roomCreate} = props;
+    
+    const {roomCreate} = props;
+
+    const {error} = props.roomReducers;
+
     const {open, onOpen} = useOpen(false);
+
     const {value, onClear, onChange, onStopPropagation, onSubmit} = useBasicForm({name: ""});
 
     const onRoomCreate = async () => {
@@ -31,7 +36,7 @@ const Create = (props) => {
                 <div className={styles.content} onClick={onOpen}>
                     <form onClick={onStopPropagation} onSubmit={onSubmit(onRoomCreate)}>
                         <input type="text" placeholder="Room name" name="name" value={value.name} onChange={onChange} />
-                        {room.error.exist && <small>{room.error.exist}</small>}
+                        {error.exist && <small>{error.exist}</small>}
                         {value.name.length >= 10 && <small>Max 10 letters</small>}
                         {value.name &&
                             <button>

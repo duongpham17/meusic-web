@@ -5,9 +5,11 @@ import {MdAdd} from 'react-icons/md';
 import useApiGet from 'hooks/useApiGet';
 
 const Customise = (props) => {
-    const {customisePlaylist, customisePlaylistGet, emitUpdateSong, params, setAlert} = props;
+    const { customisePlaylistGet, emitUpdateSong, params, setAlert} = props;
 
-    useApiGet(customisePlaylistGet, customisePlaylist.playlist);
+    const {playlist} = props.customisePlaylistReducers;
+
+    useApiGet(customisePlaylistGet, playlist);
 
     const onAddPlaylist = (playlist) => () => {
         const song = playlist.song;
@@ -22,12 +24,12 @@ const Customise = (props) => {
         setAlert(`${playlist.name} playlist has been added`);
     };
 
-    return ( !customisePlaylist.playlist  ? <div className="loading-30 center" /> : 
+    return ( !playlist  ? <div className="loading-30 center" /> : 
         <div className={styles.container}>
             { 
-                customisePlaylist.playlist.length 
+                playlist.length 
             ? 
-                customisePlaylist.playlist.map(el => 
+                playlist.map(el => 
                     <div className={styles.element} key={el._id} onClick={onAddPlaylist(el)}>
                         <button>
                             <span>{el.name}</span>

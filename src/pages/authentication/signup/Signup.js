@@ -11,7 +11,9 @@ import useForm from 'hooks/useForm';
 
 export const Signup = (props) => {
 
-  const {auth, authSignupEmail, authSignupUsername, authSignupClear} = props;
+  const {authSignupEmail, authSignupUsername, authSignupClear} = props;
+
+  const {signup, error} = props.authReducers;
 
   const initalState = {
     email: "",
@@ -21,39 +23,37 @@ export const Signup = (props) => {
   const {values, onChange, onSubmit, errors, loading} = useForm(initalState, callback, Valiation);
 
   async function callback(){
-    if(!auth.signup) return await authSignupEmail(values);
+    if(!signup) return await authSignupEmail(values);
     await authSignupUsername(values);
   };
 
   useEffect(() => {
-    return () => {
-      authSignupClear()
-    }
+    return () => authSignupClear();
   }, [authSignupClear]);
 
   return (
     <Authentication title="Signup">
-      {auth.signup === "sent" 
+      {signup === "sent" 
         ?
           <EmailSent email={values.email}/>
         :
         <form onSubmit={onSubmit} noValidate>
 
-          {!auth.signup && 
+          {!signup && 
             <div>
               <input type="text" placeholder="Email" name="email" values={values.email} onChange={onChange} />
               {errors.email && <span>{errors.email} *</span>}
-              {auth.error?.signup?.email && <span>{auth.error.signup.email} *</span>}
+              {error?.signup?.email && <span>{error.signup.email} *</span>}
             </div>
           }
 
-          {auth.signup === "available" && 
+          {signup === "available" && 
             <div>
-              <h4>{values.email}</h4>
+              <input type="text" value={values.email} onChange={()=>{}}/>
 
               <input type="text" placeholder="Username" name="username" values={values.username} onChange={onChange} />
               {errors.username && <span>{errors.username} *</span>}
-              {auth.error?.signup?.username && <span>{auth.error.signup.username} *</span>}
+              {error?.signup?.username && <span>{error.signup.username} *</span>}
             </div>
           }
 
@@ -69,7 +69,7 @@ export const Signup = (props) => {
 }
 
 const mapStateToProps = state => ({
-  auth: state.authReducers
+  authReducers: state.authReducers
 });
 
 const mapDispatchToProps = {

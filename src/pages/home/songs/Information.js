@@ -4,7 +4,9 @@ import SongInformationLayout1 from 'components/informationLayout/Layout1';
 
 export const Information = (props) => {
 
-    const {song, playing} = props;
+    const {song} = props;
+
+    const playing = props.playingReducers;
 
     const isPlaying = playing.song.title === song.title;
 

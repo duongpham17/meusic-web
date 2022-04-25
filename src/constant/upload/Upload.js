@@ -10,7 +10,9 @@ import Uploading from './Uploading';
 
 export const Upload = (props) => {
 
-    const {utils, utilsOpenContent} = props;
+    const {utilsOpenContent} = props;
+
+    const {open} = props.utilsReducers;
 
     const onOpen = () => utilsOpenContent("upload");
     
@@ -18,7 +20,7 @@ export const Upload = (props) => {
 
         <div className={styles.container}>
 
-            <SlideIn open={utils.open === "upload"} onOpen={onOpen}>
+            <SlideIn open={open === "upload"} onOpen={onOpen}>
 
                 <Uploading {...props} />
 
@@ -32,8 +34,8 @@ export const Upload = (props) => {
 }
 
 const mapStateToProps = state => ({
-    upload: state.uploadReducers,
-    utils: state.utilsReducers
+    uploadReducers: state.uploadReducers,
+    utilsReducers: state.utilsReducers
 })
 
 const mapDispatchToProps = {

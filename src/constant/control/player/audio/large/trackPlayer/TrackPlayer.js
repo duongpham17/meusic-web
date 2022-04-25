@@ -4,13 +4,13 @@ import {BsFillPlayFill, BsPauseFill, BsFillSkipEndFill, BsFillSkipStartFill} fro
 
 export const TrackPlayer = (props) => {
 
-    const {pause, play, next, previous, trackPaused, trackLoading} = props;
+    const {onPause, onPlay, onNext, onPrevious, trackPaused, trackLoading} = props;
 
     return ( 
         <div className={styles.container}>
 
             <div>
-                <button type="button" aria-label="Previous" onClick={previous}>
+                <button type="button" aria-label="Previous" onClick={onPrevious}>
                     <BsFillSkipStartFill/>
                 </button>
             </div>
@@ -23,14 +23,14 @@ export const TrackPlayer = (props) => {
                             <p className="loading-20" />
                         </button>
                     :
-                        <button type="button" aria-label="Pause" onClick={trackPaused ? play : pause}>
+                        <button type="button" aria-label="Pause" onClick={trackPaused ? onPlay : onPause}>
                             {trackPaused ? <BsFillPlayFill /> : <BsPauseFill />}
                         </button>
                 }
             </div>
 
             <div>
-                <button type="button" aria-label="Next" onClick={next}>
+                <button type="button" aria-label="Next" onClick={onNext}>
                     <BsFillSkipEndFill/>
                 </button>
             </div>

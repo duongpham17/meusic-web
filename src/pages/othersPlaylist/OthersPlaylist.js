@@ -2,7 +2,7 @@ import React from 'react'
 
 import SearchBar from './searchBar';
 import SearchResults from './searchResults';
-import Playlists from './playlists';
+import Playlists from './playlists/Playlists';
 
 const OthersPlaylist = () => 
 (

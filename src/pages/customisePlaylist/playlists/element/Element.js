@@ -13,7 +13,7 @@ import EditMode from './EditMode';
 
 export const Element = (props) => { 
 
-    const {element, provided, reorder} = props;
+    const {element, provided, openValue} = props;
 
     const [selectedPlaylist, setSelectedPlaylist] = useState("");
     const [editMode, setEditMode] = useState("");
@@ -36,7 +36,7 @@ export const Element = (props) => {
     return (
         <div className={styles.container}>
 
-            {!reorder && 
+            {!openValue && 
                 <div className={styles.overview} onClick={onViewPlaylist(element)}>
                     <Overview {...props}/>
                     
@@ -59,7 +59,7 @@ export const Element = (props) => {
                 }
             </div>
 
-            {reorder && 
+            {openValue === "reorder" && 
                 <div className={styles.overview} {...provided.dragHandleProps}>
                     <Overview {...props}/>
                     <div className={styles.dragArea}> <MdDragHandle/> </div>

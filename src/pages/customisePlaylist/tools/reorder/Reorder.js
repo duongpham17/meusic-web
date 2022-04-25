@@ -6,12 +6,11 @@ import BigButton from '../component/BigButton';
 
 export const Reorder = (props) => {
 
-    const {setReorder, reorder} = props;
-    const onReorder = () => setReorder(!reorder);
+    const {onOpenValue} = props;
 
     return (
         <div>
-            <BigButton description="Reorder" onClick={onReorder} icon={<MdDragHandle />} />
+            <BigButton description="Reorder" onClick={() => onOpenValue("reorder")} icon={<MdDragHandle />} />
         </div>
     )
 }

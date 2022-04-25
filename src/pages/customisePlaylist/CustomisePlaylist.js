@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -16,22 +16,25 @@ import Total from './total';
 import Playlists from './playlists';
 
 import useApiGet from 'hooks/useApiGet';
+import useOpen from 'hooks/useOpen';
 
 export const Custom = (props) => {
 
-    const {customisePlaylistGet, customisePlaylist} = props;
+    const {customisePlaylistGet} = props;
 
-    const [reorder, setReorder] = useState(false);
+    const {playlist} = props.customisePlaylistReducers;
 
-    useApiGet(customisePlaylistGet, customisePlaylist.playlist);
+    const {openValue, onOpenValue} = useOpen("");
+
+    useApiGet(customisePlaylistGet, playlist);
     
     props = {
         ...props,
-        reorder,
-        setReorder
+        openValue,
+        onOpenValue
     }
 
-    return ( !customisePlaylist.playlist ? <div className='loading' /> :
+    return ( !playlist ? <div className='loading' /> :
         <>
             
             <Tools {...props} />
@@ -45,9 +48,9 @@ export const Custom = (props) => {
 };
 
 const mapStateToProps = state => ({
-    playing: state.playingReducers,
-    customisePlaylist: state.customisePlaylistReducers,
-    savedPlaylist: state.savedPlaylistReducers,
+    playingReducers: state.playingReducers,
+    customisePlaylistReducers: state.customisePlaylistReducers,
+    savedPlaylistReducers: state.savedPlaylistReducers,
 });
 
 const mapDispatchToProps = {

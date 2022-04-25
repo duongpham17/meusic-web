@@ -5,11 +5,11 @@ import {BsFillPlayFill, BsPauseFill} from 'react-icons/bs';
 
 export const Play = (props) => {
 
-    const {trackLoading, trackPaused, play, pause,} = props;
+    const {trackLoading, trackPaused, onPlay, onPause} = props;
 
     const onClick = () => {
-        if(trackPaused) play();
-        if(!trackPaused) pause();
+        if(trackPaused) onPlay();
+        if(!trackPaused) onPause();
     };
 
     return (

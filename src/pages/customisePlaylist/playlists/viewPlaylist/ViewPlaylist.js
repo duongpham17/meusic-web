@@ -6,11 +6,13 @@ import SongInformationLayout2 from 'components/informationLayout/Layout2';
 
 export const ViewPlaylist = (props) => {
 
-    const {playing, playingSelectPlaylist, selectedPlaylist} = props;
+    const {playingSelectPlaylist, selectedPlaylist} = props;
+
+    const {playlistType, playlistId, song} = props.playingReducers;
 
     const isPlaying = (index) => {
-        if(playing.playlistType !== "customisePlaylist") return false;
-        if(playing.playlistId === selectedPlaylist._id && index === playing.song.index) return true;
+        if(playlistType !== "customisePlaylist") return false;
+        if(playlistId === selectedPlaylist._id && index === song.index) return true;
     }
 
     const onPlay = (index) => () => {

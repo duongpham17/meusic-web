@@ -1,6 +1,5 @@
 import {
-    USER_LOAD,
-    USER_UPDATE,
+    USER,
     USER_ERRORS
 } from '../actions/types';
     
@@ -13,8 +12,7 @@ export const User = (state = initialState, action) => {
     const {type, payload} = action;
     
     switch(type){
-        case USER_LOAD:
-        case USER_UPDATE:
+        case USER:
             return{
                 ...state,
                 user: payload

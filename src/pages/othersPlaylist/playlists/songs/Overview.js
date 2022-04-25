@@ -6,7 +6,10 @@ import { HourMin } from 'utils/time';
 import MusicPlaying from 'components/musicPlaying';
 
 const Overview = (props) => {
-    const {element, playing, playingSelectPlaylist} = props;
+    
+    const {element, playingSelectPlaylist} = props;
+
+    const {playlistType, playlistId} = props.playingReducers;
 
     const totalDuration = (array) => HourMin(array.reduce((acc, current) =>  acc + current.duration, 0));
 
@@ -18,7 +21,7 @@ const Overview = (props) => {
     };
 
     const IsPlaying = () => (
-        playing.playlistId === element._id && playing.playlistType === "othersPlaylist" 
+        playlistId === element._id && playlistType === "othersPlaylist" 
             ? <MusicPlaying />
             : <BsFillPlayFill/>
     )

@@ -9,12 +9,12 @@ import useScroll from 'hooks/useScroll';
 
 const ScrollToTop = (props) => {
 
-    const {playing} = props;
+    const {song} = props.playingReducers
 
     const {axis, onScrollToTop} = useScroll();
         
     return ( axis.y >= 1000 &&
-        <div className={`${styles.container} ${playing.song && styles.playingOpen}`}>
+        <div className={`${styles.container} ${song && styles.trackOpen}`}>
             <button onClick={onScrollToTop}>
                 <MdOutlineKeyboardArrowUp />
             </button>
@@ -23,7 +23,7 @@ const ScrollToTop = (props) => {
 };
 
 const mapStateToProps = state => ({
-    playing: state.playingReducers
+    playingReducers: state.playingReducers
 })
 
 export default connect(mapStateToProps)(ScrollToTop)

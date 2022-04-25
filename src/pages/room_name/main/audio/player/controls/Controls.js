@@ -5,12 +5,12 @@ import {BsFillSkipEndFill, BsFillSkipStartFill} from 'react-icons/bs';
 
 const Controls = (props) => {
 
-    const {next, previous, emitChangeSong, params} = props;
+    const {onNext, onPrevious, emitChangeSong, params} = props;
 
     const onSongChange = (type) => () => {
         let song;
-        if(type === "next") song = next();
-        if(type === "previous") song = previous();
+        if(type === "next") song = onNext();
+        if(type === "previous") song = onPrevious();
         song.room = params.room;
         emitChangeSong(song);
     };

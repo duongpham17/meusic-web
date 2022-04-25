@@ -8,9 +8,9 @@ import { generateid } from 'utils/generateid';
 
 export const Playlists = (props) => {
 
-    const { customisePlaylist, customisePlaylistReorder, reorder } = props;
+    const { customisePlaylistReorder, openValue } = props;
 
-    const { playlist } = customisePlaylist;
+    const { playlist } = props.customisePlaylistReducers;
 
     const onReorder = (array, index_one, index_two) => {
         const newData = [...array];
@@ -23,14 +23,14 @@ export const Playlists = (props) => {
     const onDragEnd = (e) => {
         if(!e.source || !e.destination) return;
         const [source, destination ]= [e.source.index, e.destination.index];
-        let newOrder = onReorder(customisePlaylist.playlist, source, destination)
+        let newOrder = onReorder(playlist, source, destination);
         customisePlaylistReorder(newOrder);
     };
 
     return (
         <div className={styles.container}>
 
-            {reorder && 
+            {openValue === "reorder" && 
                 <DragDropContext onDragEnd={(e) => onDragEnd(e)}>
                     <Droppable droppableId="droppable-1">
                         {(provided) => (
@@ -51,7 +51,7 @@ export const Playlists = (props) => {
                 </DragDropContext>
             }
 
-            {!reorder && playlist.map((el) => 
+            {!openValue && playlist.map((el) => 
                 <div className={styles.element} key={el._id}>
                     <Element {...props} element={el} />
                 </div>

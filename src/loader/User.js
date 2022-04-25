@@ -6,9 +6,9 @@ import {savedPlaylistGetSongs} from 'redux/actions/savedPlaylistActions';
 
 export const User = (props) => {
 
-    const {auth, authLoadUser, savedPlaylistGetSongs, authLogout} = props;
+    const {authLoadUser, savedPlaylistGetSongs, authLogout} = props;
 
-    const {isLoggedIn} = auth;
+    const {isLoggedIn} = props.authReducers;
 
     useEffect(() => {
         if(isLoggedIn) return;
@@ -27,7 +27,7 @@ export const User = (props) => {
 }
 
 const mapStateToProps = state => ({
-    auth: state.authReducers
+    authReducers: state.authReducers,
 });
 
 const mapDispatchToProps = {

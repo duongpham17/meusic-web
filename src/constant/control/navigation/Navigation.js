@@ -5,9 +5,11 @@ import {ControlListLoggedOut, ControlListLoggedIn} from './ControlList';
 import {connect} from 'react-redux';
 import {utilsOpenContent} from 'redux/actions/utilsActions';
 
-const Navigation = ({ auth, utilsOpenContent }) => {
+const Navigation = (props) => {
 
-  const {isLoggedIn} = auth;
+  const {utilsOpenContent} = props;
+  
+  const {isLoggedIn} = props.authReducers;
 
   const [location, navigate] = [useLocation(), useNavigate()];
 
@@ -72,7 +74,7 @@ const Navigation = ({ auth, utilsOpenContent }) => {
 };
 
 const mapStateToProps = state =>({
-  auth: state.authReducers,
+  authReducers: state.authReducers,
 })
 
 const mapDispatchToProps = {

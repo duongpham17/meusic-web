@@ -10,7 +10,7 @@ import Developer from './developer';
 
 const Navbar = (props) => {
 
-  const {utils: {theme}} = props;
+  const {theme} = props.utilsReducers;
 
   return (
     <div className={`${styles.container} ${theme.theme?.type === "wallpaper" && styles.wallpaper}`}>
@@ -19,15 +19,15 @@ const Navbar = (props) => {
   
       <div className={styles.options}>
   
-      <div className={`${styles.title} ${styles.desktop}`}>
+        <div className={`${styles.standard} ${styles.desktop}`}>
           <Desktop/>
         </div>
   
-        <div className={styles.title}>
+        <div className={styles.standard}>
           <Developer/>
         </div>
   
-        <div className={styles.title}>
+        <div className={styles.standard}>
           <Menu />
         </div>
   
@@ -39,7 +39,7 @@ const Navbar = (props) => {
 };
 
 const mapStateToProps = state => ({
-  utils: state.utilsReducers
+  utilsReducers: state.utilsReducers
 })
 
 export default connect(mapStateToProps)(Navbar);

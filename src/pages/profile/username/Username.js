@@ -4,27 +4,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { userUpdateUsername } from 'redux/actions/userActions';
 
-import {MdEdit, MdClose, MdSend} from 'react-icons/md';
+import {MdEdit, MdClose, MdOutlineArrowRightAlt} from 'react-icons/md';
 
 import useOpen from 'hooks/useOpen'
 import useForm from 'hooks/useForm';
 import Valiation from './Validation';
 
-export const Username = ({User, userUpdateUsername}) => {
+export const Username = (props) => {
 
-    const {user, errors: userErrors} = User;
+    const {userUpdateUsername} = props;
+
+    const {user, errors: userErrors} = props.userReducers;
 
     const {open, onOpen} = useOpen();
 
     const initalState = {
       username: ""
-    }
+    };
     
     const {values, onChange, onSubmit, errors, loading} = useForm(initalState, callback, Valiation);
     
     async function callback(){
       await userUpdateUsername(values)
-    }    
+    };
 
     return (
       <div className={styles.container}>
@@ -38,7 +40,7 @@ export const Username = ({User, userUpdateUsername}) => {
               <div>
                 <input type="text" name="username" placeholder="New username" value={values.username} onChange={onChange} />
                 {errors.username && <p>* {errors.username} *</p>}
-                {!loading && values.username.length >= 3 && <button><MdSend/></button>}
+                {!loading && values.username.length >= 3 && <button><MdOutlineArrowRightAlt/></button>}
                 {loading && <div className='loading-20' />}
               </div>
 

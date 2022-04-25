@@ -6,7 +6,7 @@ import { MdOutlineLock, MdOutlineLockOpen } from 'react-icons/md';
 
 const Results = (props)  => {
 
-    const {room} = props;
+    const {searchRoom} = props.roomReducers;
 
     const {openValue, onOpenValue} = useOpen();
 
@@ -28,10 +28,10 @@ const Results = (props)  => {
         onOpenValue
     };
 
-    return ( room.searchRoom &&
+    return ( searchRoom &&
         <div className={styles.container}>
 
-            {room.searchRoom.map(el => 
+            {searchRoom.map(el => 
                 <div key={el._id} className={styles.element}>   
                     
                     <div className={styles.privateRoom} data-private={el.private ? "Private" : "Public"}>

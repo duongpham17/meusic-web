@@ -2,10 +2,10 @@ import styles from './Alert.module.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 
-const Alert = ({alerts}) =>
+const Alert = ({alertsReducers}) =>
 
     <div className={styles.container}>
-    {alerts?.map(el => 
+    {alertsReducers?.map(el => 
         <p key={el.id} className={`${styles.alert} ${styles[`alert-${el.alertType || "primary"}`]}`}>
             {el.message}
         </p>
@@ -13,7 +13,7 @@ const Alert = ({alerts}) =>
     </div>
 
 const mapStateToProps = state => ({
-    alerts: state.alertReducers
+    alertsReducers: state.alertReducers
 });
 
 export default connect(mapStateToProps)(Alert)
