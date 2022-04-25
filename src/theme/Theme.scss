@@ -24,11 +24,11 @@ body{
     &::-webkit-scrollbar {
         height: 5px;
         width: 5px;
-        background: black;
+        background: white;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: white;
+        background: black;
     }
 }
 

@@ -9,7 +9,7 @@ import Dropdown from 'components/dropdown/Dropdown';
 
 export const Options = (props) => {
 
-    const {song, index, savedPlaylist, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong, download, utilsDownloadOptions} = props;
+    const {song, auth, index, savedPlaylist, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, user, adminDeleteSong, download, utilsDownloadOptions} = props;
 
     const {playlist} = savedPlaylist;
 
@@ -47,28 +47,33 @@ export const Options = (props) => {
                             </>
                         }
                         
-                        <li>                        
-                            {
-                                alreadyAdded(playlist, song._id) 
-                                ?
-                                <button onClick={() => savedPlaylistRemoveFrom(song._id)}>
-                                    <span>Remove</span>
-                                    <span><BsSuitHeartFill className={styles.heart}/></span>
-                                </button>
-                                : 
-                                <button onClick={() => savedPlaylistAddTo(song._id)}>
-                                    <span>Save</span>
-                                    <span><BsSuitHeart className={styles.heart}/></span>
-                                </button>
-                            }
-                        </li>
+                        { auth.isLoggedIn &&
+                            <>
+                                <li>
+                                    {                   
+                                        alreadyAdded(playlist, song._id) 
+                                        ?
+                                        <button onClick={() => savedPlaylistRemoveFrom(song._id)}>
+                                            <span>Remove</span>
+                                            <span><BsSuitHeartFill className={styles.heart}/></span>
+                                        </button>
+                                        : 
+                                        <button onClick={() => savedPlaylistAddTo(song._id)}>
+                                            <span>Save</span>
+                                            <span><BsSuitHeart className={styles.heart}/></span>
+                                        </button>
+                                    }
+                                </li>
 
-                        <li>
-                            <button onClick={() => setAddSong(song)}>
-                                <span>Playlist</span>
-                                <span><BsFillCollectionPlayFill/></span>
-                            </button>
-                        </li>
+                                <li>
+                                    <button onClick={() => setAddSong(song)}>
+                                        <span>Playlist</span>
+                                        <span><BsFillCollectionPlayFill/></span>
+                                    </button>
+                                </li>
+                            </>
+                        }
+
 
                         <li>
                             <button onClick={onDownload}>

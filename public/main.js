@@ -12,7 +12,7 @@ const createWindow = () => {
             devTools: false
         }
     });
-    win.loadURL("https://meusic.herokuapp.com");
+    win.loadURL("https://meusic.on.fleek.co");
 };
 
 app.on("ready", createWindow);

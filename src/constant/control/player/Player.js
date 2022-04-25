@@ -39,6 +39,7 @@ export const Player = (props) => {
 };
 
 const mapStateToProps = state => ({
+    auth: state.authReducers,
     playing: state.playingReducers,
     savedPlaylist: state.savedPlaylistReducers
 });
