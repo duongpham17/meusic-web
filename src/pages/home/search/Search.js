@@ -51,7 +51,6 @@ export const Search = (props) => {
         setValue("");
         clearQuery();
         previewGetSongs();
-        localStorage.removeItem("previousSearch");
         localStorage.removeItem('filtered');
     };
 

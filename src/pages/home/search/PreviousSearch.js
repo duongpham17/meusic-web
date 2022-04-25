@@ -6,11 +6,11 @@ const PreviousSearch = (props) => {
     
     const {previousSearch, onSet, onPreviousSearchValue} = props;
 
-    return ( 
+    return ( !![...previousSearch].length &&
         <div className={styles.container}>
-            {!![...previousSearch].length && 
-                <button onClick={() => onSet("clear")}> Clear </button>
-            }
+            
+            <button onClick={() => onSet("clear")}> Clear </button>
+
             {[...previousSearch].map(el => 
                 <button key={el}>
                     <span onClick={() => onPreviousSearchValue("title", el)}>{el}</span>
