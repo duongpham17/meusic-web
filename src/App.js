@@ -1,7 +1,7 @@
 import 'styles/index.scss';
 import React from 'react';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 import store from 'redux/store';
 
 import Loader from 'loader';
@@ -26,7 +26,7 @@ export const App = () => (
     
     <Theme>
   
-      <BrowserRouter>
+      <HashRouter hashType="hashbang">
         <Alert/>
         <Download/>
         <Routing />
@@ -35,7 +35,7 @@ export const App = () => (
         <Pages />
         <ScrollToTop/>
         <Control />
-      </BrowserRouter>
+      </HashRouter>
 
     </Theme>
 
