@@ -11,8 +11,6 @@ const PlaybackRate = (props) => {
 
     const onPlaybackRateClosure = (value) => () => onPlaybackRate(value);
 
-    console.log(trackPlaybackRate)
-
     return (
         <div className={styles.container}>
             <Dropdown button={<button><MdSpeed/></button>}>

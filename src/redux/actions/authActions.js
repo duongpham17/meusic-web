@@ -85,7 +85,6 @@ export const authSignupEmail = (data) => async dispatch => {
             payload: res.data.message
         })
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: AUTH_ERROR,
             payload: {
