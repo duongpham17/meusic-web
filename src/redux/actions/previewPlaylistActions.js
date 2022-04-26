@@ -8,7 +8,7 @@ import {
 
 export const previewGetSongs = () => async dispatch => {
     try{
-        const res = await api.get(`/songs${window.location.search}`);
+        const res = await api.get(`/songs${window.location.hash.replace("#/", "")}`);
         dispatch({
             type: PREVIEW_PLAYLIST,
             payload: res.data.songs,

@@ -15,8 +15,7 @@ const More = (props) => {
     const [loading, setLoading] = useState(false);
 
     const onLoadMore = async () => {
-        const searchPerLoad = getQueryValue("limit") || 50;
-        const limit = Math.round(searchPerLoad) + searchPerLoad; 
+        const limit = Number(getQueryValue("limit")) + 100;
         setQuery("limit", limit);
         setLoading(true);
         await previewGetSongs();

@@ -7,12 +7,11 @@ const Volume = (props) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.onVolume}>
+            <div className={styles.volume}>
                 <button onClick={trackMuted ? previousVolume : onMuteVolume}>
                     {trackMuted ? <MdVolumeMute/> : trackVolume >= 0.5 ? <MdVolumeUp /> : <MdVolumeDownAlt/> }
                 </button>
                 <input className={styles.range} type="range" min="0" max="1" step="0.01" value={trackVolume} onChange={onVolume} />
-                
             </div>
         </div>
     )

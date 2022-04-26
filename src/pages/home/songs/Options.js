@@ -9,7 +9,7 @@ import Dropdown from 'components/dropdown/Dropdown';
 
 export const Options = (props) => {
 
-    const {song, index, setAddSong, setEditSongData, savedPlaylistAddTo, savedPlaylistRemoveFrom, adminDeleteSong, download, utilsDownloadOptions} = props;
+    const {song, index, setAddSong, setEditSongData, savedPlaylistSave, savedPlaylistRemove, adminDeleteSong, download, utilsDownloadOptions} = props;
 
     const {playlist} = props.savedPlaylistReducers;
 
@@ -54,8 +54,8 @@ export const Options = (props) => {
                             <>
                                 {                   
                                     alreadyAdded(playlist, song._id) 
-                                    ? <Item description="Remove" icon={<BsSuitHeartFill/>} onClick={() => savedPlaylistRemoveFrom(song._id)} />
-                                    : <Item description="Save" icon={<BsSuitHeart/>} onClick={() => savedPlaylistAddTo(song._id)} />
+                                    ? <Item description="Remove" icon={<BsSuitHeartFill/>} onClick={() => savedPlaylistRemove(song._id)} />
+                                    : <Item description="Save" icon={<BsSuitHeart/>} onClick={() => savedPlaylistSave(song._id)} />
                                 }
 
                                 <Item description="Playlist" icon={<BsFillCollectionPlayFill/>} onClick={() => setAddSong(song)} />  

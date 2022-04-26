@@ -25,6 +25,7 @@ export const USER_ERRORS = "USER_ERRORS";
 
 // Room 
 export const ROOM = "ROOM";
+export const ROOM_CLEAR = "ROOM_CLEAR";
 export const ROOM_CREATED_BY_ME = "ROOM_CREATED_BY_ME";
 export const ROOM_SEARCH_ROOM = "ROOM_SEARCH_ROOM";
 export const ROOM_SEARCH_SONG = "ROOM_SEARCH_SONG";

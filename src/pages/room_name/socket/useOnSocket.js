@@ -29,6 +29,14 @@ export const useOnSocket = (socket) => {
         });
     }, [socket]);
 
+    useEffect(() => {
+        return () => {
+            setRoomData("")
+            setRoomUsers([]);
+            setRoomPlaying("");
+        }
+    }, [])
+
     return {
         roomData,
         setRoomData,

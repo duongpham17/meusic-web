@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-
 import { socket } from 'utils/socket';
 
-export const Join = (data) => {
+export const useSocket = (data) => {
 
     const [value] = useState(data);
 
     useEffect(() => {
   
         socket.emit("joinRoom", value);
+
+        socket.open();
 
         return () => {
             socket.emit("leaveRoom", value);
@@ -20,4 +21,4 @@ export const Join = (data) => {
   return socket;
 }
 
-export default Join
+export default useSocket

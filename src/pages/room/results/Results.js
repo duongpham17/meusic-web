@@ -1,5 +1,6 @@
 import styles from './Results.module.scss';
 import React from 'react';
+import {Link} from 'react-router-dom';
 import useOpen from 'hooks/useOpen';
 
 import { MdOutlineLock, MdOutlineLockOpen } from 'react-icons/md';
@@ -38,9 +39,7 @@ const Results = (props)  => {
                         {el.private ? <MdOutlineLock className={styles.private}/> : <MdOutlineLockOpen className={styles.public}/> }
                     </div>
 
-                    <a href={`/room/${el.room}`} onClick={onPreviosUpdate(el)}>
-                        {el.room}
-                    </a>
+                    <Link to={`/room/${el.room}`} onClick={() => onPreviosUpdate(el)}> {el.room} </Link>
 
                 </div>    
             )}

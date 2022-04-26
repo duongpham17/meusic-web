@@ -43,7 +43,7 @@ const Playlist = (props) => {
 
             {user._id === roomData.admin && 
                 <div className={styles.clear}>
-                    <b>{roomData.songs.length} Songs</b>
+                    <b> SONGS {roomData.index+1} / {roomData.songs.length}</b>
                     <button onClick={onClearPlaylist}><b>Clear</b></button>
                 </div>
             }

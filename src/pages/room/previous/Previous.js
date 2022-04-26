@@ -1,5 +1,6 @@
 import styles from './Previous.module.scss';
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import { MdClose } from 'react-icons/md';
 
 const Previous = () => {
@@ -31,9 +32,7 @@ const Previous = () => {
                             <button onClick={onDelete(i)}><MdClose/></button>
                         </div>
 
-                        <a href={`/room/${el.room}`}>
-                            {el.room}
-                        </a>
+                        <Link to={`/room/${el.room}`}> {el.room} </Link>
 
                     </div>    
                 )}

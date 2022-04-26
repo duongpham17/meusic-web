@@ -1,5 +1,6 @@
 import {
     ROOM,
+    ROOM_CLEAR,
     ROOM_SEARCH_ROOM,
     ROOM_SEARCH_SONG,
     ROOM_CREATED_BY_ME,
@@ -26,6 +27,11 @@ export const Room = (state = initialState, action) => {
             return{
                 ...state,
                 room: payload
+            }
+        case ROOM_CLEAR: 
+            return{
+                ...state,
+                room: "",
             }
         case ROOM_CREATE:
                 return{

@@ -1,15 +1,15 @@
-import styles from './Find.module.scss';
+import styles from './Search.module.scss';
 import React from 'react';
 
 import InformationLayout2 from 'components/informationLayout/Layout2';
 import SearchBar from 'components/searchBar';
 import useDelayFetch from 'hooks/useDelayFetch';
 
-const Find = (props) => {
+const Search = (props) => {
 
     const {roomSearchSong, emitUpdateSong, params, setAlert} = props;
 
-    const {room} = props.roomReducers;
+    const {searchSong} = props.roomReducers;
 
     const {value, onChange, onClear, loading} = useDelayFetch(roomSearchSong);
 
@@ -20,23 +20,25 @@ const Find = (props) => {
             song,
         };
         emitUpdateSong(data);
-        setAlert(`${song.title.substring(0, 18)}... added`);
-    }
+        setAlert(`${song.title.substring(0, 18)}... added`, "left");
+    };
 
     return (
         <div className={styles.container}>
 
-            <SearchBar placeholder="Search songs" value={value} onChange={onChange} onClear={onClear} loading={loading} />
+            <div className={styles.search}>
+                <SearchBar placeholder="Search songs" value={value} onChange={onChange} onClear={onClear} loading={loading} />
+            </div>
 
-            { !!room.searchSong &&
+            { searchSong &&
                 <>
                     <div className={styles.total}>
-                        <b>Total</b>
-                        <b>{room.searchSong.length}</b>
+                        <b>SONGS</b>
+                        <b>{searchSong.length}</b>
                     </div>
 
                     <div className={styles.map}>
-                        {room.searchSong.map((el, index) => 
+                        {searchSong.map((el, index) => 
                             <div className={styles.element} key={el._id} onClick={onAdd(el)}>
                                 <InformationLayout2 song={el} index={index} />
                             </div>
@@ -49,4 +51,4 @@ const Find = (props) => {
     )
 }
 
-export default Find
+export default Search

@@ -3,15 +3,14 @@ import React from 'react';
 
 const Users = (props) => {
 
-    const {roomUsers} = props;
+    const {roomUsers, roomData} = props;
 
     return ( roomUsers.length >= 1 &&
         <section className={styles.container}>
 
             <header>
-                <h3>
-                    {roomUsers.length} Online
-                </h3>
+                <b> {roomData.room} </b>
+                <b> {roomUsers.length} Online </b>
             </header>
 
             <div className={styles.map}>

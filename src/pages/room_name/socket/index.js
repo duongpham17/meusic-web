@@ -1,9 +1,9 @@
-import useJoinSocket from './useJoinSocket';
+import useSocket from './useSocket';
 import useOnSocket from './useOnSocket';
 import useEmitSocket from './useEmitSocket';
 
 export{
-    useJoinSocket,
+    useSocket,
     useOnSocket,
     useEmitSocket
 };

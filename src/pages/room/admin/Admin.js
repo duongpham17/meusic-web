@@ -1,5 +1,6 @@
 import styles from './Admin.module.scss';
 import React from 'react';
+import {Link} from 'react-router-dom';
 import useApiGet from 'hooks/useApiGet';
 
 import Menu from './menu/Menu';
@@ -21,7 +22,7 @@ const Admin = (props) => {
             <div className={styles.map}>
                 {admin.map(el => 
                     <div className={styles.element} key={el._id}>
-                        <a href={`/room/${el.room}`}> {el.room}</a>
+                        <Link to={`/room/${el.room}`}> {el.room} </Link>
                         <Menu {...props} element={el} />
                     </div>
                 )}

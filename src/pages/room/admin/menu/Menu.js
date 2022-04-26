@@ -22,8 +22,6 @@ const Menu = (props) => {
         openValue
     };
 
-    console.log(openValue)
-
     return (
         <div className={styles.container}>
 

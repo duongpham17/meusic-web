@@ -3,6 +3,7 @@ import { setAlert } from './alertActions';
 
 import {
     ROOM,
+    ROOM_CLEAR,
     ROOM_CREATED_BY_ME,
     ROOM_SEARCH_ROOM,
     ROOM_SEARCH_SONG,
@@ -17,6 +18,12 @@ export const roomClearError = () => async dispatch => {
     dispatch({
         type: ROOM_CLEAR_ERROR
     })
+};
+
+export const roomClear = () => async dispatch => {
+    dispatch({
+        type: ROOM_CLEAR
+    });
 }
 
 export const roomGet = (name) => async dispatch => {
@@ -65,8 +72,11 @@ export const roomSearchRoom = (name) => async dispatch => {
 };
 
 export const roomSearchSong = (title) => async dispatch => {
+    console.log(title)
     try{
         const res = await api.get(`/songs?title=${title}`);
+
+        console.log(res.data.songs);
         dispatch({
             type: ROOM_SEARCH_SONG,
             payload: res.data.songs

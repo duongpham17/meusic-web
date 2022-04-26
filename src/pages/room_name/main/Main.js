@@ -1,7 +1,7 @@
 import styles from './Main.module.scss';
 import React from 'react';
 
-import { useJoinSocket, useOnSocket, useEmitSocket } from '../socket';
+import { useSocket, useOnSocket, useEmitSocket } from '../socket';
 
 import Users from './users';
 import Audio from './audio';
@@ -15,7 +15,7 @@ const Main = (props) => {
 
   const data = {room, user};
 
-  const socket = useJoinSocket(data);
+  const socket = useSocket(data);
 
   const onSocket = useOnSocket(socket);
 

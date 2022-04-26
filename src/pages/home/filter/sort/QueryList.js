@@ -21,4 +21,4 @@ export const sortQuery = [
     },
 ]
 
-export const limitQuery = [50, 100, 200, 300, 400, 500, 1000]
+export const limitQuery = [50, 100, 200, 300, 400, 500]

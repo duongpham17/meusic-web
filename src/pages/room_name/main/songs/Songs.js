@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import SlideIn from 'components/slideIn';
 
 import Saved from './saved';
-import Find from './find';
+import Search from './search/Search';
 import Customise from './customise';
 
 const Songs = (props) => {
@@ -43,7 +43,7 @@ const Songs = (props) => {
             <div className={styles.content} onClick={() => onOpen("find")}>
                 <button className={styles.button}>Search</button>
                 <SlideIn onOpen={onOpen} open={open === "find"}>
-                    {open === "find" && <Find {...props} />}
+                    {open === "find" && <Search {...props} />}
                 </SlideIn>
             </div>
 

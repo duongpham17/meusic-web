@@ -5,7 +5,6 @@
     .volume{
         display: flex;
         align-items: center;
-        width: 150px;
 
         button{
             display: flex;
@@ -21,7 +20,7 @@
 
         .range[type=range] {
             -webkit-appearance: none;
-            width: 130px;
+            width: 170px;
             cursor: pointer;
             margin: auto;
         }

@@ -36,7 +36,7 @@ const Saved = (props) => {
             song,
         };
         emitUpdateSong(data);
-        setAlert(`${song.title.substring(0, 18)}... added`);
+        setAlert(`${song.title.substring(0, 18)}... added`, "left");
     };
 
     return (

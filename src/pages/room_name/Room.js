@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { setAlert } from 'redux/actions/alertActions';
-import { roomGet, roomCheckPassword, roomClearError, roomSearchSong } from 'redux/actions/roomActions';
+import { roomGet, roomClear, roomCheckPassword, roomClearError, roomSearchSong } from 'redux/actions/roomActions';
 import { customisePlaylistGet } from 'redux/actions/customisePlaylistActions';
 import { playingClear } from 'redux/actions/playingActions';
 
@@ -14,7 +14,7 @@ const LazyMain = lazy(() => import('./main'));
 
 const Room = (props) => {
 
-  const {roomGet, playingClear} = props;
+  const {roomGet, roomClear, playingClear} = props;
 
   const {room} = props.roomReducers;
 
@@ -42,7 +42,8 @@ const Room = (props) => {
   useEffect(() => {
     playingClear();
     localStorage.removeItem("trackCycle");
-  }, [playingClear]);
+    return () => roomClear();
+  }, [playingClear, roomClear]);
 
   props = {
     ...props,
@@ -50,7 +51,7 @@ const Room = (props) => {
     setVerified,
     params,
   };
-
+  
   return ( !room ? <div className="loading" /> : room === "nothing" ? <Nothing/> : 
     <>
 
@@ -82,7 +83,8 @@ const mapDispatchToProps = {
   roomSearchSong,
   playingClear,
   customisePlaylistGet,
-  setAlert
+  setAlert,
+  roomClear
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Room)

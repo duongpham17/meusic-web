@@ -42,7 +42,7 @@ const Private = (props) => {
                         </button>
                     }
 
-                    <input type="password" placeholder="Room password" name="password" value={value.password} onChange={onChange} />
+                    <input type="password" autoComplete="on" placeholder="Room password" name="password" value={value.password} onChange={onChange} />
 
                     { value.password &&
                         <button>
