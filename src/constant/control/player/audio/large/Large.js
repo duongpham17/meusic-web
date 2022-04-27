@@ -11,12 +11,13 @@ import TrackPlaylist from './trackPlaylist';
 const Large = (props) => {
     return (
         <div className={styles.container}>  
-            <TrackResize {...props}/>
+            <TrackResize {...props} position="top"/>
             <TrackInformation {...props}/>
             <TrackPlayer {...props}/>
             <TrackProgress {...props}/>
             <TrackControls {...props}/>
             <TrackPlaylist {...props}/>
+            <TrackResize {...props} position="bottom"/>
         </div>
     )
 }

@@ -105,7 +105,6 @@ export const authConfirmEmail = (code) => async dispatch => {
         localStorage.setItem("user", JSON.stringify(res.data.cookie));
         window.location = '/';
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: AUTH_ERROR,
             payload: {

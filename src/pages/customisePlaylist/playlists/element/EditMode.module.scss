@@ -1,18 +1,21 @@
 .container{
     ul{
-        width: 100px;
+        width: 120px;
         li{
-            padding: 0.5rem 0;
 
             button{
                 display: flex;
-                width: 100%;
+                align-items: center;
                 justify-content: space-between;
-                span{
-                    margin-right: 0.5rem;
-                }
-                &:hover *{
-                    color: var(--main-color-selected);
+                width: 100%;
+                padding: 0.5rem 0.3rem;
+                border-radius: 5px;
+
+                &:hover{
+                    background-color: var(--background-faded);
+                    svg, span{
+                        color: var(--main-color-selected);
+                    }
                 }
             }
         }

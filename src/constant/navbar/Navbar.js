@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Logo from './logo';
 import Menu from './menu';
+import Connect from './connect';
 import Desktop from './desktop';
 import Developer from './developer';
 
@@ -25,6 +26,10 @@ const Navbar = (props) => {
   
         <div className={styles.standard}>
           <Developer/>
+        </div>
+
+        <div className={styles.standard}>
+          <Connect/>
         </div>
   
         <div className={styles.standard}>

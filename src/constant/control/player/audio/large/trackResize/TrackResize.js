@@ -4,10 +4,10 @@ import {MdOutlineKeyboardArrowDown} from 'react-icons/md';
 
 const TrackResize = (props) => {
 
-    const {onResize} = props;
+    const {onResize, position} = props;
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${position === "top" ? styles.top : styles.bottom}`}>
             <MdOutlineKeyboardArrowDown onClick={() => onResize("small")}/>
         </div>
     )
