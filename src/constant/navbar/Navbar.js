@@ -20,22 +20,14 @@ const Navbar = (props) => {
   
       <div className={styles.options}>
   
-        <div className={`${styles.standard} ${styles.desktop}`}>
           <Desktop/>
-        </div>
-  
-        <div className={styles.standard}>
-          <Developer/>
-        </div>
 
-        <div className={styles.standard}>
+          <Developer/>
+
           <Connect/>
-        </div>
-  
-        <div className={styles.standard}>
+
           <Menu />
-        </div>
-  
+          
       </div>
   
     </div>

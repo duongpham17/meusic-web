@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Box from '../components/Box';
 
 export const Connect = () => {
   return (
-    <div>Connect</div>
+    <div>
+      <Box desktop button={<button>Connect</button>} />
+    </div>
   )
 }
 

@@ -10,6 +10,7 @@ import {FiMenu} from 'react-icons/fi';
 
 import useOpen from 'hooks/useOpen';
 import SlideIn from 'components/slideIn';
+import Box from '../../components/Box';
 
 import Admin from './Admin';
 import Upload from './Upload';
@@ -31,7 +32,7 @@ export const LoggedIn = (props) => {
     return (
         <div className={styles.container}>
 
-            <button className={styles.menuBtn} onClick={onOpen}><FiMenu /></button>
+            <Box button={<button className={styles.menuBtn} onClick={onOpen}><FiMenu /></button>} />
 
             <SlideIn open={open} onOpen={onOpen} >
 
@@ -53,7 +54,6 @@ export const LoggedIn = (props) => {
                 </div>
 
             </SlideIn>
-
 
         </div>
     )
