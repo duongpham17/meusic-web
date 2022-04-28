@@ -2,29 +2,25 @@
     position: fixed;
     z-index: 15;
     margin-top: 5rem;
+    left: 5px;
 
     .alert{
-        background-color: var(--main-color-background);
+        background-color: var(--main-color-solid);
         text-align: center;
         border: 2px solid var(--background-faded);
-        padding: 0.4rem;
+        padding: 0.5rem;
         cursor: pointer;
         min-width: 100px;
         margin-bottom: 0.5rem;
         border-radius: 5px;
         font-size: 0.8rem;
+        animation: SlideDown 1.2s ease;
 
         &:hover{
             border-color: var(--main-selected);
         }
-    }
 
-    .left{
-        left: 5px;
-        margin-left: 1rem;
-        animation: SlideLeftToRight 1.2s ease;
-
-        @keyframes SlideLeftToRight {
+        @keyframes SlideDown {
             0% {
                 transform: translateX(-100%);
             }
@@ -33,21 +29,5 @@
             }
         }
     }
-
-    .right{
-        right: 5px;
-        margin-right: 1rem;
-        animation: SlideRightToLeft 1.2s ease;
-
-        @keyframes SlideRightToLeft {
-            0% {
-                transform: translateX(100%);
-            }
-            50% {
-                transform: translateX(0%);
-            }
-        }
-    }
-
 
 }

@@ -24,7 +24,6 @@ export const Auth = (state = initialState, action) => {
                 ...state,
                 isLoggedIn: true
             };
-
         case AUTH_SIGNUP:
             return{
                 ...state,

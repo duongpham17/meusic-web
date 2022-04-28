@@ -21,7 +21,7 @@ const Customise = (props) => {
         }
 
         emitUpdateSong(data);
-        setAlert(`${playlist.name} playlist has been added`, "left");
+        setAlert(`${playlist.name} playlist has been added`);
     };
 
     return ( !playlist  ? <div className="loading-30 center" /> : 

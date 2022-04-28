@@ -1,0 +1,53 @@
+.container{
+
+    .wallet, .disconnect{
+        max-width: 400px;
+        border-radius: 5px;
+        border: 2px solid var(--background-faded);
+        background-color: var(--main-color-solid);
+        margin: auto;
+
+        h3, button{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        svg{
+            display: flex;
+        }
+
+        button{
+            &:hover *{
+                color: var(--main-color-selected);
+            }
+        }
+    }
+
+    .wallet{
+        margin-top: 6rem;
+        padding: 1rem;
+
+        .disconnectInfo{
+            margin-top: 0.5rem;
+
+            p{
+                line-height: 1.5rem;
+            }
+        }
+    }
+
+    .disconnect{
+        margin-top: 1rem;
+
+        &:hover{
+            border-color: var(--main-color-selected);
+        }
+
+        button{
+            padding: 1rem;
+        }
+    }
+
+}

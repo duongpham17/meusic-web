@@ -4,8 +4,8 @@ import {
 } from '../actions/types';
     
 const initialState = {
-    user: null,
-    errors: null
+    user: "",
+    errors: ""
 }
     
 export const User = (state = initialState, action) => {
@@ -21,7 +21,7 @@ export const User = (state = initialState, action) => {
         case USER_ERRORS:
             return{
                 ...state,
-                errors: payload
+                errors: payload || "",
             }
 
         default:

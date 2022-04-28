@@ -8,7 +8,7 @@ import Dropdown from 'components/dropdown';
 
 export const Options = (props) => {
 
-    const {savedPlaylistRemoveFrom, song, setAddSong, download, utilsDownloadOptions} = props;
+    const {savedPlaylistRemove, song, setAddSong, download, utilsDownloadOptions} = props;
 
     const onDownload = async () => {
         utilsDownloadOptions("start", song.title);
@@ -16,7 +16,7 @@ export const Options = (props) => {
         utilsDownloadOptions("end", song.title);
     };
 
-    const onRemove = () => savedPlaylistRemoveFrom(song._id);
+    const onRemove = () => savedPlaylistRemove(song._id);
 
     return (
         <div className={styles.container}>

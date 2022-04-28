@@ -5,7 +5,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
-    playlist: "",
+    playlist: [],
 }
 
 export const Saved = (state = initialState, action) => {

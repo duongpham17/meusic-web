@@ -4,12 +4,12 @@ import {
 } from './types';
 import {generateid} from 'utils/generateid';
 
-export const setAlert = (message, side="right", timeout = 2000) => async dispatch => {
+export const setAlert = (message, timeout = 2000) => async dispatch => {
     const id = generateid();
 
     dispatch({
         type: ALERT_SET,
-        payload: {message, id, side}
+        payload: {message, id}
     })
     setTimeout(() => 
         dispatch({

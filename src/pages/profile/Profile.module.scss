@@ -1,20 +1,4 @@
 .container{
 
-    .boxed{
-        border: 1px solid var(--background-faded);
-        padding: 1rem;
-        margin-top: 1rem;
-        border-radius: 5px;
-        background-color: var(--main-color-opacity);
-
-        .title{
-            opacity: 0.9;
-        }
-
-        label{
-            font-weight: 600;
-            color: var(--main-color-light);
-        }
-    }
 
 }

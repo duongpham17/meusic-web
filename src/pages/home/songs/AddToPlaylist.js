@@ -23,14 +23,14 @@ export const AddToPlaylist = (props) => {
         <div className={styles.container} onClick={() => setAddSong("")}>
             <Cover>
                 {
-                    !playlist &&
+                    !playlist.length &&
                     <div className={styles.map}>
                         <Link to="/customise">Go to customise playlist to get started</Link>
                     </div>
                 }
                 
                 {   
-                    playlist &&
+                    !!playlist.length &&
                     <div className={styles.map}>
                         {playlist.map((el, i) => 
                             <div key={el._id} className={styles.element} onClick={onAddSongToPlaylist(i)}>

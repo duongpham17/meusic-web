@@ -15,7 +15,7 @@ export const Theme = ({utilsThemeChange}) => {
             <div className={styles.backgroundTheme}>
                 {backgroundTheme.map((el) =>
                     <div key={el.theme}>
-                        <button onClick={() => utilsThemeChange(el)} style={{background: `linear-gradient(140deg, ${el.backgroundColor} 75%, ${el.wordColor} 25%)`}} />
+                        <button onClick={() => utilsThemeChange(el)} style={{background: `linear-gradient(130deg, ${el.backgroundColor} 75%, ${el.wordColor} 25%)`}} />
                         <p>{el.theme.toUpperCase()}</p>
                     </div>
                 )}
