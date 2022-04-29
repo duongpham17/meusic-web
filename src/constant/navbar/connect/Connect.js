@@ -2,6 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { authConnectWallet, authLogout } from 'redux/actions/authActions';
+import { userUpdateCryptoAddress } from 'redux/actions/userActions';
 
 import useOpen from 'hooks/useOpen';
 import useCardanoWalletConnector from 'hooks/useCardanoWalletConnector';
@@ -11,13 +12,17 @@ import Connected from './connected';
 
 export const Connect = (props) => {
 
-  const {authConnectWallet} = props;
+  const {authConnectWallet, userUpdateCryptoAddress, authLogout} = props;
 
   const {isLoggedIn} = props.authReducers;
 
   const {openValue, onOpenValue} = useOpen();
 
-  const cardanoWalletConnector = useCardanoWalletConnector({callbackWalletChange: authConnectWallet});
+  const callback = isLoggedIn ? userUpdateCryptoAddress : authConnectWallet;
+
+  const cardanoWalletConnector = useCardanoWalletConnector({callback, disconnect: authLogout});
+
+  const {wallet} = cardanoWalletConnector;
 
   props = {
     ...props,
@@ -29,9 +34,9 @@ export const Connect = (props) => {
   return (
     <div>
 
-      {isLoggedIn && <Connected {...props} />}
+      {wallet.name && <Connected {...props} />}
 
-      {!isLoggedIn && <Disconnected {...props} />}
+      {!wallet.name && <Disconnected {...props} />}
 
     </div>
   )
@@ -43,7 +48,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   authConnectWallet,
-  authLogout
+  authLogout,
+  userUpdateCryptoAddress
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Connect);

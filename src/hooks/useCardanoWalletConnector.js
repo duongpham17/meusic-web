@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react';
 
-const useCardanoWalletConnector = ({callbackWalletChange}) => {
+const useCardanoWalletConnector = ({callback, disconnect}) => {
 
-    const [changed, setChanged] = useState(false);
+    const [accountChanged, setAccountChanged] = useState(false);
+    const [startedConnection, setStartedConnection] = useState(false);
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const [wallet, setWallet] = useState({
         name: "",
@@ -15,16 +17,19 @@ const useCardanoWalletConnector = ({callbackWalletChange}) => {
 
     const connect = async (name) => {
 
+        setLoading(true);
+
         try{        
+
             const wallet = await cardano[name].enable();
 
             const [hexAddress] = await wallet.getUsedAddresses();
 
             setWallet({ name, hexAddress });
 
-            setChanged(true);
-
             localStorage.setItem("cryptoWallet", name);
+
+            setStartedConnection(true);
 
             return {
                 connected: true,
@@ -35,6 +40,8 @@ const useCardanoWalletConnector = ({callbackWalletChange}) => {
         } catch (err){
             setError(name);
         }
+
+        setLoading(false);
     };
 
     useEffect(() => {
@@ -47,29 +54,35 @@ const useCardanoWalletConnector = ({callbackWalletChange}) => {
         async function onEvents() {    
             cardano.onAccountChange((address) =>  {
                 setWallet((wallet) => ({...wallet, hexAddress: address[0]}));
-                setChanged(true);
+                setAccountChanged(true);
             });
             cardano.onNetworkChange((network) => {
                 setWallet((wallet) => ({...wallet, network}));
-                setChanged(true);
+                setAccountChanged(true);
             });
         }
         onEvents();
 
-    }, [cardano, callbackWalletChange])
+    }, [cardano])
 
     useEffect(() => {
-        if(changed) {
-            callbackWalletChange(wallet);
-            setChanged(false);
-        }   
-    }, [callbackWalletChange, changed, wallet]);
+        if(accountChanged && disconnect !== undefined) disconnect();
+    }, [accountChanged, disconnect]);
+
+    useEffect(() => {
+        if(startedConnection){
+            if(callback !== undefined) callback(wallet);
+            setLoading(false);
+            setStartedConnection(false);
+        }
+    }, [startedConnection, callback, wallet]);
 
     return {
         cardano,
         connect,
         wallet,
-        error
+        error,
+        loading
     };
 }
 

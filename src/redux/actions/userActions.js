@@ -6,10 +6,14 @@ import {
     USER_ERRORS
 } from './types';
 
-export const userUpdateUsername = (data) => async dispatch => {
+const clearErrors = (dispatch) => (
     dispatch({
         type: USER_ERRORS,
-    });
+    })
+);
+
+export const userUpdateUsername = (data) => async dispatch => {
+    clearErrors(dispatch);
     try{
         const res = await api.patch('/users/username', data);
         dispatch({
@@ -27,6 +31,7 @@ export const userUpdateUsername = (data) => async dispatch => {
 };
 
 export const userRequestEmailChange = (data) => async dispatch => {
+    clearErrors(dispatch)
     try{
         await api.patch('/users/email', data);
         dispatch(setAlert("Email with code sent."))
@@ -40,18 +45,36 @@ export const userRequestEmailChange = (data) => async dispatch => {
 };
 
 export const userEmailConfirm = (data) => async dispatch => {
+    clearErrors(dispatch)
     try{
         const res = await api.patch('/users/email/confirm', data);
         dispatch({
             type: USER,
             payload: res.data.user
         });
-        dispatch(setAlert("Email updated"))
+        dispatch(setAlert("Email updated."))
         return true;
     } catch(error) {
         dispatch({
             type: USER_ERRORS,
             payload: {email: error.response.data.message}
+        });
+    }
+};
+
+export const userUpdateCryptoAddress = (data) => async dispatch => {
+    clearErrors(dispatch)
+    try{
+        const res = await api.patch('/users/crypto/address', data);
+        dispatch({
+            type: USER,
+            payload: res.data.user
+        });
+        dispatch(setAlert("Crypto wallet linked."))
+    } catch(error) {
+        dispatch({
+            type: USER_ERRORS,
+            payload: {cryptoAddress: error.response.data.message}
         });
     }
 };

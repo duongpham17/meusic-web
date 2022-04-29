@@ -11,7 +11,7 @@ import {MdKeyboardArrowRight} from 'react-icons/md'
 
 const CryptoWallet = ({onClose, cardanoWalletConnector}) => {
 
-    const { connect, error } = cardanoWalletConnector;
+    const { connect, error, loading } = cardanoWalletConnector;
 
     const wordCapital = (word) =>  word.substring(0, 1).toUpperCase() + word.substring(1)
 
@@ -20,7 +20,7 @@ const CryptoWallet = ({onClose, cardanoWalletConnector}) => {
             <div className={styles.container} onClick={e => e.stopPropagation()}>
                 <ul>
                     {WalletsList.map(el => 
-                        <li key={el.name} onClick={() => connect(el.name)}>
+                        <li key={el.name} onClick={() => !loading && connect(el.name)}>
                             <span>{wordCapital(el.name)}</span>
                             <img src={el.icon} alt="wallet" /> 
                         </li>    
@@ -33,6 +33,8 @@ const CryptoWallet = ({onClose, cardanoWalletConnector}) => {
                             <MdKeyboardArrowRight/>
                         </a>
                     )}
+
+                    {loading && <div className="loading-30 center" />}
                     
                 </ul>
             </div>

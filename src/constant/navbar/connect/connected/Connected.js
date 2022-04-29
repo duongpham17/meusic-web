@@ -49,6 +49,7 @@ export const Connected = (props) => {
                             <span><MdLogout/></span>
                         </button>
                     </div>
+                    
                 </Cover>
             }
         </div>
