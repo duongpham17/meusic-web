@@ -28,7 +28,7 @@ const EmailSent = (props) => {
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.content}>
         
         {!enterCode ? 
 

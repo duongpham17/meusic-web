@@ -26,7 +26,7 @@ export const Layout1 = ({ song, index, isPlaying, played, artist }) => {
 
             <div className={`${styles.image} ${isPlaying && styles.isPlaying}`}>
                 {isPlaying && <MusicPlaying/>}
-                <img src={song.image} alt="i"/>
+                <img loading='lazy' src={song.image} alt="i"/>
                 <p className={styles.index}>{index+1}</p>
             </div>
 
