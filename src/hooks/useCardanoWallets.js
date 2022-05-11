@@ -33,14 +33,17 @@ const useCardanoWallets = () => {
     }, [cryptoWalletData, cardano, loading]);
 
     useEffect(() => {
+        if(!cardano) return;
         const cryptoWallet = localStorage.getItem("cryptoWallet");
-        if(!cryptoWallet && !cardano) return;
+        if(!cryptoWallet) return;
         if(!cryptoWalletData.hexAddress) onConnect(cryptoWallet);
     }, [onConnect, cardano, cryptoWalletData.hexAddress]);
 
     useEffect(() => {
+        if(!cardano) return;
         const cryptoWallet = localStorage.getItem("cryptoWallet");
-        if(!cryptoWallet && !cardano) return;
+        if(!cryptoWallet) return;
+
         cardano.onAccountChange((hexAddress) => {
             setCryptoWalletData(cryptoWalletData => ({...cryptoWalletData, wallet: "", hexAddress: hexAddress[0]}));
             setAccountChanged(true);
@@ -49,6 +52,7 @@ const useCardanoWallets = () => {
             setCryptoWalletData(cryptoWalletData =>  ({...cryptoWalletData, network}));
             setNetworkChanged(true);
         });
+        
     }, [cardano]);
 
     //clean up;
