@@ -1,10 +1,11 @@
 .container{
-    position: absolute;
-    top: 0;
-    right: 0;
+    .menu{
+        display: flex;
+        width: 15px;
+    }
 
     ul{
-        width: 80px;
+        width: 110px;
 
         li{
             button{
@@ -12,15 +13,16 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 0.3rem;
+                padding: 0.5rem;
                 border-radius: 5px;
                 &:hover{
                     background-color: var(--background-faded);
                 }
-            }
-            svg{
-                display: flex;
+                svg{
+                    display: flex;
+                }
             }
         }
+
     }
 }

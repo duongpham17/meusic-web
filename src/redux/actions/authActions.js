@@ -39,7 +39,7 @@ export const authLoadUser = () => async dispatch => {
     }
 };
 
-export const authLogin = (data) => async dispatch => {
+export const authLoginEmail = (data) => async dispatch => {
     try{
         const res = await api.post('/auth/login/email', data);
         dispatch({
@@ -136,6 +136,19 @@ export const authConfirmCode = (data) => async dispatch => {
     }
 };
 
+export const authCryptoWallet = (data) => async dispatch => {
+    try{
+        const res = await api.post(`/auth/login/crypto`, data);
+        dispatch({
+            type: AUTH_CONFIRM,
+        }); 
+        localStorage.setItem("user", JSON.stringify(res.data.cookie));
+        window.location = '/';
+    } catch (error) {
+        console.log(error.response);
+    }
+} 
+
 export const authLogout = () => async dispatch => {
     try {
         localStorage.removeItem("user");
@@ -143,21 +156,5 @@ export const authLogout = () => async dispatch => {
         window.location = '/';
     } catch (err) {
         console.log("something went wrong")
-    }
-};
-
-export const authConnectWallet = (data) => async dispatch => {
-    try{
-        const res = await api.post(`/auth/crypto`, data);
-        dispatch({
-            type: AUTH_CONFIRM,
-        }); 
-        localStorage.setItem("user", JSON.stringify({
-            ...res.data.cookie,
-            wallet: data.name,
-        }));
-        window.location.reload();
-    } catch (error) {
-        console.log(error)
     }
 };

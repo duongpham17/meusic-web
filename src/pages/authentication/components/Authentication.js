@@ -18,7 +18,7 @@ const Authentication = (props) => {
     
     return (
         <div className={styles.container}>
-            
+
             <div className={styles.header}>
                 <b>{title}</b>
 

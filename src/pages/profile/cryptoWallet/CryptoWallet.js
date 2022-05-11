@@ -1,30 +1,51 @@
 import styles from './CryptoWallet.module.scss'
 import React from 'react';
 
+import {MdClose} from 'react-icons/md';
+import {BsFillWalletFill} from 'react-icons/bs'
+
 import CryptoWallets from 'components/cryptoWallets';
 import Box from '../components/Box';
-import useCardanoWalletConnector from 'hooks/useCardanoWalletConnector';
+import useCardanoWallets from 'hooks/useCardanoWallets';
 import useOpen from 'hooks/useOpen';
 
 const CryptoWallet = (props) => {
 
-    const {userUpdateCryptoAddress} = props;
+    const {userRemoveCryptoAddress, userUpdateCryptoAddress} = props;
 
     const {user, errors} = props.userReducers;
 
-    const {open, onOpen} = useOpen();
+    const {open, onOpen, onOpenValue, openValue} = useOpen();
 
-    const cardanoWalletConnector = useCardanoWalletConnector({callback: userUpdateCryptoAddress});
+    const cardanoWallet = useCardanoWallets();
 
-    const titleValue = user.cryptoAddress ? `${user.cryptoAddress.substring(0, 10)}...${user.cryptoAddress.substring(100)}` : "";
+    const halfString = (string) => `${string.substring(0, 7)}...${string.substring(107)}`;
 
     return (
-        <Box title="Crypto wallet" titleValue={titleValue} editable={false}>
-            <div className={styles.container}>
-                {errors && <p className={styles.error}>* {errors.cryptoAddress} * </p>}
-                <button onClick={onOpen}>{titleValue ? "Link different wallet" : "Connect wallet"}</button>
-                { open && <CryptoWallets onClose={onOpen} cardanoWalletConnector={cardanoWalletConnector} /> }
-            </div>
+        <Box title="Crypto wallet" titleValue={`Crypto address linked ${user.cryptoAddress.length}`} onOpen={onOpen} open={open}>
+            {open &&
+                <div className={styles.container}>
+                    <div className={styles.walletAddresses}>
+                        {user.cryptoAddress.map(el => 
+                            <div className={styles.element} key={el}>
+                                <p>{halfString(el)}</p>
+                                {user.cryptoAddress.length > 1 && <button onClick={() => userRemoveCryptoAddress(el)}><MdClose/></button>}
+                            </div>
+                        )}
+                    </div>
+
+                    {errors && <p className={styles.error}>* {errors.cryptoAddress} * </p>}
+
+                    <div onClick={() => onOpenValue("open")} className={styles.linkAddress}>
+                        <span>Link address</span>
+                        <BsFillWalletFill/>
+                    </div>
+
+                    { openValue === "open" && 
+                        <CryptoWallets onClose={onOpen} walletConnecter={cardanoWallet} callback={userUpdateCryptoAddress}/> 
+                    }
+                </div>
+            }
         </Box>
     )
 };

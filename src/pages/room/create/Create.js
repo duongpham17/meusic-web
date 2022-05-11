@@ -18,7 +18,7 @@ const Create = (props) => {
     const {value, onClear, onChange, onStopPropagation, onSubmit} = useBasicForm({name: ""});
 
     const onRoomCreate = async () => {
-        if(value.name.length >= 15) return;
+        if(value.name.length >= 10) return;
         const room = await roomCreate(value);
         if(room) onOpen();
         onClear();

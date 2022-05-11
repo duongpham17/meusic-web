@@ -2,7 +2,7 @@ import styles from './Profile.module.scss';
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {userRequestEmailChange, userEmailConfirm, userUpdateCryptoAddress} from 'redux/actions/userActions';
+import {userRequestEmailChange, userEmailConfirm, userUpdateCryptoAddress, userRemoveCryptoAddress} from 'redux/actions/userActions';
 
 import Email from './email';
 import Username from './username';
@@ -34,7 +34,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     userRequestEmailChange,
     userEmailConfirm,
-    userUpdateCryptoAddress
+    userUpdateCryptoAddress,
+    userRemoveCryptoAddress,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

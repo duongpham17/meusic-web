@@ -11,14 +11,15 @@ import useOpen from 'hooks/useOpen';
 
 export const Connected = (props) => {
 
-    const {onOpenValue, openValue, cardanoWalletConnector, authLogout} = props;
+    const {onOpenValue, openValue, cardanoWallets, authLogout} = props;
 
-    const {wallet} = cardanoWalletConnector;
+    const {cryptoWalletData} = cardanoWallets;
 
     const {open, onOpen} = useOpen();
 
     return (
         <div className={styles.container}>
+            
             <Box desktop button={<button onClick={() => onOpenValue("connected")}><BsFillWalletFill size="1.4rem"/></button>} />
 
             { openValue === "connected" && 
@@ -26,7 +27,7 @@ export const Connected = (props) => {
                     <div className={styles.wallet} onClick={e => e.stopPropagation()}>
                         <h3>
                             <span>Connected to</span>
-                            <span>{wallet.name}</span>
+                            <span>{cryptoWalletData.wallet}</span>
                         </h3>
                         <br/>
                         <button onClick={onOpen}>

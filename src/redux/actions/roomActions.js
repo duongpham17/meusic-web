@@ -72,11 +72,8 @@ export const roomSearchRoom = (name) => async dispatch => {
 };
 
 export const roomSearchSong = (title) => async dispatch => {
-    console.log(title)
     try{
         const res = await api.get(`/songs?title=${title}`);
-
-        console.log(res.data.songs);
         dispatch({
             type: ROOM_SEARCH_SONG,
             payload: res.data.songs

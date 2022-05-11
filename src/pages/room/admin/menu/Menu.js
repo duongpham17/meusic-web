@@ -1,7 +1,8 @@
 import styles from './Menu.module.scss';
 import React from 'react';
 
-import { MdOutlineMenu, MdOutlineLock, MdOutlineLockOpen, MdOutlineDeleteOutline} from 'react-icons/md';
+import { MdOutlineLock, MdOutlineLockOpen, MdOutlineDeleteOutline} from 'react-icons/md';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 
 import useOpen from 'hooks/useOpen';
 
@@ -25,7 +26,7 @@ const Menu = (props) => {
     return (
         <div className={styles.container}>
 
-            <Dropdown icon={<MdOutlineMenu className={styles.menu}/>}>
+            <Dropdown icon={<BsThreeDotsVertical className={styles.menu}/>}>
                 <ul>
                     <li>
                         <button onClick={() => onOpenValue("private")}>

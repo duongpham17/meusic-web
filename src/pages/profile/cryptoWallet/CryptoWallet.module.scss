@@ -3,18 +3,59 @@
     .error{
         margin: 0.5rem 0;
         font-size: 0.9rem;
+        color: var(--main-color-light);
     }
 
-    button{
+    .linkAddress{
         margin: 1rem 0;
         padding: 0.5rem;
         border-radius: 0;
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         border: 2px solid var(--background-faded);
         background-color: var(--main-color-opacity);
+        width: 100%;
+        cursor: pointer;
 
         &:hover{
             border-color: var(--main-color-selected);
+
+            *{
+                color: var(--main-color-selected);
+            }
+        }
+    }
+
+    .walletAddresses{
+        margin: 1rem 0;
+
+        .element{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem;
+            border: 2px solid var(--background-faded);
+            background-color: var(--main-color-opacity);
+            margin-bottom: 0.5rem;
+            
+            &:hover {
+                border-color: var(--main-color-selected);
+                button{
+                    display: flex;
+                }
+            }
+
+            button{
+                display: none;
+                border: 2px solid transparent;
+                &:hover{
+                    color: var(--main-color-selected);
+                    border: 2px solid var(--background-faded);
+                    background-color: var(--main-color-opacity);
+                }
+            }
+
         }
     }
 }

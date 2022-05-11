@@ -6,12 +6,13 @@ import {MdKeyboardArrowRight} from 'react-icons/md'
 
 /**
  * @param { function } onClose - useState close wallet selection when background is clicked
- * @param { object } cardanoWalletConnector - cardano wallet objects containing functions and listeners
+ * @param { object } walletConnecter - crypto wallet connector containing functions and listeners
+ * @param { function } callback - callback for onConnect params
 */
 
-const CryptoWallet = ({onClose, cardanoWalletConnector}) => {
+const CryptoWallet = ({onClose, walletConnecter, callback}) => {
 
-    const { connect, error, loading } = cardanoWalletConnector;
+    const { onConnect, error, loading } = walletConnecter;
 
     const wordCapital = (word) =>  word.substring(0, 1).toUpperCase() + word.substring(1)
 
@@ -20,7 +21,7 @@ const CryptoWallet = ({onClose, cardanoWalletConnector}) => {
             <div className={styles.container} onClick={e => e.stopPropagation()}>
                 <ul>
                     {WalletsList.map(el => 
-                        <li key={el.name} onClick={() => !loading && connect(el.name)}>
+                        <li key={el.name} onClick={() => onConnect(el.name, callback)}>
                             <span>{wordCapital(el.name)}</span>
                             <img src={el.icon} alt="wallet" /> 
                         </li>    

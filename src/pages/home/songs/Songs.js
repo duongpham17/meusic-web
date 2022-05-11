@@ -41,9 +41,12 @@ export const Songs = (props) => {
         download
     }
 
-    return ( !playlist ? <div className="loading" /> :
+    return ( !playlist ?           
+        <div className={styles.loading}>
+            <iframe src='https://my.spline.design/untitled-a18a8cb39533eb67727c8b7eecdb9d87/' title="loading-cube" frameBorder="0" scrolling="no" width="100%" height="100%"></iframe>
+        </div>
+        :
         <div className={styles.container}>
-
             {playlist.map((el, index) => 
                 <div key={el._id} className={styles.element} onClick={onPlay(el)}>
                     <Information {...props} song={el} index={index} />

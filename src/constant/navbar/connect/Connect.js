@@ -1,42 +1,41 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import { connect } from 'react-redux';
-import { authConnectWallet, authLogout } from 'redux/actions/authActions';
-import { userUpdateCryptoAddress } from 'redux/actions/userActions';
+import { authLogout, authCryptoWallet  } from 'redux/actions/authActions';
 
 import useOpen from 'hooks/useOpen';
-import useCardanoWalletConnector from 'hooks/useCardanoWalletConnector';
+import useCardanoWallets from 'hooks/useCardanoWallets';
 
 import Disconnected from './disconnected';
 import Connected from './connected';
 
 export const Connect = (props) => {
 
-  const {authConnectWallet, userUpdateCryptoAddress, authLogout} = props;
-
-  const {isLoggedIn} = props.authReducers;
+  const {authLogout} = props;
 
   const {openValue, onOpenValue} = useOpen();
 
-  const callback = isLoggedIn ? userUpdateCryptoAddress : authConnectWallet;
+  const cardanoWallets = useCardanoWallets();
 
-  const cardanoWalletConnector = useCardanoWalletConnector({callback, disconnect: authLogout});
+  const {cryptoWalletData, accountChanged, networkChanged} = cardanoWallets;
 
-  const {wallet} = cardanoWalletConnector;
+  useEffect(() => {
+    if(accountChanged || networkChanged) authLogout();
+  }, [accountChanged, networkChanged, authLogout]);
 
   props = {
     ...props,
     openValue,
     onOpenValue,
-    cardanoWalletConnector
+    cardanoWallets
   };
 
   return (
     <div>
 
-      {wallet.name && <Connected {...props} />}
+      {cryptoWalletData.hexAddress && <Connected {...props} />}
 
-      {!wallet.name && <Disconnected {...props} />}
+      {!cryptoWalletData.hexAddress && <Disconnected {...props} />}
 
     </div>
   )
@@ -47,9 +46,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  authConnectWallet,
   authLogout,
-  userUpdateCryptoAddress
+  authCryptoWallet
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Connect);

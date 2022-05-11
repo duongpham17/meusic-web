@@ -27,12 +27,13 @@ const Previous = () => {
             <div className={styles.map}>
                 {previousRooms.map((el, i) => 
                     <div key={el._id} className={styles.element}>   
-                        
-                        <div className={styles.delete}>
+
+                        <Link to={`/room/${el.room}`}>:)</Link>
+
+                        <div className={styles.room}>
+                            <p>{el.room}</p>
                             <button onClick={onDelete(i)}><MdClose/></button>
                         </div>
-
-                        <Link to={`/room/${el.room}`}> {el.room} </Link>
 
                     </div>    
                 )}

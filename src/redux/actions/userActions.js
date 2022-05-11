@@ -78,3 +78,16 @@ export const userUpdateCryptoAddress = (data) => async dispatch => {
         });
     }
 };
+
+export const userRemoveCryptoAddress = (address) => async dispatch => {
+    try{
+        const res = await api.patch(`/users/crypto/${address}`);
+        dispatch({
+            type: USER,
+            payload: res.data.user
+        });
+        dispatch(setAlert("Address removed"));
+    } catch(error){
+        console.log(error);
+    }
+} 
