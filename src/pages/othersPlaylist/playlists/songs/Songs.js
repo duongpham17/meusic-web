@@ -11,20 +11,20 @@ export const Songs = (props) => {
 
     const {playlist} = props.othersPlaylistReducers;
 
-    const {onOpen, open} = useOpen();
+    const {onOpenValue, openValue} = useOpen();
     
     return (  
         <div className={styles.container}>
             {playlist.map(el => 
                 <div className={styles.element} key={el._id}>
 
-                    <div className={styles.overview} onClick={onOpen}>
+                    <div className={styles.overview} onClick={() => onOpenValue(el._id)}>
                         <Overview {...props} element={el} />
 
                         <Options {...props} element={el} />
                     </div>
 
-                    {open && <View {...props} element={el}/>}
+                    {openValue === el._id && <View {...props} element={el}/>}
 
                 </div>    
             )}

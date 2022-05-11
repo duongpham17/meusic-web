@@ -20,13 +20,17 @@ export const Playlists = (props) => {
     useApiGet(othersPlaylistGet, playlist.length);
 
     return ( !playlist ? <div className='loading' /> :
-        <div className={styles.container}>
+    <>
+        { !!playlist.length &&
+            <div className={styles.container}>
 
-            <Total {...props} />
-            
-            <Songs {...props} />
+                <Total {...props} />
+                
+                <Songs {...props} />
 
-        </div>
+            </div>
+        }
+    </>
     )
 };
 

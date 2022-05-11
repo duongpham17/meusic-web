@@ -1,19 +1,23 @@
 .container{
-    cursor: pointer;
-    border: 2px solid var(--background-faded);
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background-color: var(--main-color-opacity);
-
-    &:hover{
-        border-color: var(--main-color-selected);
-    }
 
     .overview{
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .element{
+        margin-bottom: 1rem;
+        cursor: pointer;
+        border: 2px solid var(--background-faded);
+        border-radius: 5px;
+        padding: 0.5rem;
+        background-color: var(--main-color-opacity);
+
+        &:hover{
+            border-color: var(--main-color-selected);
+        }
+    
     }
 
 }
