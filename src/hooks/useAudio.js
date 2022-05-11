@@ -163,7 +163,7 @@ const useAudio = (audio, tracks, song) => {
 
     // play song that is selected
     useEffect(() => {   
-        setTrackLoading(true)
+        setTrackLoading(true);
         const Audio = audio.current;
         
         Audio.src = trackPlaying.url;
@@ -197,9 +197,12 @@ const useAudio = (audio, tracks, song) => {
 
     //1. ENDED - keep track of when the audio has ended
     useEffect(() => {
-        const ended = trackProgress >= trackPlaying.duration;
-        if(ended) setTrackEnded(true);
-    }, [trackProgress, trackPlaying.duration]);
+        if(trackEnded) return;
+        const Audio = audio.current;
+        const ended = () => setTrackEnded(true);
+        const endedEvent = Audio.addEventListener("ended", ended);
+        return () => Audio.removeEventListener("ended", endedEvent);
+    }, [audio, trackEnded]);
 
     //2. play next
     useEffect(() => {
@@ -211,11 +214,12 @@ const useAudio = (audio, tracks, song) => {
 
     //1. ERROR - keep track of loading errors due to ipfs
     useEffect(() => {
+        if(trackError) return;
         const Audio = audio.current;
         const error = () => setTrackError(true);
         const errorEvent = Audio.addEventListener("error", error);
         return () => Audio.removeEventListener("error", errorEvent);
-    },[audio]);
+    },[audio, trackError]);
 
     //reload track when error
     useEffect(() => {
