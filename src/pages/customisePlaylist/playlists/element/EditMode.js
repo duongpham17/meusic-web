@@ -5,9 +5,10 @@ import {BsMusicNoteList} from 'react-icons/bs';
 import {FaRegTrashAlt} from 'react-icons/fa';
 import Dropdown from 'components/dropdown';
 
+
 const EditMode = (props) => {
 
-    const {element, setEditMode, setSelectedPlaylist, customisePlaylistDuplicate} = props;
+    const {element, setEditMode, setSelectedPlaylist, customisePlaylistDuplicate, dropdown} = props;
 
     const onShowEditList = (event) => {
         event.stopPropagation();
@@ -26,9 +27,9 @@ const EditMode = (props) => {
 
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={e => e.stopPropagation()}>
 
-            <Dropdown>
+            <Dropdown dropdown={dropdown}>
 
                 <ul onMouseEnter={onShowEditList}>
                     <li>

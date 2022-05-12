@@ -6,10 +6,15 @@ import {BsSuitHeartFill, BsSuitHeart, BsFillCollectionPlayFill} from 'react-icon
 import {MdOutlineFileDownload} from 'react-icons/md';
 
 import Dropdown from 'components/dropdown/Dropdown';
+import useUrlDownload from 'hooks/useUrlDownload';
 
 export const Options = (props) => {
 
-    const {song, index, setAddSong, setEditSongData, savedPlaylistSave, savedPlaylistRemove, adminDeleteSong, download, utilsDownloadOptions} = props;
+    //custom
+    const {song, index, setAddSong, setEditSongData, dropdown} = props;
+
+    //redux
+    const {savedPlaylistSave, savedPlaylistRemove, adminDeleteSong, utilsDownloadOptions} = props;
 
     const {playlist} = props.savedPlaylistReducers;
 
@@ -17,7 +22,7 @@ export const Options = (props) => {
 
     const {user} = props.userReducers;
 
-    const stopPropagation = event => event.stopPropagation();
+    const {download} = useUrlDownload();
 
     const alreadyAdded = (songs, id) => songs.map(el => el._id).includes(id);
 
@@ -37,8 +42,8 @@ export const Options = (props) => {
     )
 
     return (
-        <div className={styles.container} onClick={stopPropagation}>
-            <Dropdown>
+        <div className={styles.container}>
+            <Dropdown dropdown={dropdown}>
                 {        
                     playlist &&                    
                     <ul>

@@ -1,52 +1,10 @@
 .container{
 
-    b{
-        display: flex;
-        justify-content: space-between;
-    }
-    
     .map{
         display: inline-flex;
         flex-wrap: wrap;
+        width: 100%;
         
-        .element{
-            width: 100px;
-            height: 120px;
-            margin-right: 1rem;
-            margin-top: 1rem;
-    
-            a{  
-                background-color: var(--main-color-opacity);
-                border-radius: 5px;    
-                border: 2px solid var(--background-faded);
-                word-break: break-all;
-                text-align: center;
-                width: 100px;
-                height: 100px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-    
-                &:hover{
-                    border-color: var(--main-color-selected);
-                }
-    
-            }
-    
-            .room{
-    
-                margin-top: 0.5rem;
-    
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                button:hover *{
-                    color: var(--main-color-selected);
-                }
-    
-            }
-        }
     }
 
 }

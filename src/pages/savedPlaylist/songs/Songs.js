@@ -1,6 +1,9 @@
 import styles from './Songs.module.scss';
 import React from 'react';
 
+import ContextMenu from 'components/contextMenu';
+import useOpen from 'hooks/useOpen';
+
 import Information from './Information';
 import Options from './Options';
 import Alphabetical from './Alphabetical';
@@ -8,6 +11,8 @@ import Alphabetical from './Alphabetical';
 export const Songs = (props) => {
 
   const {songsList, playingSelectPlaylist, savedPlaylist} = props;
+
+  const {openValue, setOpenValue} = useOpen();
 
   const onPlay = (song) => () => {
     const songIndex = savedPlaylist.playlist.findIndex(el => el._id === song._id);
@@ -31,13 +36,15 @@ export const Songs = (props) => {
 
             <div className={styles.map}>
             { songsList.map((el, index) => 
-              <div className={styles.element} key={el._id} onClick={onPlay(el)} id={el.artist.slice(0, 1)}> 
+              <ContextMenu key={el._id} id={el._id} open={openValue} setOpen={setOpenValue} menu={<Options {...props} song={el} dropdown={false} />}>
+                <div className={styles.element} onClick={onPlay(el)} id={el.artist.slice(0, 1)}> 
 
-                <Information {...props} song={el} index={index} />
+                  <Information {...props} song={el} index={index} />
 
-                <Options {...props} song={el} />
+                  <Options {...props} song={el} />
 
-              </div>  
+                </div>  
+              </ContextMenu>
             )}
             </div>
 

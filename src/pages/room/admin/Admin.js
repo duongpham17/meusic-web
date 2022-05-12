@@ -1,37 +1,44 @@
 import styles from './Admin.module.scss';
 import React from 'react';
-import {Link} from 'react-router-dom';
-import useApiGet from 'hooks/useApiGet';
+
 import {FaCouch} from 'react-icons/fa';
+
+import ContextMenu from 'components/contextMenu';
+
+import useOpen from 'hooks/useOpen';
+import useApiGet from 'hooks/useApiGet';
+
+import Title from '../components/Title';
+import Box from '../components/Box';
 
 import Menu from './menu/Menu';
 
 const Admin = (props) => {
 
-    const { roomGetCreateByMe} = props;
+    const {roomGetCreateByMe} = props;
 
     const {admin} = props.roomReducers;
+    
+    const {openValue, setOpenValue} = useOpen();
 
     useApiGet(roomGetCreateByMe, admin.length);
 
     return ( !!admin.length &&
         <section className={styles.container}>
 
-            <b>
-                <span>Admin</span> 
-                <span>{admin.length} Room</span>
-            </b>
+            <Title left="Admin" right={`${admin.length} Room`} />
 
             <div className={styles.map}>
-                {admin.map(el => 
-                    <div className={styles.element} key={el._id}>
-                        <Link to={`/room/${el.room}`}><FaCouch/></Link>
-                        <div className={styles.info}>
-                            <p>{el.room}</p>
-                            <div className={styles.menu}><Menu {...props} element={el}/></div>
-                        </div>
-                    </div>
-                )}
+                {admin.map((el) => 
+                    <ContextMenu key={el._id} id={el._id} open={openValue} setOpen={setOpenValue} menu={<Menu {...props} element={el} dropdown={false}/>}>
+                        <Box
+                            icon={<FaCouch/>} 
+                            link={el.room} 
+                            text={el.room} 
+                            button={<div className={styles.menu}><Menu {...props} element={el}/></div>}
+                        />
+                </ContextMenu>
+            )}
             </div>
 
         </section>

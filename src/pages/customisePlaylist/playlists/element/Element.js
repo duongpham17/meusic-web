@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 
 import {MdDragHandle} from 'react-icons/md';
 
+import ContextMenu from 'components/contextMenu';
+
 import EditPlaylist from '../editPlaylist';
 import ViewPlaylist from '../viewPlaylist';
 import DeletePlaylist from '../deletePlaylist';
@@ -10,6 +12,7 @@ import RenamePlaylist from '../renamePlaylist';
 
 import Overview from './Overview';
 import EditMode from './EditMode';
+import useUseEffectCleanUp from 'hooks/useUseEffectCleanUp';
 
 export const Element = (props) => { 
 
@@ -17,6 +20,7 @@ export const Element = (props) => {
 
     const [selectedPlaylist, setSelectedPlaylist] = useState("");
     const [editMode, setEditMode] = useState("");
+    const [openContextMenu, setOpenContextMenu] = useState(false);
 
     const onViewPlaylist = (song) => () => {
         if(!element.song.length) return setEditMode("");
@@ -24,6 +28,8 @@ export const Element = (props) => {
         setEditMode("viewPlaylist");
         setSelectedPlaylist(song);
     };
+
+    useUseEffectCleanUp(() => { setOpenContextMenu("") });
 
     props = {
        ...props,
@@ -37,11 +43,13 @@ export const Element = (props) => {
         <div className={styles.container}>
 
             {!openValue && 
-                <div className={styles.overview} onClick={onViewPlaylist(element)}>
-                    <Overview {...props}/>
-                    
-                    <EditMode {...props}/>
-                </div>
+                <ContextMenu id={element._id} open={openContextMenu} setOpen={setOpenContextMenu} menu={<EditMode {...props} dropdown={false}/>}>
+                    <div className={styles.overview} onClick={onViewPlaylist(element)}>
+                            <Overview {...props}/>
+                            
+                            <EditMode {...props}/>
+                    </div>
+                </ContextMenu>
             }
 
             <div>

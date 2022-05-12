@@ -1,8 +1,9 @@
 import styles from './Menu.module.scss';
 import React from 'react';
 
-import { MdOutlineLock, MdOutlineLockOpen, MdOutlineDeleteOutline} from 'react-icons/md';
+import { MdOutlineLock, MdOutlineLockOpen} from 'react-icons/md';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import {FaRegTrashAlt} from 'react-icons/fa';
 
 import useOpen from 'hooks/useOpen';
 
@@ -13,7 +14,7 @@ import Delete from './Delete';
 
 const Menu = (props) => {
 
-    const {element} = props;
+    const {element, dropdown} = props;
 
     const {onOpenValue, openValue} = useOpen();
 
@@ -24,20 +25,20 @@ const Menu = (props) => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={e => e.stopPropagation()}>
 
-            <Dropdown icon={<BsThreeDotsVertical className={styles.menu}/>}>
+            <Dropdown icon={<BsThreeDotsVertical className={styles.menu}/>} dropdown={dropdown}>
                 <ul>
                     <li>
                         <button onClick={() => onOpenValue("private")}>
-                            <span>{element.private ? <MdOutlineLock/> : <MdOutlineLockOpen />}</span>
                             <span>Private</span>
+                           {element.private ? <MdOutlineLock/> : <MdOutlineLockOpen />}
                         </button>
                     </li>
                     <li>
                         <button onClick={() => onOpenValue("delete")}>
-                            <span><MdOutlineDeleteOutline/></span>
                             <span>Delete</span>
+                            <FaRegTrashAlt/>
                         </button>
                     </li>
                 </ul>

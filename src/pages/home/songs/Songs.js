@@ -10,8 +10,10 @@ import { customisePlaylistGet, customisePlaylistUpdate } from 'redux/actions/cus
 import { adminDeleteSong } from 'redux/actions/adminActions';
 import { utilsDownloadOptions } from 'redux/actions/utilsActions';
 
+import ContextMenu from 'components/contextMenu';
+
 import useApiGet from 'hooks/useApiGet';
-import useUrlDownload from 'hooks/useUrlDownload';
+import useUseEffectCleanUp from 'hooks/useUseEffectCleanUp';
 
 import Information from './Information';
 import Options from './Options';
@@ -26,11 +28,17 @@ export const Songs = (props) => {
 
     const [addSong, setAddSong] = useState("");
     const [editSongData, setEditSongData] = useState("");
+    const [openContentMenu, setOpenContextMenu] = useState("");
 
     useApiGet(previewGetSongs, playlist);
-    const {download} = useUrlDownload();
 
-    const onPlay = (song) => () =>  playingPreviewSelectPlaylist(song);
+    useUseEffectCleanUp(() => {
+        setOpenContextMenu("");
+    })
+
+    const onPlay = (song) => () =>  {
+        playingPreviewSelectPlaylist(song);
+    };
 
     props = {
         ...props,
@@ -38,7 +46,6 @@ export const Songs = (props) => {
         setAddSong,
         editSongData,
         setEditSongData,
-        download
     }
 
     return ( !playlist ?           
@@ -47,16 +54,17 @@ export const Songs = (props) => {
         </div>
         :
         <div className={styles.container}>
-            {playlist.map((el, index) => 
-                <div key={el._id} className={styles.element} onClick={onPlay(el)}>
-                    <Information {...props} song={el} index={index} />
-                    <Options {...props} song={el} index={index}/>
-                </div>    
-            )}
+                {playlist.map((el, index) => 
+                    <ContextMenu key={el._id} id={el._id} open={openContentMenu} setOpen={setOpenContextMenu} menu={ <Options {...props} song={el} index={index} dropdown={false}/> }>
+                        <div className={styles.element} onClick={onPlay(el)}>
+                            <Information {...props} song={el} index={index} />
+                            <Options {...props} song={el} index={index}/>
+                        </div>    
+                    </ContextMenu>
+                )}
 
             {addSong && <AddToPlaylist {...props} />}
             {editSongData && <EditSong {...props} /> }
-
         </div>
     );
 };

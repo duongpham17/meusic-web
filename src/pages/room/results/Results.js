@@ -1,15 +1,17 @@
 import styles from './Results.module.scss';
 import React from 'react';
-import {Link} from 'react-router-dom';
 import useOpen from 'hooks/useOpen';
 
-import { MdOutlineLock, MdOutlineLockOpen } from 'react-icons/md';
+import ContextMenu from 'components/contextMenu';
+import Box from '../components/Box';
+import Menu from './Menu';
+import useUseEffectCleanUp from 'hooks/useUseEffectCleanUp';
 
 const Results = (props)  => {
 
     const {searchRoom} = props.roomReducers;
 
-    const {openValue, onOpenValue} = useOpen();
+    const {openValue, onOpenValue, setOpenValue} = useOpen();
 
     const onPreviosUpdate = (data) => () => {
         const room = JSON.parse(localStorage.getItem("room-previous"));
@@ -25,29 +27,32 @@ const Results = (props)  => {
         localStorage.setItem("room-previous", JSON.stringify([data, ...room]));
     };
 
+    useUseEffectCleanUp(() => {
+        setOpenValue("");
+    });
+
     props = {
         ...props,
         openValue,
-        onOpenValue
+        onOpenValue,
+        onPreviosUpdate
     };
 
     return ( searchRoom &&
         <div className={styles.container}>
 
-            {searchRoom.map(el => 
-                <div key={el._id} className={styles.element}>   
-                    
-                    <Link to={`/room/${el.room}`} onClick={onPreviosUpdate(el)}>  
-                        {el.private ? "Private" : "Public" }
-                    </Link>
+            <main className={styles.map}>
+                {searchRoom.map((el) => 
+                <ContextMenu key={el._id} open={openValue} setOpen={setOpenValue} id={el._id} menu={<Menu {...props} element={el} />}>
+                        <Box
+                            icon={el.private ? "Private" : "Public" } 
+                            link={el.room} 
+                            text={el.room} 
+                        />
+                    </ContextMenu>
+                )}
+            </main>
 
-                    <div className={styles.room}>
-                        <p>{el.room}</p>
-                        {el.private ? <MdOutlineLock className={styles.private}/> : <MdOutlineLockOpen className={styles.public}/> }
-                    </div>
-
-                </div>    
-            )}
         </div>
     )
 };

@@ -8,7 +8,9 @@ import Dropdown from 'components/dropdown';
 
 export const Options = (props) => {
 
-    const {savedPlaylistRemove, song, setAddSong, download, utilsDownloadOptions} = props;
+    const {dropdown, song, setAddSong, download} = props;
+
+    const {savedPlaylistRemove, utilsDownloadOptions} = props;
 
     const onDownload = async () => {
         utilsDownloadOptions("start", song.title);
@@ -21,7 +23,7 @@ export const Options = (props) => {
     return (
         <div className={styles.container}>
             
-            <Dropdown>
+            <Dropdown dropdown={dropdown}>
                 <ul>
                     <li onClick={() => setAddSong(song)}> 
                         <span>Playlist</span>

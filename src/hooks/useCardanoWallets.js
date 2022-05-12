@@ -44,14 +44,18 @@ const useCardanoWallets = () => {
         const cryptoWallet = localStorage.getItem("cryptoWallet");
         if(!cryptoWallet) return;
 
-        cardano.onAccountChange((hexAddress) => {
-            setCryptoWalletData(cryptoWalletData => ({...cryptoWalletData, wallet: "", hexAddress: hexAddress[0]}));
-            setAccountChanged(true);
-        });
-        cardano.onNetworkChange((network) => {
-            setCryptoWalletData(cryptoWalletData =>  ({...cryptoWalletData, network}));
-            setNetworkChanged(true);
-        });
+        try{
+            cardano?.onAccountChange((hexAddress) => {
+                setCryptoWalletData(cryptoWalletData => ({...cryptoWalletData, wallet: "", hexAddress: hexAddress[0]}));
+                setAccountChanged(true);
+            });
+            cardano?.onNetworkChange((network) => {
+                setCryptoWalletData(cryptoWalletData =>  ({...cryptoWalletData, network}));
+                setNetworkChanged(true);
+            });
+        } catch(err){
+            console.log(err)
+        } 
         
     }, [cardano]);
 

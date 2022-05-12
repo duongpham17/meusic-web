@@ -1,0 +1,19 @@
+.contextMenu{
+    border: 2px solid var(--background-faded);
+    padding: 0.5rem;
+    background-color: var(--main-color-solid);
+    position: absolute;
+    animation: grow 0.4s;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 5px;
+
+    @keyframes grow {
+        from{
+            transform: scale(0.5);
+        }
+        to{
+            transform: scale(1);
+        }
+    }
+}
