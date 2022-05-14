@@ -13,6 +13,7 @@ const useAudio = (audio, tracks, song) => {
     const [trackIndex, setTrackIndex] = useState(song.index || 0);
     const [trackPaused, setTrackPaused] = useState(false);
     const [trackProgress, setTrackProgress] = useState(0);
+    const [trackPlayedProgress, setTrackPlayedProgress] = useState(0);
     const [trackLoading, setTrackLoading] = useState(false);
     const [trackError, setTrackError] = useState(false);
     const [trackEnded, setTrackEnded] = useState(false);
@@ -159,33 +160,36 @@ const useAudio = (audio, tracks, song) => {
     useEffect(() => {
         setTrackPlaying(song);
         setTrackIndex(song.index);
-    }, [song]);
+        setTrackPlayedProgress(0);
+
+        const {current} = audio;
+        current.src = song.url;
+        current.currentTime = 0;
+
+    }, [song, audio]);
 
     // play song that is selected
     useEffect(() => {   
         setTrackLoading(true);
-        const Audio = audio.current;
-        
-        Audio.src = trackPlaying.url;
-        Audio.currentTime = 0;
-        Audio.load();
 
-        const canplay = Audio.addEventListener("canplay", () => { 
+        const {current} = audio;
+
+        const canplay = current.addEventListener("canplay", () => { 
             const volumeMuted = JSON.parse(localStorage.getItem("trackMuted"));
             const volumeValue = JSON.parse(localStorage.getItem("trackVolume"));
             const volume = volumeMuted ? 0 : volumeValue === 0 || volumeValue ? volumeValue : 1;
             const playbackRate = JSON.parse(localStorage.getItem("trackPlaybackRate") || 1);
 
-            Audio.muted = volumeMuted;
-            Audio.volume = volume;
-            Audio.playbackRate = playbackRate;
+            current.muted = volumeMuted;
+            current.volume = volume;
+            current.playbackRate = playbackRate;
 
-            Audio.play();
+            current.play();
             setTrackLoading(false);
         });
 
-        return () => Audio.removeEventListener("canplay", canplay);
-    }, [audio, trackIndex, trackPlaying]);   
+        return () => current.removeEventListener("canplay", canplay);
+    }, [audio, trackIndex]);   
 
     // keep track of progress
     useEffect(() => {
@@ -228,7 +232,15 @@ const useAudio = (audio, tracks, song) => {
             const Audio = audio.current;
             Audio.load();
         }   
-    }, [trackError, audio])
+    }, [trackError, audio]);
+
+    // keep track of played time
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTrackPlayedProgress(trackPlayedProgress => trackPlayedProgress + 1);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
     
     return {
         audio, 
@@ -244,6 +256,7 @@ const useAudio = (audio, tracks, song) => {
         trackMuted,
         trackLoading,
         trackPlaybackRate,
+        trackPlayedProgress,
 
         onPlaybackRate,
         onPrevious,

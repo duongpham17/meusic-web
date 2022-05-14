@@ -25,7 +25,6 @@ const EditMode = (props) => {
         customisePlaylistDuplicate(element);
     };
 
-
     return (
         <div className={styles.container} onClick={e => e.stopPropagation()}>
 

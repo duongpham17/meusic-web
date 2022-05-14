@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 
 import { connect } from 'react-redux';
 import { savedPlaylistSave, savedPlaylistRemove } from 'redux/actions/savedPlaylistActions';
@@ -12,9 +12,16 @@ import Large from './large';
 
 export const AudioPlayer = (props) => {
 
-    const {playingChangeSong, playingIncrementSongPlayed, resize} = props;
-
+    // redux reducers
     const {song, playlist} = props.playingReducers;
+
+    // redux actions
+    const {playingChangeSong, playingIncrementSongPlayed} = props;
+
+    // useState
+    const {resize} = props;
+
+    const [played, setPlayed] = useState(""); // enum "incremented" || "awaiting"
 
     const audio = useRef("");
 
@@ -24,10 +31,23 @@ export const AudioPlayer = (props) => {
     useEffect(() => {
         playingChangeSong(useAudioHook.trackIndex);
     }, [playingChangeSong, useAudioHook.trackIndex]); 
+
+    useEffect(() => {
+        setPlayed("awaiting");
+    }, [song.title]);
     
     useEffect(() => {
-        playingIncrementSongPlayed(song._id)
-    }, [playingIncrementSongPlayed, song._id]);
+
+        const {trackPlayedProgress, trackPlaying} = useAudioHook;
+
+        const listenedForHalfOfTrack = Math.round(trackPlayedProgress / 2) >= trackPlaying.duration;
+
+        if(played === "awaiting" && listenedForHalfOfTrack) {
+            setPlayed("incremented");
+            playingIncrementSongPlayed(song._id);
+        };
+
+    }, [played, playingIncrementSongPlayed, song._id, useAudioHook])
 
     props = {
         ...props,
