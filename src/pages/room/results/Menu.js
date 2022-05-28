@@ -10,7 +10,7 @@ const Menu = (props) => {
     return(
         <ul className={styles.container}>
             <li>           
-                <Link to={`/room/${element.room}`} onClick={onPreviosUpdate(element)}>
+                <Link to={`/room/${element.room}`} onClick={() => onPreviosUpdate(element)}>
                     <span>Join</span>
                     <HiArrowNarrowRight/>
                 </Link>

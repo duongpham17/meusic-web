@@ -202,17 +202,14 @@ const useAudio = (audio, tracks, song) => {
     //1. ENDED - keep track of when the audio has ended
     useEffect(() => {
         if(trackEnded) return;
-        const Audio = audio.current;
-        const ended = () => setTrackEnded(true);
-        const endedEvent = Audio.addEventListener("ended", ended);
-        return () => Audio.removeEventListener("ended", endedEvent);
-    }, [audio, trackEnded]);
+        if(trackProgress === trackPlaying.duration) setTrackEnded(true);
+    }, [trackEnded, trackPlaying.duration, trackProgress]);
 
     //2. play next
     useEffect(() => {
         if(trackEnded) {
-            setTrackEnded(false);
             onNext();
+            setTrackEnded(false);
         };
     }, [trackEnded, onNext]);
 

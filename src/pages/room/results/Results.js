@@ -13,10 +13,13 @@ const Results = (props)  => {
 
     const {openValue, onOpenValue, setOpenValue} = useOpen();
 
-    const onPreviosUpdate = (data) => () => {
+
+    const onPreviosUpdate = (data) => {
         const room = JSON.parse(localStorage.getItem("room-previous"));
 
         const noRooms = !room || !room.length;
+
+        console.log(noRooms)
         
         if(noRooms) return localStorage.setItem("room-previous", JSON.stringify([data]));
 
@@ -43,7 +46,7 @@ const Results = (props)  => {
 
             <main className={styles.map}>
                 {searchRoom.map((el) => 
-                <ContextMenu key={el._id} open={openValue} setOpen={setOpenValue} id={el._id} menu={<Menu {...props} element={el} />}>
+                <ContextMenu key={el._id} onClick={() => onPreviosUpdate(el)} open={openValue} setOpen={setOpenValue} id={el._id} menu={<Menu {...props} element={el} />}>
                         <Box
                             icon={el.private ? "Private" : "Public" } 
                             link={el.room} 

@@ -8,9 +8,10 @@ import React, {useEffect, useState} from 'react';
  * @param { string } props.id - unique id for element
  * @param { boolean } props.open - [0] useState
  * @param { callback } props.setOpen - [1] useState, toggle props.open true or false
+ * @param { callback } props.onClick - function
 */
 
-const ContextMenu = ({children, menu, id, open, setOpen}) => {
+const ContextMenu = ({children, menu, id, open, setOpen, onClick}) => {
 
     const [position, setPosition] = useState({position: "", left: ""});
 
@@ -29,7 +30,7 @@ const ContextMenu = ({children, menu, id, open, setOpen}) => {
     }, [setOpen]);
 
     return (
-        <div onContextMenu={onContextMenu}>
+        <div onContextMenu={onContextMenu} onClick={onClick}>
             
             {children}
 

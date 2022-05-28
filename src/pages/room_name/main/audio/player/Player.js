@@ -16,12 +16,12 @@ export const Player = (props) => {
 
     const useAudioHook = useAudio(audio, roomData.songs, roomPlaying);
 
-    const {trackIndex, trackPlaying} = useAudioHook;
+    const {trackIndex, trackPlaying, onSeek} = useAudioHook;
 
     useEffect(() => {
         setRoomPlaying(trackPlaying);
     }, [trackIndex, setRoomPlaying, trackPlaying]); 
-
+    
     props = {
         ...props,
         ...useAudioHook,
@@ -30,6 +30,8 @@ export const Player = (props) => {
     return (
         <div className={styles.container}>
             <audio ref={audio} />
+
+            <button onClick={() => onSeek(trackPlaying.duration - 3)}> seek </button>
             
             <Song {...props} />   
 
