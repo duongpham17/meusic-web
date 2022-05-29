@@ -1,5 +1,5 @@
 import styles from './EmailSent.module.scss';
-import React, {useState} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 import { connect } from 'react-redux';
 import { authConfirmCode } from 'redux/actions/authActions';
@@ -16,7 +16,7 @@ const EmailSent = (props) => {
   const [code, setCode] = useState([...Array(6)].map(() => ""));
   const [enterCode, setEnterCode] = useState(false);
 
-  const onAuthenticate = async () => {
+  const onAuthenticate = useCallback(async () => {
     setLoading(true);
     const data = {
       email,
@@ -24,7 +24,11 @@ const EmailSent = (props) => {
     };
     await authConfirmCode(data);
     setLoading(false);
-  };
+  }, [authConfirmCode, code, email]);
+
+  useEffect(() => {
+    if(code[5]) (async () => await onAuthenticate())();
+  }, [onAuthenticate, code])
 
   return (
     <div className={styles.container}>
@@ -40,7 +44,7 @@ const EmailSent = (props) => {
           :
           
           <div className={styles.enterCode}>
-            <h3>Enter code</h3>
+            <h3>CODE</h3>
             <InputCode label="Code Label" code={code} setCode={setCode} />
             {error?.confirm?.code && <p className={styles.error}>{error.confirm.code}</p>}
             {code.join("").length === 6 && !loading && <button onClick={onAuthenticate}>&#8594;</button>}
