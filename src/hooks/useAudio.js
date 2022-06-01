@@ -203,24 +203,19 @@ const useAudio = (audio, tracks, song) => {
 
     //1. ERROR - keep track of loading errors due to ipfs
     useEffect(() => {
+        const Audio = audio.current;
+        const error = () => setTrackError(true);
+        const errorEvent = Audio.addEventListener("error", error);
+        return () => Audio.removeEventListener("error", errorEvent);
+    },[audio, trackError]);
 
+    useEffect(() => {
         if(trackError){
             setTrackError(false);
             const Audio = audio.current;
             Audio.load();
         }   
-
-        let errorEvent;
-        
-        if(!trackError) {
-            const Audio = audio.current;
-            const error = () => setTrackError(true);
-            errorEvent = Audio.addEventListener("error", error);
-        }
-
-        return () => Audio.removeEventListener("error", errorEvent);
-
-    },[audio, trackError]);
+    }, [trackError, audio])
 
     // keep track of played time
     useEffect(() => {
