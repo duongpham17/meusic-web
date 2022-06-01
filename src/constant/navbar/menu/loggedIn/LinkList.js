@@ -1,6 +1,7 @@
 import React from 'react';
 import {BsSun, BsPerson} from 'react-icons/bs';
-import {MdPrivacyTip, MdShare} from 'react-icons/md';
+import {MdPrivacyTip} from 'react-icons/md';
+import {FaUserFriends} from 'react-icons/fa'
 
 
 const LinkList = [
@@ -18,7 +19,7 @@ const LinkList = [
     },
     {
         id: 2,
-        icon: <MdShare/>,
+        icon: <FaUserFriends/>,
         name: "Others",
         link: "/others"
     },

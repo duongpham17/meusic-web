@@ -16,7 +16,6 @@ const useAudio = (audio, tracks, song) => {
     const [trackPlayedProgress, setTrackPlayedProgress] = useState(0);
     const [trackLoading, setTrackLoading] = useState(false);
     const [trackError, setTrackError] = useState(false);
-    const [trackEnded, setTrackEnded] = useState(false);
     const [trackMuted, setTrackMuted] = useState(JSON.parse(localStorage.getItem("trackMuted")) || false);
     const [trackVolume, setTrackVolume] = useState(JSON.parse(localStorage.getItem("trackMuted")) ? 0 : localStorage.getItem("trackMuted"));
     const [trackCycleType, setTrackCycleType] = useState(localStorage.getItem("trackCycle") || "loop");
@@ -114,17 +113,12 @@ const useAudio = (audio, tracks, song) => {
         
         // next song
         if(trackLength !== trackIndex) {
-            if(trackCycleType === "repeat"){
-                setTrackIndex(trackIndex);
-                setTrackPlaying({...tracks[trackIndex], index: trackIndex});
-                return {...tracks[trackIndex], index: trackIndex}
-            };
             if(trackCycleType === "shuffle") {
                 setTrackIndex(() => randomIndex);
                 setTrackPlaying({...tracks[randomIndex], index: randomIndex});
                 return {...tracks[randomIndex], index: randomIndex};
             };
-            if(trackCycleType === "loop" || !trackCycleType){ 
+            if(trackCycleType === "loop" || trackCycleType === "repeat" || !trackCycleType){ 
                 setTrackIndex((trackIndex) => trackIndex+1);
                 setTrackPlaying({...tracks[trackIndex+1], index: trackIndex+1});
                 return {...tracks[trackIndex+1], index: trackIndex+1}
@@ -201,35 +195,32 @@ const useAudio = (audio, tracks, song) => {
 
     //1. ENDED - keep track of when the audio has ended
     useEffect(() => {
-        if(trackEnded) return;
-        if(trackProgress === trackPlaying.duration) setTrackEnded(true);
-    }, [trackEnded, trackPlaying.duration, trackProgress]);
-
-    //2. play next
-    useEffect(() => {
-        if(trackEnded) {
-            onNext();
-            setTrackEnded(false);
-        };
-    }, [trackEnded, onNext]);
+        if(trackProgress === trackPlaying.duration) {
+            if(trackCycleType === "repeat") audio.current.currentTime = 0;
+            if(trackCycleType !== "repeat") onNext();
+        }
+    }, [trackPlaying.duration, trackProgress, onNext, trackCycleType, audio]);
 
     //1. ERROR - keep track of loading errors due to ipfs
     useEffect(() => {
-        if(trackError) return;
-        const Audio = audio.current;
-        const error = () => setTrackError(true);
-        const errorEvent = Audio.addEventListener("error", error);
-        return () => Audio.removeEventListener("error", errorEvent);
-    },[audio, trackError]);
 
-    //reload track when error
-    useEffect(() => {
         if(trackError){
             setTrackError(false);
             const Audio = audio.current;
             Audio.load();
         }   
-    }, [trackError, audio]);
+
+        let errorEvent;
+        
+        if(!trackError) {
+            const Audio = audio.current;
+            const error = () => setTrackError(true);
+            errorEvent = Audio.addEventListener("error", error);
+        }
+
+        return () => Audio.removeEventListener("error", errorEvent);
+
+    },[audio, trackError]);
 
     // keep track of played time
     useEffect(() => {
@@ -241,19 +232,19 @@ const useAudio = (audio, tracks, song) => {
     
     return {
         audio, 
-
         tracks,
-        trackPlaying,
-        trackIndex,
-        trackProgress,
-        trackEnded,
-        trackPaused,
-        trackCycleType,
-        trackVolume,
-        trackMuted,
-        trackLoading,
-        trackPlaybackRate,
-        trackPlayedProgress,
+        song,
+
+        trackPlaying, setTrackPlaying,
+        trackIndex, setTrackIndex,
+        trackProgress, setTrackProgress,
+        trackPaused, setTrackPaused,
+        trackCycleType, setTrackCycleType,
+        trackVolume, setTrackVolume,
+        trackMuted, setTrackMuted,
+        trackLoading, setTrackLoading,
+        trackPlaybackRate, setTrackPlaybackRate,
+        trackPlayedProgress, setTrackPlayedProgress,
 
         onPlaybackRate,
         onPrevious,
