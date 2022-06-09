@@ -2,6 +2,7 @@
   "name": "meusic",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@electron/remote": "^2.0.8",
     "@testing-library/jest-dom": "^5.16.1",

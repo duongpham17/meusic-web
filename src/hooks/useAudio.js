@@ -16,6 +16,7 @@ const useAudio = (audio, tracks, song) => {
     const [trackPlayedProgress, setTrackPlayedProgress] = useState(0);
     const [trackLoading, setTrackLoading] = useState(false);
     const [trackError, setTrackError] = useState(false);
+    const [trackEnded, setTrackEnded] = useState(false);
     const [trackMuted, setTrackMuted] = useState(JSON.parse(localStorage.getItem("trackMuted")) || false);
     const [trackVolume, setTrackVolume] = useState(JSON.parse(localStorage.getItem("trackMuted")) ? 0 : localStorage.getItem("trackMuted"));
     const [trackCycleType, setTrackCycleType] = useState(localStorage.getItem("trackCycle") || "loop");
@@ -162,8 +163,9 @@ const useAudio = (audio, tracks, song) => {
 
     }, [song, audio]);
 
-    // play song that is selected
+    // update song parameters
     useEffect(() => {   
+
         setTrackLoading(true);
 
         const {current} = audio;
@@ -195,11 +197,15 @@ const useAudio = (audio, tracks, song) => {
 
     //1. ENDED - keep track of when the audio has ended
     useEffect(() => {
-        if(trackProgress === trackPlaying.duration) {
-            if(trackCycleType === "repeat") audio.current.currentTime = 0;
-            if(trackCycleType !== "repeat") onNext();
-        }
-    }, [trackPlaying.duration, trackProgress, onNext, trackCycleType, audio]);
+        if(trackProgress === trackPlaying.duration) setTrackEnded(true);
+    }, [trackPlaying.duration, trackProgress, audio]);
+
+    useEffect(() => {
+        if(!trackEnded) return;
+        setTrackEnded(false);
+        if(trackCycleType === "repeat") audio.current.currentTime = 0;
+        if(trackCycleType !== "repeat") onNext();
+    }, [trackCycleType, audio, onNext, trackEnded])
 
     //1. ERROR - keep track of loading errors due to ipfs
     useEffect(() => {
@@ -240,6 +246,7 @@ const useAudio = (audio, tracks, song) => {
         trackLoading, setTrackLoading,
         trackPlaybackRate, setTrackPlaybackRate,
         trackPlayedProgress, setTrackPlayedProgress,
+        trackEnded, setTrackEnded,
 
         onPlaybackRate,
         onPrevious,
