@@ -36,6 +36,12 @@ export const backgroundTheme = [
         type: "wallpaper"
     },
     {
+        theme: "peach",
+        backgroundColor: "#fee2da",
+        wordColor: "rgb(93, 93, 93)",
+        type: "wallpaper",
+    },
+    {
         theme: "cave",
         backgroundColor: "rgb(18, 18, 18)",
         wordColor: "hsla(9, 99%, 62%, 0.944)",
@@ -75,12 +81,6 @@ export const backgroundTheme = [
         theme: "pink",
         backgroundColor: "rgb(24, 24, 24)",
         wordColor: "rgb(254, 180, 211)",
-        type: "color"
-    },
-    {
-        theme: "peach",
-        backgroundColor: "#fee2da",
-        wordColor: "rgb(93, 93, 93)",
         type: "color"
     },
 ]

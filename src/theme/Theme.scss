@@ -137,12 +137,12 @@ body{
 }
 
 .theme-peach {
-    --main-color: rgb(93, 93, 93);
-    --main-color-background: #fee2da;
-    --main-color-solid: #fee2da;
-    --main-color-opacity: rgba(241, 241, 241, 0.375);
+    --main-color: #f34b32;
+    --main-color-background: rgba(255, 235, 230, 1);
+    --main-color-solid: rgba(255, 235, 230, 1);
+    --main-color-opacity: rgba(255, 235, 230, 0.8);
     --main-color-selected: #fa7856;
-    --main-color-light: rgb(112, 112, 112);
+    --main-color-light: #ce6a65;
     --main-color-red: #fa7856;
 }
 
@@ -187,3 +187,5 @@ body{
     --main-color-light: #d2d2d2;
     --main-color-red: #bf00ff;
 }
+
+
